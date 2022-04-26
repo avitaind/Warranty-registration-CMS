@@ -33,7 +33,7 @@
                                         <div class="avatar-upload">
                                             <div class="avatar-preview ec-preview">
                                                 <div class="imagePreview ec-div-preview">
-                                                    @if (isset($$customers->pic) ? $$customers->pic : '')
+                                                    @if (isset($customers->pic) ? $customers->pic : '')
                                                         <img class="ec-image-preview"
                                                             src="{{ asset('assets/img/user/user.png') }}" alt=""
                                                             style="width: 50%; padding-bottom: 20px;" name="pic">
