@@ -70,8 +70,10 @@
             <div class="col-lg-6 col-xl-6 my-lg-9">
                 @auth
                     {{-- // user logged in --}}
-                    <h2 class=" my-2 text-center text-capitalize" style="padding-top: 107px; color:#662d91">all ready Member Login </h2>
-                    <div class=" text-center m-1 font-size-16" style="padding-top: 25px;">Back to redirect AVITA Member Dashboard.</div>
+                    <h2 class=" my-2 text-center text-capitalize" style="padding-top: 107px; color:#662d91">all ready Member
+                        Login </h2>
+                    <div class=" text-center m-1 font-size-16" style="padding-top: 25px;">Back to redirect AVITA Member
+                        Dashboard.</div>
                     <div class="align-content-center justify-content-sm-center text-center p-lg-9">
 
                         @if (Auth::user()->is_admin == 1)
@@ -98,6 +100,11 @@
                                     <input type="email" class="form-select1 @error('email') is-invalid @enderror" id="email"
                                         name="email" value="{{ old('email') }}" autocomplete="email" autofocus
                                         placeholder="Username">
+                                    @error('email')
+                                        <span class="invalid-feedback" role="alert">
+                                            <strong>{{ $message }}</strong>
+                                        </span>
+                                    @enderror
                                 </div>
 
                                 <div class="form-group col-md-12 ">
@@ -105,7 +112,7 @@
                                         id="exampleInputPassword1" name="password" autocomplete="current-password"
                                         placeholder="Password">
 
-                                    @error('error')
+                                    @error('password')
                                         <span class="invalid-feedback" role="alert">
                                             <strong>{{ $message }}</strong>
                                         </span>

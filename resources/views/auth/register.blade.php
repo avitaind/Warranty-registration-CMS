@@ -8,7 +8,7 @@
     <!-- CONTENT WRAPPER -->
     <div class="container d-flex align-items-center justify-content-center form-height pt-24px pb-24px">
         <div class="row justify-content-center">
-            <div class="col-lg-4 col-md-10">
+            <div class="col-lg-6 col-md-12 col-sm-12">
                 {{-- <div class="card"> --}}
                 <div class="">
                     <div class="">
@@ -19,7 +19,10 @@
                         </div>
                     </div>
                     <div class="card-body p-5">
-                        <h4 class="text-dark mb-5">Register</h4>
+                        <h4 class="text-dark mb-5">Join Now</h4>
+                        <div class="text-dark mb-5">Welcome, AVITA Member! Once you have filled out the following
+                            information, you can complete your registration. The information you provide will not be used in
+                            any other way, so feel secure as you fill in your information.</div>
 
                         <form method="POST" action="{{ route('register') }}">
                             @csrf
@@ -115,7 +118,7 @@
                                     <button type="submit" class="btn btn-primary btn-block mb-4 mt-4">Register</button>
 
                                     <p class="sign-upp">Already have an account?
-                                        <a class="text-blue" href="{{ route('login') }}">Log In</a>
+                                        <a class="text-blue" href="{{ route('login') }}">Login</a>
                                     </p>
                                 </div>
                             </div>
