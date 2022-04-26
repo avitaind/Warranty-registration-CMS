@@ -41,7 +41,7 @@
                                                     @else
                                                         <img class="ec-image-preview"
                                                             src="{{ asset('assets/img/user/user.png') }}"
-                                                            alt="{{ $customers->pic }}"
+                                                            alt=""
                                                             style="width: 50%; padding-bottom: 20px;" name="pic">
                                                     @endif
                                                 </div>
