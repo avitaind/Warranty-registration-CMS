@@ -33,15 +33,14 @@
                                         <div class="avatar-upload">
                                             <div class="avatar-preview ec-preview">
                                                 <div class="imagePreview ec-div-preview">
-                                                    @if (Auth::user()->pic != '')
+                                                    @if ($customers->pic != '')
                                                         <img class="ec-image-preview" src="{{ '/' . $customers->pic }}"
                                                             alt="{{ $customers->pic }}"
                                                             style="width: 50%; padding-bottom: 20px;">
                                                         <br />
                                                     @else
                                                         <img class="ec-image-preview"
-                                                            src="{{ asset('assets/img/user/user.png') }}"
-                                                            alt=""
+                                                            src="{{ asset('assets/img/user/user.png') }}" alt=""
                                                             style="width: 50%; padding-bottom: 20px;" name="pic">
                                                     @endif
                                                 </div>
@@ -58,7 +57,7 @@
                                                 <label for="imageUpload">
                                                     {{-- {{ dd(Auth::user()->pic)}} --}}
                                                     <img src="/assets/img/icons/edit.svg" class="svg_img header_svg"
-                                                        alt="{{ Auth::user()->pic }}">
+                                                        alt="{{ $customers->pic }}">
                                                 </label>
                                             </div>
                                         </div>
@@ -118,7 +117,7 @@
                                             <div class="col-md-6"><label class="labels">Last
                                                     Name</label><input type="text"
                                                     class="form-select1 @error('last_name') is-invalid @enderror"
-                                                    value="{{ Auth::user()->last_name }}" placeholder="Last Name"
+                                                    value="{{ $customers->last_name }}" placeholder="Last Name"
                                                     name="last_name">
                                                 @error('last_name')
                                                     <span class="invalid-feedback" role="alert">
@@ -132,7 +131,7 @@
                                             <div class="col-md-6">
                                                 <label class="labels">Mobile Number</label>
                                                 <input type="text" class="form-select1 @error('phone') is-invalid @enderror"
-                                                    placeholder="Enter phone number" value="{{ Auth::user()->phone }}"
+                                                    placeholder="Enter phone number" value="{{ $customers->phone }}"
                                                     name="phone">
                                                 @error('phone')
                                                     <span class="invalid-feedback" role="alert">
@@ -151,7 +150,7 @@
                                                 <label class="labels">Address</label>
                                                 <input type="text"
                                                     class="form-select1 @error('address') is-invalid @enderror"
-                                                    placeholder="Enter address" value="{{ Auth::user()->address }}"
+                                                    placeholder="Enter address" value="{{ $customers->address }}"
                                                     name="address">
                                                 @error('address')
                                                     <span class="invalid-feedback" role="alert">
@@ -172,7 +171,8 @@
                                                 <label class="labels">Postcode</label>
                                                 <input type="text"
                                                     class="form-select1 @error('postcode') is-invalid @enderror"
-                                                    placeholder="Postcode" value="{{ Auth::user()->postcode }}" name="postcode">
+                                                    placeholder="Postcode" value="{{ $customers->postcode }}"
+                                                    name="postcode">
                                                 @error('postcode')
                                                     <span class="invalid-feedback" role="alert">
                                                         <strong>{{ $message }}</strong>
@@ -186,7 +186,8 @@
                                                 <label class="labels">Country</label>
                                                 <input type="text"
                                                     class="form-select1 @error('country') is-invalid @enderror"
-                                                    placeholder="Country" value="{{ Auth::user()->country }}" name="country">
+                                                    placeholder="Country" value="{{ $customers->country }}"
+                                                    name="country">
                                                 @error('country')
                                                     <span class="invalid-feedback" role="alert">
                                                         <strong>{{ $message }}</strong>
@@ -196,7 +197,7 @@
                                             <div class="col-md-6">
                                                 <label class="labels">State/Region</label>
                                                 <input type="text" class="form-select1 @error('state') is-invalid @enderror"
-                                                    value="{{ Auth::user()->state }}" placeholder="State" name="state">
+                                                    value="{{ $customers->state }}" placeholder="State" name="state">
                                                 @error('state')
                                                     <span class="invalid-feedback" role="alert">
                                                         <strong>{{ $message }}</strong>
