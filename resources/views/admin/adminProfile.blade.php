@@ -22,10 +22,6 @@
                     <div class="col-lg-4 col-xl-3">
                         <div class="profile-content-left profile-left-spacing">
                             <div class="text-center widget-profile px-0 border-0">
-                                {{-- <div class="card-img mx-auto rounded-circle">
-                                    <img src="https://st3.depositphotos.com/15648834/17930/v/600/depositphotos_179308454-stock-illustration-unknown-person-silhouette-glasses-profile.jpg"
-                                        alt="user image">
-                                </div> --}}
                                 <form method="POST" action="{{ route('admin.profilesave') }}"
                                     enctype="multipart/form-data">
                                     {{ csrf_field() }}
