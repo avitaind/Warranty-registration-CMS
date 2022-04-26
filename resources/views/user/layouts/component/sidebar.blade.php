@@ -28,13 +28,13 @@
             <!-- sidebar menu -->
             <ul class="nav sidebar-inner" id="sidebar-menu">
                 <!-- Dashboard -->
-                <!-- <li class="active">
+                {{-- <li class="active">
                     <a class="sidenav-item-link" href="{{ route('home')}}">
                         <i class="mdi mdi-view-dashboard-outline"></i>
                         <span class="nav-text">Dashboard</span>
                     </a>
                     <hr>
-                </li> -->
+                </li> --}}
 
                 <li class="active">
                     <a class="sidenav-item-link" href="{{ route('profile')}}">

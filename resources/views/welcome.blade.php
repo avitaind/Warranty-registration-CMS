@@ -432,10 +432,10 @@
             <div class="">
                 @auth
                     @if (Auth::user()->is_admin == 1)
-                        <a href="{{ route('admin.home') }}" class="btn btn-primary">Admin Home</a>
+                        <a href="{{ route('admin.home') }}" class="btn btn-primary">Admin Dashboard</a>
                     @else
-                        <a href="{{ route('home') }}" class="btn btn-primary">User
-                            Home</a>
+                        <a href="{{ route('profile') }}" class="btn btn-primary">Customer
+                            Dashboard</a>
                     @endif
                 @else
                     <a href="{{ route('login') }}" class="btn btn-primary m-4">Log

@@ -17,13 +17,13 @@
     <!-- CONTENT WRAPPER -->
     <div class="ec-content-wrapper ec-vendor-wrapper">
         <div class="content">
-            <div class="breadcrumb-wrapper d-flex align-items-center justify-content-between">
+            {{-- <div class="breadcrumb-wrapper d-flex align-items-center justify-content-between">
                 <div>
                     <h2 class="card-title">My Product</h2>
                     <p class="breadcrumbs"><span><a href="{{ route('home') }}">Home</a></span><span><i
                                 class="mdi mdi-chevron-right"></i></span>My Product</p>
                 </div>
-            </div>
+            </div> --}}
             <div class="card card-default p-4 ec-card-space">
                 <div class="ec-vendor-card mt-m-24px row">
                 <?php $getdata = \App\Models\Warranty_registration::where('user_email', $request->user()->email)->get()->first(); ?>

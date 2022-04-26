@@ -167,7 +167,7 @@ class AdminController extends Controller
             $this->validate($request, [
                 'name'                    => 'required',
                 'email'                   => 'required',
-                'phone'                   => 'required|min:11|numeric',
+                'phone'                   => 'required|digits:10|numeric',
                 'serial_number'           => 'required',
                 'product_number'          => 'required',
                 'product_configuration'   => 'required',
@@ -260,7 +260,7 @@ class AdminController extends Controller
 
             $this->validate($request, [
                 'last_name'        => 'required',
-                'phone'            => 'required|unique:users',
+                'phone'            => 'required',
                 'address'          => 'required',
                 'gender'           => 'required',
                 'postcode'         => 'required',

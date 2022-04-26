@@ -342,7 +342,7 @@ class UserController extends Controller
 
             $this->validate($request, [
                 'last_name'        => 'required',
-                'phone'            => 'required|unique:users',
+                'phone'            => 'required',
                 'address'          => 'required',
                 'gender'           => 'required',
                 'postcode'         => 'required',

@@ -26,8 +26,8 @@
                             <div class="row">
                                 <div class="form-group col-md-12 mb-4">
                                     <input type="text" class="form-select1 @error('name') is-invalid @enderror" id="name"
-                                        name="name" placeholder="Name" value="{{ old('name') }}" required
-                                        autocomplete="name" autofocus>
+                                        name="name" placeholder="Name" value="{{ old('name') }}" autocomplete="name"
+                                        autofocus>
                                     @error('name')
                                         <span class="invalid-feedback" role="alert">
                                             <strong>{{ $message }}</strong>
@@ -36,9 +36,9 @@
                                 </div>
 
                                 <div class="form-group col-md-12 mb-4">
-                                    <input type="text" class="form-select1 @error('last_name') is-invalid @enderror" id="last_name"
-                                        name="last_name" placeholder="Last name" value="{{ old('last_name') }}" required
-                                        autocomplete="last_name" autofocus>
+                                    <input type="text" class="form-select1 @error('last_name') is-invalid @enderror"
+                                        id="last_name" name="last_name" placeholder="Last name"
+                                        value="{{ old('last_name') }}" autocomplete="last_name" autofocus>
                                     @error('last_name')
                                         <span class="invalid-feedback" role="alert">
                                             <strong>{{ $message }}</strong>
@@ -48,7 +48,7 @@
 
                                 <div class="form-group col-md-12 mb-4">
                                     <input type="email" class="form-select1 @error('email') is-invalid @enderror" id="email"
-                                        name="email" placeholder="Username" value="{{ old('email') }}" required
+                                        name="email" placeholder="Username" value="{{ old('email') }}"
                                         autocomplete="email">
                                     @error('email')
                                         <span class="invalid-feedback" role="alert">
@@ -57,10 +57,20 @@
                                     @enderror
                                 </div>
 
+                                <div class="form-group col-md-12 mb-4">
+                                    <input type="tel" class="form-select1 @error('phone') is-invalid @enderror" id="phone"
+                                        name="phone" placeholder="Phone Number" value="{{ old('phone') }}"
+                                        autocomplete="phone">
+                                    @error('phone')
+                                        <span class="invalid-feedback" role="alert">
+                                            <strong>{{ $message }}</strong>
+                                        </span>
+                                    @enderror
+                                </div>
+
                                 <div class="form-group col-md-12 ">
                                     <input type="password" class="form-select1 @error('password') is-invalid @enderror"
-                                        id="password" placeholder="Password" name="password" required
-                                        autocomplete="new-password">
+                                        id="password" placeholder="Password" name="password" autocomplete="new-password">
                                     @error('password')
                                         <span class="invalid-feedback" role="alert">
                                             <strong>{{ $message }}</strong>
@@ -78,9 +88,15 @@
 
 
                                 <div class="form-group col-md-12 ">
-                                    <input id="password_confirmation" type="password" class="form-select1"
-                                        name="password_confirmation" placeholder="Confirm Password" required
+                                    <input id="password_confirmation" type="password"
+                                        class="form-select1 @error('password_confirmation') is-invalid @enderror"
+                                        name="password_confirmation" placeholder="Confirm Password"
                                         autocomplete="new-password">
+                                    @error('password_confirmation')
+                                        <span class="invalid-feedback" role="alert">
+                                            <strong>{{ $message }}</strong>
+                                        </span>
+                                    @enderror
                                 </div>
 
                                 <div class="col-md-12">
