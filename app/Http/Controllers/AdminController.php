@@ -241,11 +241,11 @@ class AdminController extends Controller
     public function profile()
     {
         try {
-            $users = User::where('id', Auth::user()->id)->get()->first();
+            $customers = User::where('id', Auth::user()->id)->get()->first();
         } catch (ModelNotFoundException $exception) {
             return back()->withError($exception->getMessage())->withInput();
         }
-        return view('admin.adminProfile', ['users' => $users]);
+        return view('admin.adminProfile', ['customers' => $customers]);
     }
 
     // Admin Profile Update
