@@ -2,6 +2,8 @@
 
 return [
 
+    'welcome'                                        => 'AVITA | INDIA | WARRANTY REGISTRATION',
+
     'login'                                          => 'AVITA | LOGIN',
     'register'                                       => 'AVITA | REGISTER',
     'reset_password'                                 => 'AVITA | RESET | PASSWORD',

@@ -30,7 +30,7 @@ class LoginController extends Controller
      */
     // protected $redirectTo = RouteServiceProvider::HOME;
 
-    protected $redirectTo = '/user/home';
+    protected $redirectTo = '/customer/home';
 
     /**
      * Create a new controller instance.
@@ -41,6 +41,17 @@ class LoginController extends Controller
     {
         $this->middleware('guest')->except('logout');
     }
+
+    // public function showLoginForm()
+    // {
+    //     return view('auth.login');
+    // }
+
+    public function showLoginForm()
+    {
+        return view('welcome');
+    }
+
 
     public function login(Request $request)
     {
@@ -62,6 +73,5 @@ class LoginController extends Controller
             return redirect()->route('login')
                 ->with('error','Email-Address And Password Are Wrong.');
         }
-
     }
 }
