@@ -245,7 +245,7 @@ class AdminController extends Controller
         } catch (ModelNotFoundException $exception) {
             return back()->withError($exception->getMessage())->withInput();
         }
-        return view('admin.adminProfile', ['customers' => $customers]);
+        return view('admin.adminProfile', compact('customers'));
     }
 
     // Admin Profile Update
