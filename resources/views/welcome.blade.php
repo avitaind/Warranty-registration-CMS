@@ -96,13 +96,13 @@
                             <div class="row">
                                 <div class="form-group col-md-12 mb-4">
                                     <input type="email" class="form-select1 @error('email') is-invalid @enderror" id="email"
-                                        name="email" value="{{ old('email') }}" required autocomplete="email" autofocus
+                                        name="email" value="{{ old('email') }}" autocomplete="email" autofocus
                                         placeholder="Username">
                                 </div>
 
                                 <div class="form-group col-md-12 ">
                                     <input type="password" class="form-select1 @error('password') is-invalid @enderror"
-                                        id="exampleInputPassword1" name="password" required autocomplete="current-password"
+                                        id="exampleInputPassword1" name="password" autocomplete="current-password"
                                         placeholder="Password">
 
                                     @error('error')
