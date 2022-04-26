@@ -33,7 +33,7 @@
                                         <div class="avatar-upload">
                                             <div class="avatar-preview ec-preview">
                                                 <div class="imagePreview ec-div-preview">
-                                                    @if( $customers == '')
+                                                    {{-- @if ($customers == '')
                                                         <img class="ec-image-preview"
                                                             src="{{ asset('assets/img/user/user.png') }}" alt=""
                                                             style="width: 50%; padding-bottom: 20px;" name="pic">
@@ -42,7 +42,10 @@
                                                         <img class="ec-image-preview" src="{{ '/' . Auth::user()->pic }}"
                                                             alt="{{ $customers->pic }}"
                                                             style="width: 50%; padding-bottom: 20px;">
-                                                    @endif
+                                                    @endif --}}
+                                                    <img class="ec-image-preview" src="{{ '/' . Auth::user()->pic }}"
+                                                        alt="{{ $customers->pic }}"
+                                                        style="width: 50%; padding-bottom: 20px;">
                                                 </div>
                                             </div>
                                             <div class="avatar-edit">
