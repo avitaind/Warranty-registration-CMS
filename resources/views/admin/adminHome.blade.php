@@ -143,6 +143,11 @@
                 ['Month Name', 'Registered User Count'],
 
                 @php
+                $user = \App\Models\User::select(DB::raw("COUNT(*) as count"), DB::raw("MONTHNAME(created_at) as month_name"))
+                ->whereYear('created_at', date('Y'))
+                ->groupBy('month_name')
+                ->orderBy('count')
+                ->get();
                 foreach ($user as $d) {
                     echo "['" . $d->month_name . "', " . $d->count . '],';
                 }
