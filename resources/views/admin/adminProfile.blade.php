@@ -33,15 +33,15 @@
                                         <div class="avatar-upload">
                                             <div class="avatar-preview ec-preview">
                                                 <div class="imagePreview ec-div-preview">
-                                                    @if ($customers->pic != '')
-                                                        <img class="ec-image-preview" src="{{ '/' . $customers->pic }}"
-                                                            alt="{{ $customers->pic }}"
-                                                            style="width: 50%; padding-bottom: 20px;">
-                                                        <br />
-                                                    @else
+                                                    @if (isset($$customers->pic) ? $$customers->pic : '')
                                                         <img class="ec-image-preview"
                                                             src="{{ asset('assets/img/user/user.png') }}" alt=""
                                                             style="width: 50%; padding-bottom: 20px;" name="pic">
+                                                        <br />
+                                                    @else
+                                                        <img class="ec-image-preview" src="{{ '/' . $customers->pic }}"
+                                                            alt="{{ $customers->pic }}"
+                                                            style="width: 50%; padding-bottom: 20px;">
                                                     @endif
                                                 </div>
                                             </div>
