@@ -242,6 +242,7 @@ class AdminController extends Controller
     {
         try {
             $users = User::where('id', Auth::user()->id)->first();
+            dd($users);
         } catch (ModelNotFoundException $exception) {
             return back()->withError($exception->getMessage())->withInput();
         }
