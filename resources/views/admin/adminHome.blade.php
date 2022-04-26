@@ -148,6 +148,7 @@
                 ->groupBy('month_name')
                 ->orderBy('count')
                 ->get();
+
                 foreach ($user as $d) {
                     echo "['" . $d->month_name . "', " . $d->count . '],';
                 }
