@@ -205,7 +205,9 @@ class AdminController extends Controller
     {
         try {
             $certificate = Certificate::find($id);
-            $pdf = PDF::loadView('admin.pdf', ['certificate' => $certificate])->setPaper('a4', 'portrait');
+            // $pdf = PDF::loadView('admin.pdf', ['certificate' => $certificate])->setPaper('a4', 'portrait');
+            $pdf = PDF::loadView('admin.pdf', ['certificate' => $certificate])->setPaper('a4', 'landscape');
+
             $fileName = $certificate->name;
             return $pdf->stream($fileName . '.pdf');
         } catch (ModelNotFoundException $exception) {
