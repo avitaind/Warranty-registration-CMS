@@ -39,7 +39,7 @@
                                                             style="width: 50%; padding-bottom: 20px;" name="pic">
                                                         <br />
                                                     @else
-                                                        <img class="ec-image-preview" src="{{ '/' . $customers->pic }}"
+                                                        <img class="ec-image-preview" src="{{ '/' . Auth::user()->pic }}"
                                                             alt="{{ $customers->pic }}"
                                                             style="width: 50%; padding-bottom: 20px;">
                                                     @endif
