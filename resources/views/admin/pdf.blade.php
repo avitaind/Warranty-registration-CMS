@@ -120,7 +120,7 @@
                     <td>{{ $certificate->extend_date }}</td>
                 </tr>
                 <tr>
-                    <th>Product Purchase Invoice Date:</th>
+                    <th>Purchase Date:</th>
                     <td>{{ $certificate->purchase_date }}</td>
                 </tr>
                 <tr>
