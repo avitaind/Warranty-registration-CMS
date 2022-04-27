@@ -105,7 +105,7 @@
             <table >
                 <tr>
                     <th>Product:</th>
-                    <td>{{ $certificate->product_configuration }}</td>
+                    <td class="" style="width: 80%">{{ $certificate->product_configuration }}</td>
                 </tr>
                 <tr>
                     <th>Part Number:</th>
@@ -136,7 +136,7 @@
 
     </section>
 
-    <section class="mt-5 ml-4 mr-4 text-justify">
+    <section class="mt-4 ml-4 mr-4 text-justify">
         <p>
             <strong>
                 <span>Disclaimer:</span>
@@ -165,7 +165,7 @@
                     power, lightning, static electricity, fire, acts of God or other external causes.</span>
             </li>
             <li>
-                <span>The computer including hardware and preloaded software has been modified, altered and/or
+                <span>The computer including hardware and preloaded software has been modified, altered and/or<br>
                     repaired by persons other than NEXSTGO and/or NEXSTGO's authorized service centres.</span>
             </li>
             <li>
@@ -178,7 +178,7 @@
     </section>
 
     <section>
-        <div class="mt-5 ml-4 mr-4 text-justify">
+        <div class=" ml-4 mr-4 text-justify" style="margin-top: 65px">
 
             <h6>
                 <strong>Nexstgo Company Limited (“NEXSTGO”) Limited Warranty for AVITA Notebook Computer Devices (Only
@@ -218,7 +218,7 @@
                 <p class="" style="page-break-after: always;"></p>
 
 
-                <li class="pt-5">The limited warranty service is offered to the computer for defect(s) caused
+                <li class="" style="margin-top: 65px">The limited warranty service is offered to the computer for defect(s) caused
                     under normal usage, in
                     the judgement of NEXSTGO's technician. The warranty is null and void under the following
                     circumstances if:</li>
@@ -228,7 +228,7 @@
                         liquid spill or submersion, neglect, misuse, unauthorised modification, extreme environment,
                         extreme physical or electrical stress or interference, fluctuation or surges of electrical
                         power, lightning, static electricity, fire, acts of God or other external causes;</li>
-                    <li>the computer, included hardware and preloaded software, has been modified, altered and/or
+                    <li>the computer, included hardware and preloaded software, has been modified, altered <br/>and/or
                         repaired by persons other than NEXSTGO and/or NEXSTGO's authorised service centres;</li>
                     <li>the serial number has been altered, effaced or removed;</li>
                 </ol>
