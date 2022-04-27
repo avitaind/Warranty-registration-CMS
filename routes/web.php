@@ -170,3 +170,7 @@ Route::post('/getproductseries', [AdminController::class, 'getproductseries']);
 Route::post('/getproductmodel', [AdminController::class, 'getproductmodel']);
 Route::post('/getproductnumber', [AdminController::class, 'getproductnumber']);
 Route::post('/getproductConfiguration', [AdminController::class, 'getproductConfiguration']);
+
+
+
+Route::get('test',[AdminController::class, 'test']);

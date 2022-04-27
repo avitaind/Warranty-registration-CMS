@@ -21,5 +21,6 @@ class Certificate extends Model
         'name',
         'phone',
         'extend_date',
+        'order_id',
     ];
 }

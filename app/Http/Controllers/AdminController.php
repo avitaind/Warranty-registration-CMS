@@ -16,6 +16,8 @@ use Illuminate\Support\Facades\Validator;
 use Illuminate\Database\Eloquent\ModelNotFoundException;
 use Barryvdh\DomPDF\Facade as PDF;
 
+use DateTime;
+use Carbon\Carbon;
 
 class AdminController extends Controller
 {
@@ -139,11 +141,11 @@ class AdminController extends Controller
     public function certificateWarranty()
     {
         try {
-            $certificate = Certificate::all();
+            $certificates = Certificate::all();
         } catch (ModelNotFoundException $exception) {
             return back()->withError($exception->getMessage())->withInput();
         }
-        return view('admin.certificate.index', ['certificate' => $certificate]);
+        return view('admin.certificate.index', ['certificates' => $certificates]);
     }
 
     // Certificate Create
@@ -151,11 +153,59 @@ class AdminController extends Controller
     public function certificateCreate()
     {
         try {
+
         } catch (ModelNotFoundException $exception) {
             return back()->withError($exception->getMessage())->withInput();
         }
         return view('admin.certificate.create');
     }
+
+    // test Function
+
+    public function test()
+    {
+        $certificate = Certificate::get()->first();
+
+        // $fdate = $certificate->purchase_date;
+        // $tdate = $certificate->extend_date;
+        // $datetime1 = new DateTime($fdate);
+        // $datetime2 = new DateTime($tdate);
+        // $interval = $datetime1->diffInYears($datetime2);
+        // // $days = $interval->format('%a'); //now do whatever you like with $days
+        // dd($interval);
+        $from_date = $certificate->extend_date;
+        $to_date = $certificate->purchase_date;
+        $first_datetime = new DateTime($from_date);
+        $last_datetime = new DateTime($to_date);
+        $interval = $first_datetime->diff($last_datetime);
+        $final_days = $interval->format('%a'); //and then print do whatever you like with $final_days
+        // dd($final_days);
+
+        $end = Carbon::parse($certificate->extend_date);
+
+        $current = $certificate->purchase_date;
+        $length = $end->diffInDays($current);
+        // dd($length);
+
+        // Creates DateTime objects
+        $datetime1 = date_create($certificate->extend_date);
+        $datetime2 = date_create($certificate->purchase_date);
+
+        // Calculates the difference between DateTime objects
+        $interval = date_diff($datetime1, $datetime2);
+
+        // Printing result in years & months format
+        // echo $interval->format('%R%y years %m months %d days');
+
+        $start_date = strtotime($certificate->purchase_date);
+        $end_date = strtotime($certificate->extend_date);
+
+        $result = ($end_date - $start_date) / 60 / 60 / 24;
+
+        echo "Difference between two dates: "
+            . $result;
+    }
+
 
     // Certificate Create
 
@@ -174,6 +224,7 @@ class AdminController extends Controller
                 'reseller_name'           => 'required',
                 'purchase_date'           => 'required',
                 'extend_date'             => 'required',
+                'order_id'                => 'required',
             ]);
 
             $form = Certificate::create([
@@ -186,11 +237,16 @@ class AdminController extends Controller
                 'reseller_name'           => $request->reseller_name,
                 'purchase_date'           => $request->purchase_date,
                 'extend_date'             => $request->extend_date,
+                'order_id'                => $request->order_id,
             ]);
 
             // dd($form);
 
             $form->save();
+
+
+
+
 
             return redirect()->back()->with("success", "Certificate detail is updated !");
         } catch (ModelNotFoundException $exception) {
@@ -205,7 +261,13 @@ class AdminController extends Controller
     {
         try {
             $certificate = Certificate::find($id);
-            $pdf = PDF::loadView('admin.pdf', ['certificate' => $certificate])->setPaper('a4', 'portrait');
+
+            $start_date = strtotime($certificate->purchase_date);
+            $end_date = strtotime($certificate->extend_date);
+
+            $WarrantyPeriod = ($end_date - $start_date) / 60 / 60 / 24;
+
+            $pdf = PDF::loadView('admin.pdf', ['certificate' => $certificate, 'WarrantyPeriod' => $WarrantyPeriod])->setPaper('a4', 'portrait');
             // $pdf = PDF::loadView('admin.pdf', ['certificate' => $certificate])->setPaper('a4', 'landscape');
 
             $fileName = $certificate->name;

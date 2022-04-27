@@ -27,8 +27,7 @@
                             <div class="col-lg-12">
                                 @include('component.alert')
                                 <div class="ec-vendor-upload-detail">
-                                    <form class="row g-3" method="POST"
-                                        action="{{ route('certificate.store') }}">
+                                    <form class="row g-3" method="POST" action="{{ route('certificate.store') }}">
                                         {!! csrf_field() !!}
                                         {{-- Customer Name --}}
                                         <div class="col-xl-6 col-lg-12">
@@ -61,7 +60,7 @@
                                             <label for="phone" class="form-label">Customer Phone No: <span
                                                     class="required">*</span></label>
                                             <input type="text" class="form-select1 @error('phone') is-invalid @enderror"
-                                                id="phone" name="phone" value=""    >
+                                                id="phone" name="phone" value="">
                                             @error('phone')
                                                 <span class="invalid-feedback" role="alert">
                                                     <strong>{{ $message }}</strong>
@@ -119,6 +118,20 @@
                                                 class="form-select1 @error('reseller_name') is-invalid @enderror"
                                                 id="reseller_name" name="reseller_name" value="">
                                             @error('reseller_name')
+                                                <span class="invalid-feedback" role="alert">
+                                                    <strong>{{ $message }}</strong>
+                                                </span>
+                                            @enderror
+                                        </div>
+
+                                        {{-- Order ID --}}
+                                        <div class="col-xl-6 col-lg-12">
+                                            <label for="extend_date" class="form-label">Order ID: <span
+                                                    class="required">*</span></label>
+                                            <input type="text"
+                                                class="form-select1 @error('order_id') is-invalid @enderror"
+                                                id="order_id" name="order_id" value="">
+                                            @error('order_id')
                                                 <span class="invalid-feedback" role="alert">
                                                     <strong>{{ $message }}</strong>
                                                 </span>

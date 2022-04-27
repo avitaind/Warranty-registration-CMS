@@ -47,7 +47,7 @@
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        @foreach ($certificate as $adp)
+                                        @foreach ($certificates as $adp)
                                             <tr>
                                                 <td>{{ $adp->name }}</td>
                                                 <td>{{ $adp->email }}</td>
@@ -61,10 +61,10 @@
                                                 <td>{{ $adp->extend_date }}</td>
                                                 <td class="">
                                                     <a href="{{ route('downloadPDF', [$adp->id]) }}" target="_blank"><i
-                                                            class="mdi mdi-arrow-down-bold-circle-outline mdi-24px"></i></a>
-                                                    <a href="{{ route('certificateMail', [$adp->id]) }}"><i
-                                                            class="mdi mdi-gmail mdi-24px"></i>
-                                                </td></a>
+                                                            class="mdi mdi-arrow-down-bold-circle-outline mdi-36px"></i></a>
+                                                    {{-- <a href="{{ route('certificateMail', [$adp->id]) }}"><i
+                                                            class="mdi mdi-gmail mdi-24px"></i></a> --}}
+                                                </td>
                                             </tr>
                                         @endforeach
                                     </tbody>
