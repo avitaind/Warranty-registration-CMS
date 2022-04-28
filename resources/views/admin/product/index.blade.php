@@ -24,6 +24,7 @@
                 </div>
                 <div>
                     <a href="{{ route('products.create') }}" class="btn btn-primary"> Add Porduct</a>
+                    <a href="{{ route('products.create') }}" class="btn btn-primary"> Add Porduct</a>
                 </div>
             </div>
             <div class="row">

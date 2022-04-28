@@ -37,6 +37,7 @@
                                             <th>Customer Name</th>
                                             <th>Email</th>
                                             <th>Phone</th>
+                                            <th>Order No.</th>
                                             <th>Product Configuration</th>
                                             <th>Product Number</th>
                                             <th>Serial Number</th>
@@ -52,6 +53,7 @@
                                                 <td>{{ $adp->name }}</td>
                                                 <td>{{ $adp->email }}</td>
                                                 <td>{{ $adp->phone }}</td>
+                                                <td><strong>{{ $adp->order_id }}</strong></td>
                                                 <td>{{ $adp->product_configuration }}</td>
                                                 <td>{{ $adp->product_number }}</td>
                                                 {{-- <td><a href="">{{ $adp->serial_number }} <i class=" mdi mdi-eye mdi-16px"></i></a></td> --}}
