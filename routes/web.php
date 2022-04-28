@@ -82,8 +82,6 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth', 'PreventBackHistory'
     // Admin
     Route::get('/', [AdminController::class, 'adminHome'])->name('admin.home');
 
-
-
     // Admin Profile
     Route::get('profile', [AdminController::class, 'profile'])->name('admin.profile');
 
@@ -99,8 +97,14 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth', 'PreventBackHistory'
     // All Warranty Registration
     Route::get('warranty-registration', [AdminController::class, 'warrantyRegistration'])->name('warranty-registration');
 
-    // All Warranty Registration
+    // Export Warranty Registration
+    Route::get('export-warranty-registration', [AdminController::class, 'exportWarrantyRegister'])->name('export-warranty-registration');
+
+    // All Warranty Extend
     Route::get('warranty-extend', [AdminController::class, 'warrantyExtend'])->name('warranty-extend');
+
+    // Export Warranty Registration
+    Route::get('export-warranty-extend', [AdminController::class, 'exportWarrantyExtend'])->name('export-warranty-extend');
 
     // All Warranty Certificate
     // Route::get('certificate', [AdminController::class, 'certificateWarranty'])->name('certificate');
@@ -121,6 +125,10 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth', 'PreventBackHistory'
     // Product All
 
     Route::get('products/', [ProductController::class, 'index'])->name('products.index');
+
+    Route::post('import', [ProductController::class, 'import'])->name('import');
+    Route::get('export-products', [ProductController::class, 'exportProducts'])->name('export-products');
+
 
     // Product Create
     Route::get('products/create/', [ProductController::class, 'create'])->name('products.create');
@@ -173,4 +181,4 @@ Route::post('/getproductConfiguration', [AdminController::class, 'getproductConf
 
 
 
-Route::get('test',[AdminController::class, 'test']);
+Route::get('test', [AdminController::class, 'test']);

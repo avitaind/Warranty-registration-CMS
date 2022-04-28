@@ -21,6 +21,9 @@
                         <span><i class="mdi mdi-chevron-right"></i></span>Warranty Registration
                     </p>
                 </div>
+                <div>
+                    <a href="{{ route('export-warranty-registration') }}" class="btn btn-primary"> Export Warranty Registration</a>
+                </div>
             </div>
             <div class="row">
                 <div class="col-12">

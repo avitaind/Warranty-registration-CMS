@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Exports\ExportAllProduct;
+use Maatwebsite\Excel\Facades\Excel;
 use App\Models\Product;
 use App\Models\product_type;
 use App\Models\product_model;
@@ -28,6 +30,13 @@ class ProductController extends Controller
             return back()->withError($exception->getMessage())->withInput();
         }
         return view('admin.product.index', ['product' => $product]);
+    }
+
+    // Export Products
+
+    public function exportProducts()
+    {
+        return Excel::download(new ExportAllProduct, 'Product-collection.xlsx');
     }
 
     public function create()

@@ -2,6 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Exports\ExportWarrantyRegister;
+use App\Exports\ExportWarrantyExtend;
+use Maatwebsite\Excel\Facades\Excel;
 use App\Mail\AppMailer;
 use Illuminate\Http\Request;
 use App\Models\ProductType;
@@ -124,6 +127,13 @@ class AdminController extends Controller
         return view('admin.warranty-registration', ['warranty_registration' => $warranty_registration], ['product' => $product]);
     }
 
+    // Export Warranty Register
+
+    public function exportWarrantyRegister()
+    {
+        return Excel::download(new ExportWarrantyRegister, 'Warranty-Register-collection.xlsx');
+    }
+
     // Warranty Extend
 
     public function warrantyExtend()
@@ -134,6 +144,13 @@ class AdminController extends Controller
             return back()->withError($exception->getMessage())->withInput();
         }
         return view('admin.warranty-Extend', ['warranty_extend' => $warranty_extend]);
+    }
+
+    // Export Warranty Extend
+
+    public function exportWarrantyExtend()
+    {
+        return Excel::download(new ExportWarrantyExtend, 'Warranty-Extend-collection.xlsx');
     }
 
     //  Certificate Plan
