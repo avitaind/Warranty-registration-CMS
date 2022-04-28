@@ -131,7 +131,12 @@ class AdminController extends Controller
 
     public function exportWarrantyRegister()
     {
-        return Excel::download(new ExportWarrantyRegister, 'Warranty-Register-collection.xlsx');
+        try {
+            return Excel::download(new ExportWarrantyRegister, 'Warranty-Register-collection.xlsx');
+        } catch (ModelNotFoundException $exception) {
+            return back()->withError($exception->getMessage())->withInput();
+        }
+        return redirect()->back()->with("error", "Something is wrong !");
     }
 
     // Warranty Extend
@@ -150,7 +155,12 @@ class AdminController extends Controller
 
     public function exportWarrantyExtend()
     {
-        return Excel::download(new ExportWarrantyExtend, 'Warranty-Extend-collection.xlsx');
+        try {
+            return  Excel::download(new ExportWarrantyExtend, 'Warranty-Extend-collection.xlsx');
+        } catch (ModelNotFoundException $exception) {
+            return back()->withError($exception->getMessage())->withInput();
+        }
+        return redirect()->back()->with("error", "Something is wrong !");
     }
 
     //  Certificate Plan
@@ -170,7 +180,6 @@ class AdminController extends Controller
     public function certificateCreate()
     {
         try {
-
         } catch (ModelNotFoundException $exception) {
             return back()->withError($exception->getMessage())->withInput();
         }

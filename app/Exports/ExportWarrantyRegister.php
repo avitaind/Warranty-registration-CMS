@@ -33,6 +33,24 @@ class ExportWarrantyRegister implements FromCollection, WithHeadings
 
     public function collection()
     {
+        return DB::table('warranty_registrations')->join('product_types', 'product_types.id', '=', 'warranty_registrations.product_type')
+        ->join('products', 'products.id', '=', 'warranty_registrations.product_Series')
+        ->join('product_models', 'product_models.id', '=', 'warranty_registrations.product_model')
+        ->join('product_numbers', 'product_numbers.id', '=', 'warranty_registrations.product_number')
+        ->select(
+            'user_name',
+            'user_email',
+            'user_phone',
+            'product_types.name as product_type',
+            'products.name as product_Series',
+            'product_models.model_number as product_model',
+            'product_numbers.product_number as product_number',
+            'product_configuration',
+            'serial_number',
+            'reseller_name',
+            'purchase_date',
+        )->get();
+
         return Warranty_registration::all();
     }
 }

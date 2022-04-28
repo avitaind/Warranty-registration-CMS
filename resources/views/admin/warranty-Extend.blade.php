@@ -29,6 +29,7 @@
                 <div class="col-12">
                     <div class="card card-default">
                         <div class="card-body">
+                        @include('component.alert')
                             <div class="table-responsive">
                                 <table id="responsive-data-table" class="table" style="width:100%">
                                     <thead>
