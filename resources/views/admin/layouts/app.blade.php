@@ -28,6 +28,20 @@
 	<!-- FAVICON -->
     <link href="{{ asset('assets/img/AVITA-logo.ico ') }}" rel="shortcut icon" />
 
+    <style>
+        @media (max-width:767px) {
+            .hidden-sm-down {
+                display: none !important
+            }
+        }
+
+        @media (min-width:768px) {
+            .hidden-md-up {
+                display: none !important
+            }
+        }
+    </style>
+
 </head>
 
 <body class="ec-header-fixed ec-sidebar-fixed ec-sidebar-light ec-header-light" id="body">

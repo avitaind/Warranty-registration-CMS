@@ -3,6 +3,8 @@
     <nav class="navbar navbar-static-top navbar-expand-lg">
         <!-- Sidebar toggle button -->
         <button id="sidebar-toggler" class="sidebar-toggle"></button>
+        <img class="ec-brand-name text-truncate hidden-md-up" src="{{ asset('assets/img/logo/AVITA-logo.png ') }}"
+                            alt="" />
         <!-- search form -->
         <div class="search-form d-lg-inline-block">
             <div class="input-group">
@@ -23,6 +25,7 @@
                 <!-- User Account -->
                 <li class="dropdown user-menu">
                     <button class="dropdown-toggle nav-link ec-drop" data-bs-toggle="dropdown" aria-expanded="false">
+
                         {{-- <img src="{{ asset('assets/img/user/user.jpg ') }}" class="user-image" alt="User Image" /> --}}
                         @if (Auth::user()->pic != '')
                             @foreach (explode(',', Auth::user()->pic) as $ref)
@@ -33,6 +36,7 @@
                                 alt="User Image">
                         @endif
                     </button>
+
                     <ul class="dropdown-menu dropdown-menu-right ec-dropdown-menu">
                         <!-- User image -->
                         <li class="dropdown-header">

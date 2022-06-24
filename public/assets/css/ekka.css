@@ -21873,6 +21873,7 @@ div.copied {
 /* Sidebar Light */
 .ec-sidebar-light .ec-left-sidebar {
   background-color: #ffffff;
+  width: 282px;
 }
 .ec-sidebar-light .sidebar {
   border-right: 1px solid #f3f3f3;

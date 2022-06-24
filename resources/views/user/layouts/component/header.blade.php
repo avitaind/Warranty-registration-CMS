@@ -3,6 +3,8 @@
     <nav class="navbar navbar-static-top navbar-expand-lg">
         <!-- Sidebar toggle button -->
         <button id="sidebar-toggler" class="sidebar-toggle"></button>
+        <img class="ec-brand-name text-truncate hidden-md-up" src="{{ asset('assets/img/logo/AVITA-logo.png ') }}"
+                            alt="" />
         <!-- search form -->
         <div class="search-form d-lg-inline-block">
             <div class="input-group">
@@ -11,6 +13,7 @@
                 {{-- <button type="hidden" name="search" id="search-btn" class="btn btn-flat">
                         <i class="mdi mdi-magnify"></i>
                     </button> --}}
+
             </div>
             <div id="search-results-container">
                 <ul id="search-results"></ul>
@@ -28,8 +31,7 @@
                                 <img src="{{ '/' . $ref }}" class="user-image" alt="{{ $ref }}">
                             @endforeach
                         @else
-                            <img class="user-image" src="{{ asset('assets/img/user/user.png ') }}"
-                                alt="User Image">
+                            <img class="user-image" src="{{ asset('assets/img/user/user.png ') }}" alt="User Image">
                         @endif
                     </button>
                     <ul class="dropdown-menu dropdown-menu-right ec-dropdown-menu">
@@ -45,16 +47,14 @@
                                     alt="User Image">
                             @endif
                             <div class="d-inline-block">
-                                {{ Auth::user()->name }} <small
-                                    class="pt-1">{{ Auth::user()->email }}</small>
+                                {{ Auth::user()->name }} <small class="pt-1">{{ Auth::user()->email }}</small>
                             </div>
                         </li>
                         <li class="dropdown-footer">
                             <a href="{{ route('logout') }}"
                                 onclick="event.preventDefault(); document.getElementById('logout-form').submit();"> <i
                                     class="mdi mdi-logout"></i> {{ __('Logout') }} </a>
-                            <form id="logout-form" action="{{ route('logout') }}" method="POST"
-                                class="d-none">
+                            <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
                                 @csrf
                             </form>
                         </li>
