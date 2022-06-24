@@ -46,7 +46,7 @@ class ExportWarrantyRegister implements FromCollection, WithHeadings
             'product_models.model_number as product_model',
             'product_numbers.product_number as product_number',
             'product_configuration',
-            'serial_number',
+            'product_numbers.serial_number',
             'reseller_name',
             'purchase_date',
         )->get();

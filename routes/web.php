@@ -110,13 +110,17 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth', 'PreventBackHistory'
     // Route::get('certificate', [AdminController::class, 'certificateWarranty'])->name('certificate');
     Route::get('certificate', 'AdminController@certificateWarranty')->name('certificate');
 
-    // All Warranty Certificate
+    // All Warranty Certificate Create
     Route::get('certificate/create', [AdminController::class, 'certificateCreate'])->name('certificate.create');
+
+    // All Warranty Certificate Store
     Route::post('certificate/store', [AdminController::class, 'certificateStore'])->name('certificate.store');
 
+    // Warranty Certificate PDF Download
     Route::get('certificate/DownloadPDF/{id}', [AdminController::class, 'certificatedownloadPDF'])->name('downloadPDF');
-    Route::get('certificate/certificateMail/{id}', [AdminController::class, 'certificateMail'])->name('certificateMail');
 
+    // Warranty Certificate Mail
+    Route::get('certificate/certificateMail/{id}', [AdminController::class, 'certificateMail'])->name('certificateMail');
 
     // Product CURD
 
@@ -126,9 +130,11 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth', 'PreventBackHistory'
 
     Route::get('products/', [ProductController::class, 'index'])->name('products.index');
 
-    Route::post('import', [ProductController::class, 'import'])->name('import');
-    Route::get('export-products', [ProductController::class, 'exportProducts'])->name('export-products');
+    // Import Products
+    Route::post('import', [ProductController::class, 'importProducts'])->name('importProducts');
 
+    // Export Products
+    Route::get('export-products', [ProductController::class, 'exportProducts'])->name('export-products');
 
     // Product Create
     Route::get('products/create/', [ProductController::class, 'create'])->name('products.create');
@@ -164,9 +170,6 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth', 'PreventBackHistory'
     Route::post('products/create/configuration/store', [ProductController::class, 'productConfigurationStore'])->name('configuration.store');
 });
 
-
-
-
 Route::get('/get-Warranty_extend-chart-data', [ChartDataWarrantyExtendController::class, 'getMonthlyWarrantyExtendData']);
 Route::get('/get-Warranty_registration-chart-data', [ChartDataWarrantyRegistrationController::class, 'getMonthlywarrantyRegistrationData']);
 
@@ -179,6 +182,3 @@ Route::post('/getproductmodel', [AdminController::class, 'getproductmodel']);
 Route::post('/getproductnumber', [AdminController::class, 'getproductnumber']);
 Route::post('/getproductConfiguration', [AdminController::class, 'getproductConfiguration']);
 
-
-
-Route::get('test', [AdminController::class, 'test']);

@@ -122,6 +122,24 @@
                                                         @enderror
                                                     </div>
                                                 </div>
+                                                <div class=" col-md-6">
+                                                    <div class="mb-3">
+                                                        <label for="serial_number" class="form-label">Serial Number:
+                                                            <span class="required">*</span></label>
+                                                    </div>
+                                                </div>
+                                                <div class=" col-md-6 p-1">
+                                                    <div class="mb-3">
+                                                        <input type="text"
+                                                            class="form-select1 @error('serial_number') is-invalid @enderror"
+                                                            id="serial_number" name="serial_number" value="">
+                                                        @error('serial_number')
+                                                            <span class="invalid-feedback" role="alert">
+                                                                <strong>{{ $message }}</strong>
+                                                            </span>
+                                                        @enderror
+                                                    </div>
+                                                </div>
                                             </div>
 
                                             <div class="col-md-12 text-center mt-4">

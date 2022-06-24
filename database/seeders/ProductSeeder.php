@@ -85,7 +85,21 @@ class ProductSeeder extends Seeder
                 "extra_warranty"         => "0",
                 "created_at"             => "2022-04-18 08:26:12",
                 "updated_at"             => "2022-04-18 08:26:12"
-            ]
+            ],
+            [
+                "name"                   => "DOMUS LED",
+                "product_types_id"       => "4",
+                "extra_warranty"         => "0",
+                "created_at"             => "2022-04-18 08:26:12",
+                "updated_at"             => "2022-04-18 08:26:12"
+            ],
+            [
+                "name"                   => "SATUS ULTIMUS",
+                "product_types_id"       => "1",
+                "extra_warranty"         => "0",
+                "created_at"             => "2022-04-18 08:21:43",
+                "updated_at"             => "2022-04-18 08:21:43"
+            ],
 
         ]);
     }

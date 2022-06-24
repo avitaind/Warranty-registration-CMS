@@ -20276,7 +20276,7 @@ div.copied {
   position: absolute;
   top: 54px;
   left: auto;
-  right: 0;
+  right: 22px;
   border-color: #f3f3f3;
   /* border-radius: 15px; */
   overflow: hidden;
@@ -20441,7 +20441,7 @@ div.copied {
   padding: 15px;
   color: #56606e;
   font-size: 15px;
-  margin-bottom: 0.63rem;
+  /* margin-bottom: 0.63rem; */
 }
 .navbar .dropdown-menu li.dropdown-header img {
   width: 50px;
@@ -20477,11 +20477,11 @@ div.copied {
   border-top-right-radius: 0;
   border-top-left-radius: 0;
   background-color: #ffffff;
-  border-top: 1px solid #f3f3f3;
+  /* border-top: 1px solid #f3f3f3; */
   margin-top: 10px;
 }
 .navbar .dropdown-menu li.dropdown-footer > a {
-  padding: 15px 20px;
+  /* padding: 15px 20px; */
 }
 .navbar .dropdown-item.active,
 .navbar .dropdown-item:active {

@@ -28,7 +28,7 @@
                                         <div class="col-md-12 ">
                                             <div class="row">
                                                 <input type="hidden" name="user_name" value="{{ $user_name.' '.Auth::user()->last_name }}">
-                                                {{-- <input type="hidden" name="user_name" value="{{ $user_name }}"> --}}
+                                                {{-- <input type="" name="user_name" value="{{ $user_name }}"> --}}
                                                 <input type="hidden" name="user_email" value="{{ $user_email }}">
                                                 <input type="hidden" name="user_phone" value="{{ $user_phone }}">
                                                 <div class="div col-md-6">

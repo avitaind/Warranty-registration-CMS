@@ -11,7 +11,7 @@
         <div class="content">
             <!-- Top Statistics -->
             <div class="row">
-                <div class="col-xl-3 col-sm-6 p-b-15 lbl-card">
+                <div class="col-xl-6 col-sm-6 p-b-15 lbl-card">
                     <div class="card card-mini dash-card card-1">
                         <div class="card-body">
                             <h2 class="mb-1">{{ $users }}</h2>
@@ -20,7 +20,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-xl-3 col-sm-6 p-b-15 lbl-card">
+                {{-- <div class="col-xl-3 col-sm-6 p-b-15 lbl-card">
                     <div class="card card-mini dash-card card-2">
                         <div class="card-body">
                             <h2 class="mb-1">{{ 79, 503 }}</h2>
@@ -28,8 +28,8 @@
                             <span class=" mdi mdi-account-multiple"></span>
                         </div>
                     </div>
-                </div>
-                <div class="col-xl-3 col-sm-6 p-b-15 lbl-card">
+                </div> --}}
+                <div class="col-xl-6 col-sm-6 p-b-15 lbl-card">
                     <div class="card card-mini dash-card card-3">
                         <div class="card-body">
                             <h2 class="mb-1">{{ $warranty_registration }}</h2>
@@ -38,7 +38,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-xl-3 col-sm-6 p-b-15 lbl-card">
+                {{-- <div class="col-xl-3 col-sm-6 p-b-15 lbl-card">
                     <div class="card card-mini dash-card card-4">
                         <div class="card-body">
                             <h2 class="mb-1">{{ $warranty_extend }}</h2>
@@ -46,11 +46,42 @@
                             <span class="mdi mdi-security"></span>
                         </div>
                     </div>
-                </div>
+                </div> --}}
             </div>
 
             <div class="row">
 
+
+                <div class="col-xl-8 col-md-12 p-b-15">
+                    <!-- Sales Graph -->
+                    <div id="user-acquisition" class="card card-default">
+                        <div class="card-header">
+                            <h2>Warranty Registration</h2>
+                        </div>
+                        <div class="card-body">
+                            {{-- <div id="container"></div> --}}
+                            <canvas id="myAreaChart1" width="100%" height="30"></canvas>
+                        </div>
+                        <div class="card-footer small text-muted">Updated yesterday at @php  echo date('F j, Y', time() ) @endphp</div>
+                    </div>
+                </div>
+
+                <div class="col-xl-4 col-md-12 p-b-15">
+                    <!-- Doughnut Chart -->
+                    <div class="card card-default">
+                        <div class="card-header justify-content-center">
+                            <h2>Customers Overview</h2>
+                        </div>
+                        <div class="card-body">
+                            <div id="piechart" style="height:350px;"></div>
+                        </div>
+                        <div class="card-footer small text-muted">Updated yesterday at @php  echo date('F j, Y', time() ) @endphp</div>
+                    </div>
+                </div>
+
+            </div>
+
+            {{-- <div class="row">
                 <div class="col-xl-8 col-md-12 p-b-15">
                     <!-- User activity statistics -->
                     <div class="card card-default" id="user-activity">
@@ -71,36 +102,6 @@
                         </div>
                     </div>
                 </div>
-
-                <div class="col-xl-4 col-md-12 p-b-15">
-                    <!-- Doughnut Chart -->
-                    <div class="card card-default">
-                        <div class="card-header justify-content-center">
-                            <h2>Customers Overview</h2>
-                        </div>
-                        <div class="card-body">
-                            <div id="piechart" style="height:350px;"></div>
-                        </div>
-                        <div class="card-footer small text-muted">Updated yesterday at @php  echo date('F j, Y', time() ) @endphp</div>
-                    </div>
-                </div>
-
-            </div>
-
-            <div class="row">
-                <div class="col-xl-8 col-md-12 p-b-15">
-                    <!-- Sales Graph -->
-                    <div id="user-acquisition" class="card card-default">
-                        <div class="card-header">
-                            <h2>Warranty Registration</h2>
-                        </div>
-                        <div class="card-body">
-                            {{-- <div id="container"></div> --}}
-                            <canvas id="myAreaChart1" width="100%" height="30"></canvas>
-                        </div>
-                        <div class="card-footer small text-muted">Updated yesterday at @php  echo date('F j, Y', time() ) @endphp</div>
-                    </div>
-                </div>
                 <div class="col-xl-4 col-md-12 p-b-15">
                     <div class="card card-default">
                         <div class="card-header flex-column align-items-start">
@@ -112,7 +113,7 @@
                         <div class="card-footer small text-muted">Updated yesterday at @php  echo date('F j, Y', time() ) @endphp</div>
                     </div>
                 </div>
-            </div>
+            </div> --}}
         </div>
         <!-- End Content -->
     </div>
@@ -143,15 +144,15 @@
                 ['Month Name', 'Registered User Count'],
 
                 @php
-                $user = \App\Models\User::select(DB::raw("COUNT(*) as count"), DB::raw("MONTHNAME(created_at) as month_name"))
-                ->whereYear('created_at', date('Y'))
-                ->groupBy('month_name')
-                ->orderBy('count')
-                ->get();
+                    $user = \App\Models\User::select(DB::raw('COUNT(*) as count'), DB::raw('MONTHNAME(created_at) as month_name'))
+                        ->whereYear('created_at', date('Y'))
+                        ->groupBy('month_name')
+                        ->orderBy('count')
+                        ->get();
 
-                foreach ($user as $d) {
-                    echo "['" . $d->month_name . "', " . $d->count . '],';
-                }
+                    foreach ($user as $d) {
+                        echo "['" . $d->month_name . "', " . $d->count . '],';
+                    }
                 @endphp
             ]);
 

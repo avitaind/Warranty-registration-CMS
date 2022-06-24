@@ -43,9 +43,9 @@
                         </div>
 
                         <span class="font-weight-bold"><strong>
-                                <h5>Name: {{ Auth::user()->name }}</h5>
+                                <h5>{{ Auth::user()->name }} {{ Auth::user()->last_name }}</h5>
                             </strong></span><span class="text-black-50"><strong>
-                                <h4>Username: {{ Auth::user()->email }}</h4>
+                                <h4>{{ Auth::user()->email }}</h4>
                             </strong></span><span>
                         </span>
                 </div>

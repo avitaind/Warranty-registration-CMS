@@ -122,6 +122,18 @@
         color: #999999;
     }
 
+    .btn.btn-primary {
+        color: #ffffff;
+        background-color: #662D91;
+    }
+
+    .btn.btn-primary:hover,
+    .btn.btn-outline-primary:hover {
+        color: #662D91;
+        background-color: #ffffff;
+        border-color: #662D91;
+    }
+
 </style>
 
 <body>
@@ -136,7 +148,7 @@
                     <div class="inner">
                         <div class="inner-circle"><i class="fa fa-home"></i><span>404</span></div> <span
                             class="inner-status">Oops! You're lost</span> <span class="inner-detail"> We can not find
-                            the page you're looking for. <a href="{{ route('login') }}" class="btn btn-info mtl"><i
+                            the page you're looking for. <a href="{{ route('login') }}" class="btn btn-primary mtl"><i
                                     class="fa fa-home"></i>&nbsp;
                                 Return home </a> </span>
                     </div>

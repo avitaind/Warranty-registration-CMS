@@ -22,7 +22,7 @@ class CreateWarrantyExtendsTable extends Migration
             $table->string('product_Series')->nullable();
             $table->string('product_model')->nullable();
             $table->string('product_number')->nullable();
-            $table->string('product_configuration')->nullable();
+            $table->text('product_configuration')->nullable();
             $table->string('serial_number')->nullable();
             $table->string('reseller_name')->nullable();
             $table->string('purchase_date')->nullable();

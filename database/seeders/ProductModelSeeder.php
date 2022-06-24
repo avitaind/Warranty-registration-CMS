@@ -157,6 +157,13 @@ class ProductModelSeeder extends Seeder
                 "created_at"        => "2022-04-18 10:08:00",
                 "updated_at"        => "2022-04-18 10:08:00"
             ],
+            [
+                "name"              => null,
+                "model_number"      => "NU14A1",
+                "products_id"       => "12",
+                "created_at"        => "2022-04-18 10:08:00",
+                "updated_at"        => "2022-04-18 10:08:00"
+            ],
         ]);
     }
 }

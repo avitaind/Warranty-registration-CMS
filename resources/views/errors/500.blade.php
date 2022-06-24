@@ -123,6 +123,18 @@
         color: #999999;
     }
 
+    .btn.btn-primary {
+        color: #ffffff;
+        background-color: #662D91;
+    }
+
+    .btn.btn-primary:hover,
+    .btn.btn-outline-primary:hover {
+        color: #662D91;
+        background-color: #ffffff;
+        border-color: #662D91;
+    }
+
 </style>
 
 <body>

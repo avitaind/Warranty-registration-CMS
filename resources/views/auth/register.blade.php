@@ -51,7 +51,7 @@
 
                                 <div class="form-group col-md-12 mb-4">
                                     <input type="email" class="form-select1 @error('email') is-invalid @enderror" id="email"
-                                        name="email" placeholder="Username" value="{{ old('email') }}"
+                                        name="email" placeholder="Email" value="{{ old('email') }}"
                                         autocomplete="email">
                                     @error('email')
                                         <span class="invalid-feedback" role="alert">
@@ -103,16 +103,22 @@
                                 </div>
 
                                 <div class="col-md-12">
-                                    <div class="form-check">
+                                    {{-- <div class="form-check">
                                         <label class="form-check-label text-muted">
                                             <input type="checkbox" class="form-check-input" onclick="myFunction1()">
                                             Show Password
                                         </label>
-                                    </div>
+                                    </div> --}}
                                     <div class="d-inline-block mr-3">
                                         <input class="form-check-input" type="checkbox" name="remember" id="remember"
                                             {{ old('remember') ? 'checked' : '' }}>
-                                        I Agree the terms and conditions
+                                        I agree to the AVITA's Terms of Use Notice and AVITA's Privacy Policy.
+                                    </div>
+
+                                    <div class="d-inline-block mr-3">
+                                        <input class="form-check-input" type="checkbox" name="remember" id="remember"
+                                            {{ old('remember') ? 'checked' : '' }}>
+                                        Keep me up to date by eDMs with AVITA news, latest product and service information.
                                     </div>
 
                                     <button type="submit" class="btn btn-primary btn-block mb-4 mt-4">Register</button>

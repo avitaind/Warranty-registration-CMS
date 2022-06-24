@@ -3,12 +3,12 @@
     <div id="sidebar" class="sidebar ec-sidebar-footer">
 
         {{-- <div class="m-3">
-            <a href="{{ route('home')}}" title="AVITA India">
+            <a href="/" title="AVITA India">
                 <img class="" src="{{ asset('assets/img/logo/AVITA-logo.png ') }}" alt="" />
             </a>
-        </div> --}}
+        </div>
 
-        {{-- <div class="ec-brand">
+        <div class="ec-brand">
             <a href="/" title="AVITA India">
                 <img class="ec-brand-icon" src="{{ asset('assets/img/logo/AVITA-logo.png ') }}" alt="" />
                 <span class="ec-brand-name text-truncate">AVITA</span>
@@ -17,8 +17,9 @@
 
         <div class="ec-brand">
             <a href="/" title="AVITA India">
-                <img class="ec-brand-icon" src="{{ asset('assets/img/logo/AVITA-logo.png ') }}" alt="" />
-                <img class="ec-brand-name text-truncate" src="{{ asset('assets/img/logo/AVITA-logo.png ') }}" alt="" />
+                {{-- <img class="ec-brand-icon hidden-md-up" src="{{ asset('assets/img/logo/AVITA-logo.png ') }}" alt="" /> --}}
+                <img class="ec-brand-name text-truncate" src="{{ asset('assets/img/logo/AVITA-logo.png ') }}"
+                    alt="" />
 
             </a>
         </div>
@@ -36,15 +37,15 @@
                     <hr>
                 </li> --}}
 
-                <li class="active">
-                    <a class="sidenav-item-link" href="{{ route('profile')}}">
+                <li class="">
+                    <a class="sidenav-item-link" href="{{ route('profile') }}">
                         <i class="mdi mdi-account"></i>
                         <span class="nav-text">My Profile</span>
                     </a>
                 </li>
 
                 <li>
-                    <a class="sidenav-item-link" href="{{ route('change-password')}}">
+                    <a class="sidenav-item-link" href="{{ route('change-password') }}">
                         <i class="mdi mdi-account-group"></i>
                         <span class="nav-text">change Password</span>
                     </a>
@@ -52,7 +53,7 @@
 
                 <!-- Products -->
                 <li>
-                    <a class="sidenav-item-link" href="{{ route('my-product')}}">
+                    <a class="sidenav-item-link" href="{{ route('my-product') }}">
                         <i class="mdi mdi-palette-advanced"></i>
                         <span class="nav-text">My Product</span>
                     </a>
@@ -60,19 +61,19 @@
 
                 <!-- warranty registration -->
                 <li>
-                    <a class="sidenav-item-link" href="{{ route('product-registration')}}">
+                    <a class="sidenav-item-link" href="{{ route('product-registration') }}">
                         <i class="mdi mdi-security"></i>
                         <span class="nav-text">Product Registration</span>
                     </a>
                 </li>
 
                 <!-- warranty Extend -->
-                <li>
+                {{-- <li>
                     <a class="sidenav-item-link" href="{{ route('product-extend')}}">
                         <i class="mdi mdi-security"></i>
                         <span class="nav-text">Product Extend</span>
                     </a>
-                </li>
+                </li> --}}
 
                 <!-- Contact US -->
                 <li>
@@ -306,3 +307,4 @@
         </div>
     </div>
 </div>
+

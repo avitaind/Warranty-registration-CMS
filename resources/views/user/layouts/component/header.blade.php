@@ -28,7 +28,7 @@
                                 <img src="{{ '/' . $ref }}" class="user-image" alt="{{ $ref }}">
                             @endforeach
                         @else
-                            <img class="user-image" src="{{ asset('assets/img/user/user.jpg ') }}"
+                            <img class="user-image" src="{{ asset('assets/img/user/user.png ') }}"
                                 alt="User Image">
                         @endif
                     </button>
@@ -41,7 +41,7 @@
                                     <img src="{{ '/' . $ref }}" class="img-circle" alt="{{ $ref }}">
                                 @endforeach
                             @else
-                                <img src="{{ asset('assets/img/user/user.jpg ') }}" class="img-circle"
+                                <img src="{{ asset('assets/img/user/user.png ') }}" class="img-circle"
                                     alt="User Image">
                             @endif
                             <div class="d-inline-block">

@@ -21,7 +21,7 @@ class CreateCertificatesTable extends Migration
             $table->string('order_id')->nullable();
             $table->string('serial_number')->nullable();
             $table->string('product_number')->nullable();
-            $table->string('product_configuration')->nullable();
+            $table->text('product_configuration')->nullable();
             $table->string('reseller_name')->nullable();
             $table->date('purchase_date')->nullable();
             $table->date('extend_date')->nullable();

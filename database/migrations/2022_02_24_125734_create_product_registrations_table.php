@@ -15,11 +15,9 @@ class CreateProductRegistrationsTable extends Migration
     {
         Schema::create('product_registrations', function (Blueprint $table) {
             $table->id();
-            $table->integer('user_id')->unsigned()->index();
-            $table->integer('products_id')->unsigned()->index();
-            $table->string('serial_num');
-            $table->string('purchase_from');
-            $table->date('purchase_date');
+            $table->integer('product_number_id')->unsigned()->index();
+            $table->text('titleName')->nullable();
+            $table->text('serial_number')->unique();
             $table->timestamps();
         });
     }

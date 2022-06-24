@@ -17,7 +17,6 @@ class CreateProductsTable extends Migration
             $table->id();
             $table->string('name');
             $table->integer('product_types_id')->unsigned()->index();
-            $table->integer('extra_warranty')->default(0);
             $table->timestamps();
         });
     }

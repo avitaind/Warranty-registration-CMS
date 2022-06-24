@@ -15,7 +15,6 @@ class CreateProductModelsTable extends Migration
     {
         Schema::create('product_models', function (Blueprint $table) {
             $table->id();
-            $table->string('name')->nullable();
             $table->string('model_number');
             $table->integer('products_id')->unsigned()->index();
             $table->timestamps();

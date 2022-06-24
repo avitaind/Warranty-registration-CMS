@@ -66,6 +66,14 @@ class UserController extends Controller
 
     public function productRegistrationStore(Request $request)
     {
+        // dd($request->all());
+
+        $serialNumber = \App\Models\product_number::where('id', $request->product_model)->first();
+
+            if ($serialNumber->serial_number != $request->serial_number) {
+                return redirect()->back()->with("error", "Serial Number is wrong or Not Found!");
+            }
+
         try {
             // dd($request->all());
             $this->validate($request, [
@@ -94,6 +102,8 @@ class UserController extends Controller
             $productRegister->user_name               = $request->user_name;
             $productRegister->user_email              = $request->user_email;
             $productRegister->user_phone              = $request->user_phone;
+
+
 
             // dd($productRegister);
 
@@ -348,7 +358,7 @@ class UserController extends Controller
                 'postcode'         => 'required',
                 'country'          => 'required',
                 'state'            => 'required',
-                'pic'              => 'required',
+                // 'pic'              => 'required',
             ]);
 
             if ($request->hasFile('pic')) {

@@ -10,7 +10,7 @@
 
         <div class="ec-brand">
             <a href="/" title="AVITA India">
-                <img class="ec-brand-icon" src="{{ asset('assets/img/logo/AVITA-logo.png ') }}" alt="" />
+                {{-- <img class="ec-brand-icon" src="{{ asset('assets/img/logo/AVITA-logo.png ') }}" alt="" /> --}}
                 <img class="ec-brand-name text-truncate" src="{{ asset('assets/img/logo/AVITA-logo.png ') }}" alt="" />
             </a>
         </div>
@@ -27,7 +27,7 @@
             <!-- sidebar menu -->
             <ul class="nav sidebar-inner" id="sidebar-menu">
                 <!-- Dashboard -->
-                <li class="active">
+                <li class="">
                     <a class="sidenav-item-link" href="{{ route('admin.home') }}">
                         <i class="mdi mdi-view-dashboard-outline"></i>
                         <span class="nav-text">Dashboard</span>
@@ -75,20 +75,20 @@
                 </li>
 
                 <!-- Warranty Extend -->
-                <li>
+                {{-- <li>
                     <a class="sidenav-item-link" href="{{ route('warranty-extend') }}">
                         <i class="mdi mdi-security"></i>
                         <span class="nav-text">Warranty Extend</span>
                     </a>
-                </li>
+                </li> --}}
 
                 <!-- Oneassist ADP Plan -->
-                <li>
+                {{-- <li>
                     <a class="sidenav-item-link" href="{{ route('certificate') }}">
                         <i class="mdi mdi-security"></i>
                         <span class="nav-text"> Certificate Plan</span>
                     </a>
-                </li>
+                </li> --}}
 
             </ul>
         </div>
