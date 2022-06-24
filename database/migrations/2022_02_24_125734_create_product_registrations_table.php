@@ -17,7 +17,7 @@ class CreateProductRegistrationsTable extends Migration
             $table->id();
             $table->integer('product_number_id')->unsigned()->index();
             $table->text('titleName')->nullable();
-            $table->text('serial_number');
+            $table->text('serial_number')->nullable();
             $table->timestamps();
         });
     }
