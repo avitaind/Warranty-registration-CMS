@@ -88,8 +88,8 @@ class AdminController extends Controller
     public function getproductnumber(Request $request)
     {
         $products_model_id = $request->post('productModelID');
-        $productNumber = DB::table('product_numbers')->where('product_model_id', $products_model_id)->get();
-        // $productNumber = DB::table('product_numbers')->where('product_model_id', $products_model_id)->get()->unique('product_number');
+        // $productNumber = DB::table('product_numbers')->where('product_model_id', $products_model_id)->get();
+        $productNumber = DB::table('product_numbers')->where('product_model_id', $products_model_id)->get()->unique('product_number');
         $html = '<option value="">Select Product Number</option>';
         foreach ($productNumber as $list) {
             $html .= '<option value="' . $list->id . '">' . $list->product_number . '</option>';

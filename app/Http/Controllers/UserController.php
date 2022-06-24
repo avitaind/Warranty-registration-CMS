@@ -68,11 +68,11 @@ class UserController extends Controller
     {
         // dd($request->all());
 
-        $serialNumber = \App\Models\product_number::where('id', $request->product_model)->first();
-
-            if ($serialNumber->serial_number != $request->serial_number) {
-                return redirect()->back()->with("error", "Serial Number is wrong or Not Found!");
-            }
+        // $serialNumber = \App\Models\product_number::where('serial_number', $request->serial_number)->first();
+        // // dd($serialNumber);
+        //     if ($serialNumber->serial_number != $request->serial_number) {
+        //         return redirect()->back()->with("error", "Serial Number is wrong or Not Found!");
+        //     }
 
         try {
             // dd($request->all());
@@ -103,6 +103,12 @@ class UserController extends Controller
             $productRegister->user_email              = $request->user_email;
             $productRegister->user_phone              = $request->user_phone;
 
+
+            $serialNumber = \App\Models\product_number::where('serial_number', $request->serial_number)->first();
+            // dd($serialNumber);
+                if ($serialNumber->serial_number != $request->serial_number) {
+                    return redirect()->back()->with("error", "Serial Number is wrong or Not Found!");
+                }
 
 
             // dd($productRegister);
