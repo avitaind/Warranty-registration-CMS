@@ -25,30 +25,12 @@
                 <div>
                     {{-- <a href="{{ route('export-products') }}" class="btn btn-primary"> Export Product</a> --}}
                     <a href="{{ route('products.create') }}" class="btn btn-primary"> Add Product</a>
-                    <!-- Button trigger modal -->
-                    {{-- <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
-                        Import / Export
-                    </button> --}}
-
-                    <!-- Modal -->
-                    @include('admin.product.component.importExport')
-
                 </div>
             </div>
             <div class="row">
                 <div class="col-12">
                     <div class="card card-default">
                         <div class="card-body">
-                            @include('component.alert')
-                            @if ($errors->any())
-                                <div class="alert alert-danger ">
-                                    @foreach ($errors->all() as $error)
-                                        <ul>
-                                            <li class="mdi mdi-information-outline "> {{ $error }}</li>
-                                        </ul>
-                                    @endforeach
-                                </div>
-                            @endif
                             <div class="table-responsive">
                                 <table id="responsive-data-table" class="table" style="width:100%">
                                     <thead>
@@ -64,13 +46,22 @@
 
                                     <tbody>
                                         @foreach ($product as $pro)
+                                            @php $inforlooparr= array(); @endphp
                                             <tr>
                                                 <td>{{ $pro->type_name }}</td>
                                                 <td>{{ $pro->name }}</td>
                                                 <td>{{ $pro->model_number }}</td>
                                                 <td>{{ $pro->product_number }}</td>
                                                 <td>{{ $pro->titleName }}</td>
-                                                <td>{{ $pro->serial_number }}</td>
+                                                <td>
+                                                    @php$inforlooparr[] = explode(',', $pro->serial_number);
+
+                                                    @endphp
+                                                    @foreach ($inforlooparr[0] as $key => $val)
+                                                        {{ $val }}<br>
+                                                    @endforeach
+
+                                                </td>
                                             </tr>
                                         @endforeach
                                     </tbody>

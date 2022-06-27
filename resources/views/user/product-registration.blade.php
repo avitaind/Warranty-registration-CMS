@@ -28,7 +28,7 @@
                                         <div class="col-md-12 ">
                                             <div class="row">
                                                 <input type="hidden" name="user_name" value="{{ $user_name.' '.Auth::user()->last_name }}">
-                                                {{-- <input type="" name="user_name" value="{{ $user_name }}"> --}}
+                                                {{-- <input type="hidden" name="user_name" value="{{ $user_name }}"> --}}
                                                 <input type="hidden" name="user_email" value="{{ $user_email }}">
                                                 <input type="hidden" name="user_phone" value="{{ $user_phone }}">
                                                 <div class="div col-md-6">
@@ -118,7 +118,7 @@
                                                 </div>
                                                 <div class="div col-md-6 p-1 p-2">
                                                     <textarea class="form-select1 @error('product_configuration') is-invalid @enderror" id="product_configuration"
-                                                        name="product_configuration" rows="2"></textarea>
+                                                        name="product_configuration" rows="2" ></textarea>
                                                     @error('product_configuration')
                                                         <span class="invalid-feedback" role="alert">
                                                             <strong>{{ $message }}</strong>

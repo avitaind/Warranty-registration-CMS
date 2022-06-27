@@ -15,7 +15,4 @@ class product_number extends Model
         'titleName',
         'serial_number',
     ];
-
-
 }
-

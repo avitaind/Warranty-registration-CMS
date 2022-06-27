@@ -76,6 +76,18 @@
                                                      name="titleName" value="">
                                              </div>
                                          </div>
+                                         <div class=" col-md-12">
+                                             <div class="mb-3">
+                                                 <label for="Serial_number" class="form-label">Serial Number:
+                                                     <span class="required">*</span></label>
+                                             </div>
+                                         </div>
+                                         <div class=" col-md-12 p-1">
+                                             <div class="mb-3">
+                                                 <input type="text" class="form-select1" id="Serial_number"
+                                                     name="Serial_number" value="">
+                                             </div>
+                                         </div>
                                      </div>
 
                                      <div class="col-md-12 text-center mt-4">
@@ -93,5 +105,4 @@
  </div>
 
  @section('js')
-
  @endsection

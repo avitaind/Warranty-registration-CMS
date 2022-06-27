@@ -18,7 +18,7 @@ class CreateProductNumbersTable extends Migration
             $table->integer('product_model_id')->unsigned()->index();
             $table->string('product_number');
             $table->string('titleName')->nullable();
-            $table->string('serial_number')->unique()->nullable();
+            $table->text('serial_number')->nullable();
             $table->timestamps();
         });
     }

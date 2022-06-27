@@ -64,10 +64,10 @@
                                                             class="form-select @error('products_id') is-invalid @enderror">
                                                         </select>
                                                         @error('products_id')
-                                                                <span class="invalid-feedback" role="alert">
-                                                                    <strong>{{ $message }}</strong>
-                                                                </span>
-                                                            @enderror
+                                                            <span class="invalid-feedback" role="alert">
+                                                                <strong>{{ $message }}</strong>
+                                                            </span>
+                                                        @enderror
                                                     </div>
                                                 </div>
                                                 <div class=" col-md-6">

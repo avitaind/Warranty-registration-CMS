@@ -3,7 +3,6 @@
 namespace App\Http\Controllers;
 
 use App\Exports\ExportAllProduct;
-use App\Imports\ImportAllProduct;
 use Maatwebsite\Excel\Facades\Excel;
 use App\Models\Product;
 use App\Models\product_type;
@@ -38,38 +37,6 @@ class ProductController extends Controller
     public function exportProducts()
     {
         return Excel::download(new ExportAllProduct, 'Product-collection.xlsx');
-    }
-
-    // Import Products
-
-    public function importProducts(Request $request)
-    {
-        $excel = "";
-        $excelNameArr = [];
-        $this->validate($request, [
-            'select_file' => 'required',
-        ]);
-
-        if ($request->hasFile('select_file')) {
-            $excel = array();
-            $excelNameArr = [];
-            foreach ($request->select_file as $file) {
-                // you can also use the original name
-                $image = $file->getClientOriginalName();
-                $excelNameArr[] = $image;
-                // Upload file to public path in images directory
-                $fileName = $file->move(date('d-m-Y') . '-Import-Excel-File', $image);
-                // Database operation
-                $array[] = $fileName;
-                $excel = implode(",", $array); //Image separated by comma
-            }
-        }
-
-        Excel::import(new ImportAllProduct, $excel);
-
-        // dd($excel);
-
-        return redirect()->back()->with('success', 'created successfully');
     }
 
     public function create()
@@ -190,23 +157,42 @@ class ProductController extends Controller
     public function productNumberStore(Request $request)
     {
         // dd($request->all());
+
+        $checkproductnoexist = product_number::where('product_number', $request->product_number)->pluck('id')->first();
+        // dd($checkproductnoexist);s
         try {
             $this->validate($request, [
                 'product_model_id'                => 'required',
                 'product_number'               => 'required',
                 'titleName'               => 'required',
-                'serial_number'         => 'required',
+                'serial_number'               => 'required',
             ]);
 
-            $form = product_number::create([
-                'product_model_id'  => $request->product_model_id,
-                'product_number'    => $request->product_number,
-                'titleName'         => $request->titleName,
-                'serial_number'     => $request->serial_number,
-            ]);
+            if ($checkproductnoexist > 0) {
+                $checkserialnoexist = product_number::where('id', $checkproductnoexist)->whereRaw("NOT FIND_IN_SET('" . $request->serial_number . "','serial_number')")->first();
+                $serialnumarr[] = explode(',', $checkserialnoexist->serial_number);
+                // dd(in_array($request->serial_number, $serialnumarr[0]));
 
-            $form->save();
-            return Redirect::back()->with('msg', 'New Product Number, Product Configuration & Serial Number');
+                if (in_array($request->serial_number, $serialnumarr[0]) == false) {
+                    $form = \DB::statement("update `product_numbers` set serial_number=concat(serial_number,'," . $request->serial_number . "') where `id` = '" . $checkproductnoexist . "' ");
+                    // $form = product_number::where('id',$checkproductnoexist)->update([
+                    //     'serial_number' => concat(',',$requst->serial_number)update `product_numbers` set serial_number=concat(serial_number,',1234') where `id` = '1' and NOT FIND_IN_SET(".$request->serial_number.",serial_number);
+                    // ]);
+
+                    return Redirect::back()->with('msg', 'Product Number & Product Configuration Serial number');
+                } else {
+                    return Redirect::back()->with('msg', 'Serial number is already exist.');
+                }
+            } else {
+                $form = product_number::create([
+                    'product_model_id'  => $request->product_model_id,
+                    'product_number'    => $request->product_number,
+                    'titleName'         => $request->titleName,
+                    'serial_number'         => $request->serial_number
+                ]);
+                $form->save();
+                return Redirect::back()->with('msg', 'New Product Number, Product Configuration & Serial number');
+            }
         } catch (ModelNotFoundException $exception) {
             return back()->withError($exception->getMessage())->withInput();
         }

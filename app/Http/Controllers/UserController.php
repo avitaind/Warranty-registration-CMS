@@ -68,11 +68,26 @@ class UserController extends Controller
     {
         // dd($request->all());
 
-        // $serialNumber = \App\Models\product_number::where('serial_number', $request->serial_number)->first();
-        // // dd($serialNumber);
-        //     if ($serialNumber->serial_number != $request->serial_number) {
-        //         return redirect()->back()->with("error", "Serial Number is wrong or Not Found!");
-        //     }
+        $serialNumber = \App\Models\product_number::where('id', $request->product_number)->first();
+        $result = '';
+        if (isset($serialNumber)) {
+            $serialnoarr[] = explode(',', $serialNumber->serial_number);
+            $result = in_array($request->serial_number, $serialnoarr[0]);
+        }
+
+        if ($result == false) {
+            $this->validate($request, [
+                'product_type'              => 'required',
+                'product_Series'            => 'required',
+                'product_model'             => 'required',
+                'product_number'            => 'required',
+                'product_configuration'     => 'required',
+                'serial_number'             => 'required',
+                'reseller_name'             => 'required',
+                'purchase_date'             => 'required',
+            ]);
+            return redirect()->back()->with("error", "Serial Number is wrong !");
+        }
 
         try {
             // dd($request->all());
@@ -103,30 +118,31 @@ class UserController extends Controller
             $productRegister->user_email              = $request->user_email;
             $productRegister->user_phone              = $request->user_phone;
 
-
-            $serialNumber = \App\Models\product_number::where('serial_number', $request->serial_number)->first();
-            // dd($serialNumber);
-                if ($serialNumber->serial_number != $request->serial_number) {
-                    return redirect()->back()->with("error", "Serial Number is wrong or Not Found!");
-                }
-
-
             // dd($productRegister);
 
-            $getdata = \App\Models\Warranty_registration::latest()->first();
 
+            //  $serialNumber = \App\Models\product_number::where('serial_number', $request->serial_number)->first();
+            // // dd($serialNumber);
+            //     if ($serialNumber->serial_number != $request->serial_number) {
+            //         return redirect()->back()->with("error", "Serial Number is wrong or Not Found!");
+            //     }
+
+            // $getdata = \App\Models\Warranty_registration::latest()->first();
+            $getdata = \App\Models\Warranty_registration::where('serial_number', $request->serial_number)->count();
+            // dd($getdata);
             // dd($getdata->serial_number);
 
-            if ($getdata == '') {
-                # code...
-                $result = $productRegister->save();
-            } elseif ($getdata->serial_number == $request->serial_number) {
+            if ($getdata > 0) {
                 # code...
                 return redirect()->back()->with("error", "Product is Already Registration.");
             } else {
                 # code...
                 $result = $productRegister->save();
             }
+            // else {
+            //     # code...
+            //     $result = $productRegister->save();
+            // }
 
 
             // if ($getdata->serial_number == $request->serial_number) {
@@ -364,7 +380,7 @@ class UserController extends Controller
                 'postcode'         => 'required',
                 'country'          => 'required',
                 'state'            => 'required',
-                // 'pic'              => 'required',
+                'pic'              => 'required',
             ]);
 
             if ($request->hasFile('pic')) {
