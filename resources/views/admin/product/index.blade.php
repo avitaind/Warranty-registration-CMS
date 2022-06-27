@@ -54,7 +54,7 @@
                                                 <td>{{ $pro->product_number }}</td>
                                                 <td>{{ $pro->titleName }}</td>
                                                 <td>
-                                                    @php$inforlooparr[] = explode(',', $pro->serial_number);
+                                                    @php $inforlooparr[] = explode(',', $pro->serial_number);
 
                                                     @endphp
                                                     @foreach ($inforlooparr[0] as $key => $val)
