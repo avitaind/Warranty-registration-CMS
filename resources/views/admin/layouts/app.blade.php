@@ -77,11 +77,11 @@
 
 	<!-- Chart -->
 	<script src="{{ asset('assets/plugins/charts/Chart.min.js ') }}"></script>
-	{{-- <script src="{{ asset('assets/js/chart.js ') }}"></script> --}}
+	<script src="{{ asset('assets/js/chart.js ') }}"></script>
 
 	<!-- Google map chart -->
-	{{-- <script src="{{ asset('assets/plugins/charts/google-map-loader.js ') }}"></script>
-	<script src="{{ asset('assets/plugins/charts/google-map.js ') }}"></script> --}}
+	<script src="{{ asset('assets/plugins/charts/google-map-loader.js ') }}"></script>
+	<script src="{{ asset('assets/plugins/charts/google-map.js ') }}"></script>
 
 	<!-- Date Range Picker -->
 	<script src="{{ asset('assets/plugins/daterangepicker/moment.min.js ') }}"></script>

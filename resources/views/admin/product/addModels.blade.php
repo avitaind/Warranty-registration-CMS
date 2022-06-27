@@ -32,7 +32,7 @@
                                         <form action="{{ route('model.store') }}" method="POST">
                                             {!! csrf_field() !!}
                                             <div class="row">
-                                                <div class=" col-md-6">
+                                                <div class=" col-md-4">
                                                     <label for="product_type" class="form-label">Product Type: <span
                                                             class="required">*</span></label>
                                                 </div>
@@ -54,7 +54,11 @@
 
                                                     </div>
                                                 </div>
-                                                <div class=" col-md-6">
+                                                <div class="div col-md-2 p-1">
+                                                    <a class="btn btn-outline-primary"
+                                                        href="{{ route('product.add') }}">Add New Product Type</a>
+                                                </div>
+                                                <div class=" col-md-4">
                                                     <label for="product_type" class="form-label">Product Series: <span
                                                             class="required">*</span></label>
                                                 </div>
@@ -70,7 +74,11 @@
                                                         @enderror
                                                     </div>
                                                 </div>
-                                                <div class=" col-md-6">
+                                                <div class="div col-md-2 p-1">
+                                                    <a class="btn btn-outline-primary"
+                                                        href="{{ route('create.series') }}">Add New Product Series</a>
+                                                </div>
+                                                <div class=" col-md-4">
                                                     <label for="product_type" class="form-label">Product Model: <span
                                                             class="required">*</span></label>
                                                 </div>

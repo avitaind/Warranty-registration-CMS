@@ -19746,9 +19746,15 @@ span {
 }
 
 .alert.alert-success {
-    background-color: #662d91;
-    border-color: #662d91;
+    color: #3f056b;
+    background-color: #a477c6;
+    border-color: #3f056b;
+
+    /* color: #3f056b;
+    background-color: #dbb0fc;
+    border-color: #662d91; */
 }
+
 
 .alert.alert-danger {
     color: #842029;
@@ -23482,7 +23488,7 @@ div.copied {
 /* Sidebar Light */
 .ec-sidebar-light .ec-left-sidebar {
     background-color: #ffffff;
-    width: 265px;
+    /* width: 265px; */
 }
 
 .ec-sidebar-light .sidebar {

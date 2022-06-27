@@ -33,7 +33,7 @@
                                         <form action="{{ route('number.store') }}" method="POST">
                                             {!! csrf_field() !!}
                                             <div class="row">
-                                                <div class=" col-md-6">
+                                                <div class=" col-md-4">
                                                     <label for="product_type" class="form-label">Product Type: <span
                                                             class="required">*</span></label>
                                                 </div>
@@ -54,7 +54,11 @@
                                                         </select>
                                                     </div>
                                                 </div>
-                                                <div class=" col-md-6">
+                                                <div class="div col-md-2 p-1">
+                                                    <a class="btn btn-outline-primary"
+                                                        href="{{ route('product.add') }}">Add New Product Type</a>
+                                                </div>
+                                                <div class=" col-md-4">
                                                     <label for="product_series" class="form-label">Product Series: <span
                                                             class="required">*</span></label>
                                                 </div>
@@ -70,7 +74,11 @@
                                                         @enderror
                                                     </div>
                                                 </div>
-                                                <div class=" col-md-6">
+                                                <div class="div col-md-2 p-1">
+                                                    <a class="btn btn-outline-primary"
+                                                        href="{{ route('create.series') }}">Add New Product Series</a>
+                                                </div>
+                                                <div class=" col-md-4">
                                                     <label for="product_model" class="form-label">Product Model: <span
                                                             class="required">*</span></label>
                                                 </div>
@@ -86,7 +94,11 @@
                                                         @enderror
                                                     </div>
                                                 </div>
-                                                <div class=" col-md-6">
+                                                <div class="div col-md-2 p-1">
+                                                    <a class="btn btn-outline-primary"
+                                                        href="{{ route('create.model') }}">Add New Product Model</a>
+                                                </div>
+                                                <div class=" col-md-4">
                                                     <div class="mb-3">
                                                         <label for="product_number" class="form-label">Product Number:
                                                             <span class="required">*</span></label>
@@ -104,7 +116,7 @@
                                                         @enderror
                                                     </div>
                                                 </div>
-                                                <div class=" col-md-6">
+                                                <div class=" col-md-4">
                                                     <div class="mb-3">
                                                         <label for="titleName" class="form-label">Product Configuration:
                                                             <span class="required">*</span></label>
@@ -122,7 +134,7 @@
                                                         @enderror
                                                     </div>
                                                 </div>
-                                                <div class=" col-md-6">
+                                                <div class=" col-md-4">
                                                     <div class="mb-3">
                                                         <label for="serial_number" class="form-label">Serial Number:
                                                             <span class="required">*</span></label>

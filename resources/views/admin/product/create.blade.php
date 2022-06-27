@@ -9,7 +9,7 @@
     <div class="ec-content-wrapper">
         <div class="content">
             <div class="breadcrumb-wrapper breadcrumb-wrapper-2 breadcrumb-contacts">
-                <h1>Product Registration</h1>
+                <h1>Serial Number Registration</h1>
                 <p class="breadcrumbs"><span><a href="{{ route('admin.home') }}">Home</a></span>
                     <span><i class="mdi mdi-chevron-right"></i></span>Add Product
                 </p>
@@ -20,7 +20,7 @@
                 <div class="col-xl-10 col-lg-12">
                     <div class="ec-cat-list card card-default mb-24px">
                         <div class="card-body">
-                            <h4>Product Registration</h4>
+                            <h4>Serial Number Registration </h4>
                             <hr>
                             <small>Items marked with an asterisk (*) must be filled out.</small><br><br>
 
@@ -48,8 +48,7 @@
                                                 </div>
                                                 <div class="div col-md-2 p-1">
                                                     <a class="btn btn-outline-primary"
-                                                        href="{{ route('product.add') }}">Add New</a>
-
+                                                        href="{{ route('product.add') }}">Add New Product Type</a>
                                                 </div>
                                             </div>
                                         </div>
@@ -66,8 +65,7 @@
                                                 </div>
                                                 <div class="div col-md-2 p-1">
                                                     <a class="btn btn-outline-primary"
-                                                        href="{{ route('create.series') }}">Add New</a>
-
+                                                        href="{{ route('create.series') }}">Add New Product Series</a>
                                                 </div>
 
                                             </div>
@@ -86,8 +84,7 @@
 
                                                 <div class="div col-md-2 p-1">
                                                     <a class="btn btn-outline-primary"
-                                                        href="{{ route('create.model') }}">Add New</a>
-
+                                                        href="{{ route('create.model') }}">Add New Product Model</a>
                                                 </div>
                                             </div>
                                         </div>
@@ -106,8 +103,7 @@
 
                                                 <div class="div col-md-2 p-1">
                                                     <a class="btn btn-outline-primary"
-                                                        href="{{ route('create.number') }}">Add New</a>
-
+                                                        href="{{ route('create.number') }}">Add New Product Number</a>
                                                 </div>
 
                                             </div>
@@ -149,9 +145,9 @@
                                             </div>
                                         </div>
 
-                                        <div class="col-md-12 text-center mt-4">
+                                        {{-- <div class="col-md-12 text-center mt-4">
                                             <button type="submit" class="btn btn-primary">Submit</button>
-                                        </div>
+                                        </div> --}}
                                     </form>
                                 </div>
                             </div>

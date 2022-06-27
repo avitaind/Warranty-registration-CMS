@@ -179,9 +179,9 @@ class ProductController extends Controller
                     //     'serial_number' => concat(',',$requst->serial_number)update `product_numbers` set serial_number=concat(serial_number,',1234') where `id` = '1' and NOT FIND_IN_SET(".$request->serial_number.",serial_number);
                     // ]);
 
-                    return Redirect::back()->with('msg', 'Product Number & Product Configuration Serial number');
+                    return Redirect::back()->with('msg', 'Update Serial number');
                 } else {
-                    return Redirect::back()->with('msg', 'Serial number is already exist.');
+                    return Redirect::back()->with('warning', 'Serial number is already exist.');
                 }
             } else {
                 $form = product_number::create([

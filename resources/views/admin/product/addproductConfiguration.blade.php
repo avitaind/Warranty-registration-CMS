@@ -37,7 +37,7 @@
                                         <form action="{{ route('configuration.store') }}" method="POST">
                                             {!! csrf_field() !!}
                                             <div class="row">
-                                                <div class=" col-md-6">
+                                                <div class=" col-md-4">
                                                     <label for="product_type" class="form-label">Product Type: <span
                                                             class="required">*</span></label>
                                                 </div>
@@ -53,7 +53,11 @@
                                                         </select>
                                                     </div>
                                                 </div>
-                                                <div class=" col-md-6">
+                                                <div class="div col-md-2 p-1">
+                                                    <a class="btn btn-outline-primary"
+                                                        href="{{ route('product.add') }}">Add New Product Type</a>
+                                                </div>
+                                                <div class=" col-md-4">
                                                     <label for="product_series" class="form-label">Product Series: <span
                                                             class="required">*</span></label>
                                                 </div>
@@ -63,7 +67,11 @@
                                                             class="form-select"></select>
                                                     </div>
                                                 </div>
-                                                <div class=" col-md-6">
+                                                <div class="div col-md-2 p-1">
+                                                    <a class="btn btn-outline-primary"
+                                                        href="{{ route('create.series') }}">Add New Product Series</a>
+                                                </div>
+                                                <div class=" col-md-4">
                                                     <label for="product_model" class="form-label">Product Model: <span
                                                             class="required">*</span></label>
                                                 </div>
@@ -73,7 +81,11 @@
                                                             class="form-select"></select>
                                                     </div>
                                                 </div>
-                                                <div class=" col-md-6">
+                                                <div class="div col-md-2 p-1">
+                                                    <a class="btn btn-outline-primary"
+                                                        href="{{ route('create.model') }}">Add New Product Model</a>
+                                                </div>
+                                                <div class=" col-md-4">
                                                     <div class="mb-3">
                                                         <label for="product_number" class="form-label">Product Number:
                                                             <span class="required">*</span></label>
@@ -84,6 +96,10 @@
                                                         <select name="product_number" id="product_number"
                                                             class="form-select"></select>
                                                     </div>
+                                                </div>
+                                                <div class="div col-md-2 p-1">
+                                                    <a class="btn btn-outline-primary"
+                                                        href="{{ route('create.number') }}">Add New Product Number</a>
                                                 </div>
                                                 <div class=" col-md-6">
                                                     <label for="product_number" class="form-label">Product

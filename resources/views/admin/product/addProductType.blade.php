@@ -30,7 +30,7 @@
                                 <div class="ec-vendor-upload-detail">
                                     <div class="col-md-12 ">
                                         <div class="row">
-                                            <div class=" col-md-6">
+                                            <div class=" col-md-4">
                                                 <label for="product_type" class="form-label">Product Type: <span
                                                         class="required">*</span></label>
                                             </div>
@@ -51,6 +51,10 @@
                                                     </div>
                                                 </form>
                                             </div>
+                                            {{-- <div class="div col-md-2 p-1">
+                                                <a class="btn btn-outline-primary"
+                                                    href="{{ route('create.series') }}">Add New Product Series</a>
+                                            </div> --}}
                                         </div>
                                     </div>
                                 </div>
