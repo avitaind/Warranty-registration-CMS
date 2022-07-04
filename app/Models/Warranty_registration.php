@@ -22,7 +22,8 @@ class Warranty_registration extends Model
         'purchase_date',
         'user_email',
         'user_name',
-        'user_phone'
+        'user_phone',
+        'purchase_invoice'
     ];
 
 }

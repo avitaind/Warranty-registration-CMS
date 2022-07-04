@@ -64,7 +64,7 @@ class UserController extends Controller
 
     //  Product Registration Store
 
-    public function productRegistrationStore(Request $request)
+    public function productRegistrationStore(Request $request, AppMailer $mailer)
     {
         // dd($request->all());
 
@@ -85,12 +85,15 @@ class UserController extends Controller
                 'serial_number'             => 'required',
                 'reseller_name'             => 'required',
                 'purchase_date'             => 'required',
+                'purchase_invoice.*'          => 'mimes:png,jpg,jpeg,pdf|max:2048',
             ]);
             return redirect()->back()->with("error", "Serial Number is wrong !");
         }
 
         try {
             // dd($request->all());
+            $picture = "";
+            $imageNameArr = [];
             $this->validate($request, [
                 'user_name'                 => 'required',
                 'user_email'                => 'required',
@@ -103,7 +106,23 @@ class UserController extends Controller
                 'serial_number'             => 'required',
                 'reseller_name'             => 'required',
                 'purchase_date'             => 'required',
+                'purchase_invoice.*'          => 'mimes:png,jpg,jpeg,pdf|max:2048',
             ]);
+
+            if ($request->hasFile('purchase_invoice')) {
+                $picture = array();
+                $imageNameArr = [];
+                foreach ($request->purchase_invoice as $file) {
+                    // you can also use the original name
+                    $image = $file->getClientOriginalName();
+                    $imageNameArr[] = $image;
+                    // Upload file to public path in images directory
+                    $fileName = $file->move(date('d-m-Y') . '-Product-Registration', $image);
+                    // Database operation
+                    $array[] = $fileName;
+                    $picture = implode(",", $array); //Image separated by comma
+                }
+            }
 
             $productRegister = new Warranty_registration;;
             $productRegister->product_type            = $request->product_type;
@@ -117,6 +136,7 @@ class UserController extends Controller
             $productRegister->user_name               = $request->user_name;
             $productRegister->user_email              = $request->user_email;
             $productRegister->user_phone              = $request->user_phone;
+            $productRegister->purchase_invoice        = $picture;
 
             // dd($productRegister);
 
@@ -156,6 +176,11 @@ class UserController extends Controller
             //  Test Only Unhide
 
             // $result = $productRegister->save();
+
+            $get = \App\Models\Warranty_registration::latest()->first();
+
+            // $mailer->sendWarrantyRegistrationInformation(Auth::user(), $get);
+
 
             if ($result) {
                 return redirect()->back()->with("success", "Product Detail is updated !");

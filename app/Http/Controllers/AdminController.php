@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Exports\ExportWarrantyRegister;
 use App\Exports\ExportWarrantyExtend;
+use App\Exports\UsersExport;
 use Maatwebsite\Excel\Facades\Excel;
 use App\Mail\AppMailer;
 use Illuminate\Http\Request;
@@ -326,6 +327,18 @@ class AdminController extends Controller
         }
         return view('admin.user', ['user' => $user]);
     }
+
+     // Export User list
+
+     public function exportAllUsers()
+     {
+         try {
+             return Excel::download(new UsersExport, 'Customers-Collection.xlsx');
+         } catch (ModelNotFoundException $exception) {
+             return back()->withError($exception->getMessage())->withInput();
+         }
+         return redirect()->back()->with("error", "Something is wrong !");
+     }
 
     // Admin Profile
 

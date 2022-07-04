@@ -22,12 +22,13 @@
                                 @include('component.alert')
                                 <div class="ec-vendor-upload-detail">
                                     <form class="row g-3" method="POST"
-                                        action="{{ route('productRegistrationStore.store') }}">
+                                        action="{{ route('productRegistrationStore.store') }}" enctype="multipart/form-data">
                                         <!-- <form class="row g-3" > -->
                                         {!! csrf_field() !!}
                                         <div class="col-md-12 ">
                                             <div class="row">
-                                                <input type="hidden" name="user_name" value="{{ $user_name.' '.Auth::user()->last_name }}">
+                                                <input type="hidden" name="user_name"
+                                                    value="{{ $user_name . ' ' . Auth::user()->last_name }}">
                                                 {{-- <input type="hidden" name="user_name" value="{{ $user_name }}"> --}}
                                                 <input type="hidden" name="user_email" value="{{ $user_email }}">
                                                 <input type="hidden" name="user_phone" value="{{ $user_phone }}">
@@ -118,7 +119,7 @@
                                                 </div>
                                                 <div class="div col-md-6 p-1 p-2">
                                                     <textarea class="form-select1 @error('product_configuration') is-invalid @enderror" id="product_configuration"
-                                                        name="product_configuration" rows="2" ></textarea>
+                                                        name="product_configuration" rows="2"></textarea>
                                                     @error('product_configuration')
                                                         <span class="invalid-feedback" role="alert">
                                                             <strong>{{ $message }}</strong>
@@ -187,12 +188,33 @@
                                                 <div class="div col-md-6 p-1">
                                                     <input type="date"
                                                         class="form-select1 @error('purchase_date') is-invalid @enderror"
-                                                        name="purchase_date" id="purchaseDate">
+                                                        name="purchase_date" id="dateID">
                                                     @error('purchase_date')
                                                         <span class="invalid-feedback" role="alert">
                                                             <strong>{{ $message }}</strong>
                                                         </span>
                                                     @enderror
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        {{-- Purchase invoce: --}}
+                                        <div class="col-md-12">
+                                            <div class="row">
+                                                <div class="div col-md-6">
+                                                    <label class="form-label">Purchase Invoice: <span
+                                                            class="required">*</span></label>
+                                                </div>
+                                                <div class="div col-md-6 p-1">
+                                                    <input type="file"
+                                                        class="form-select1 @error('purchase_invoice') is-invalid @enderror"
+                                                        name="purchase_invoice[]" id="purchaseInvoice" multiple>
+                                                    @error('purchase_invoice')
+                                                        <span class="invalid-feedback" role="alert">
+                                                            <strong>{{ $message }}</strong>
+                                                        </span>
+                                                    @enderror
+
                                                 </div>
                                             </div>
                                         </div>
@@ -277,5 +299,20 @@
             });
 
         });
+    </script>
+
+    <script>
+        //Display Only Date till today //
+        var dtToday = new Date();
+        var month = dtToday.getMonth() + 1; // getMonth() is zero-based
+        var day = dtToday.getDate();
+        var year = dtToday.getFullYear();
+        if (month < 10)
+            month = '0' + month.toString();
+        if (day < 10)
+            day = '0' + day.toString();
+
+        var maxDate = year + '-' + month + '-' + day;
+        $('#dateID').attr('max', maxDate);
     </script>
 @endsection

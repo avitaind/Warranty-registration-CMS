@@ -49,7 +49,7 @@
                                                 <h6 class="text-uppercase">{{ $data->serial_number }}</h6>
                                                 <h6 class="text-uppercase">{{ $data->reseller_name }}</h6>
                                                 <h6 class="text-uppercase">{{ $data->purchase_date }}</h6>
-                                                <h6 class="text-uppercase">2026-11-20</h6>
+                                                <h6 class="text-uppercase">{{  date("Y-m-d", strtotime(date("Y-m-d", strtotime($data->purchase_date)) . " + 364 day"));}}</h6>
                                             </div>
                                         </div>
                                     </div>

@@ -94,6 +94,9 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth', 'PreventBackHistory'
     // All User
     Route::get('customers', [AdminController::class, 'user'])->name('user');
 
+    // Export All Customers
+    Route::get('all-customers', [AdminController::class, 'exportAllUsers'])->name('all-customers');
+
     // All Warranty Registration
     Route::get('warranty-registration', [AdminController::class, 'warrantyRegistration'])->name('warranty-registration');
 

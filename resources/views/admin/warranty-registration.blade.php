@@ -22,7 +22,8 @@
                     </p>
                 </div>
                 <div>
-                    <a href="{{ route('export-warranty-registration') }}" class="btn btn-primary"> Export Warranty Registration</a>
+                    <a href="{{ route('export-warranty-registration') }}" class="btn btn-primary"> Export Warranty
+                        Registration</a>
                 </div>
             </div>
             <div class="row">
@@ -44,6 +45,7 @@
                                             <th>Serial Number</th>
                                             <th>Reseller Name</th>
                                             <th>Product Purchase Date</th>
+                                            <th>Purchase Invoice</th>
                                         </tr>
                                     </thead>
 
@@ -72,6 +74,17 @@
                                                 <td class="">{{ $wr->serial_number }}</td>
                                                 <td class="">{{ $wr->reseller_name }}</td>
                                                 <td class="">{{ $wr->purchase_date }}</td>
+                                                <td class="">
+                                                    @if ($wr->purchase_invoice != null)
+                                                        @foreach (explode(',', $wr->purchase_invoice) as $ref)
+                                                            <a href="{{ '/' . $ref }}" target="_blank"
+                                                                download="{!! $ref !!}"><i
+                                                                    class="mdi mdi-arrow-down-bold-circle-outline mdi-36px"></i></a><br />
+                                                        @endforeach
+                                                    @else
+                                                        N/A
+                                                    @endif
+                                                </td>
                                             </tr>
                                         @endforeach
                                     </tbody>

@@ -26,6 +26,7 @@ class CreateWarrantyRegistrationsTable extends Migration
             $table->string('serial_number')->nullable();
             $table->string('reseller_name')->nullable();
             $table->string('purchase_date')->nullable();
+            $table->string('purchase_invoice')->nullable();
             $table->timestamps();
         });
     }

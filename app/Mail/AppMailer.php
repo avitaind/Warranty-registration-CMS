@@ -8,6 +8,7 @@ use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Mail\Mailable;
 use Illuminate\Queue\SerializesModels;
 use App\Models\Warranty_extend;
+use App\Models\Warranty_registration;
 use Illuminate\Contracts\Mail\Mailer;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
@@ -32,10 +33,19 @@ class AppMailer
 
     public function sendWarrantyExtendInformation($user, Warranty_extend $warrantyExtend)
     {
-        $this->to = ['bhavdeepbhardwaj555@gmail.com'];
+        $this->to =  $warrantyExtend->user_email;
         $this->subject = "Warranty Extend Info";
         $this->view = 'emails.warrantyExtend';
         $this->data = compact('user', 'warrantyExtend');
+        return $this->deliver();
+    }
+
+    public function sendWarrantyRegistrationInformation($user, Warranty_registration $WarrantyRegistration)
+    {
+        $this->to =  $WarrantyRegistration->user_email;
+        $this->subject = "Product Warranty Registration Info";
+        $this->view = 'emails.WarrantyRegistration';
+        $this->data = compact('user', 'WarrantyRegistration');
         return $this->deliver();
     }
 
