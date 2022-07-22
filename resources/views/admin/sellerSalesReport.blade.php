@@ -32,7 +32,7 @@
                     </div>
                 </div>
 
-                <div class="col-xl-3 col-sm-6 p-b-15 lbl-card">
+                {{-- <div class="col-xl-3 col-sm-6 p-b-15 lbl-card">
                     <div class="card card-mini dash-card card-3">
                         <div class="card-body">
                             <h2 class="mb-1">asd</h2>
@@ -50,7 +50,7 @@
                             <span class="mdi mdi-security"></span>
                         </div>
                     </div>
-                </div>
+                </div> --}}
 
             </div>
 
