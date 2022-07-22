@@ -380,12 +380,12 @@ class UserController extends Controller
         try {
             //code...
             // $user = User::get()->first();
-            $user = User::where('id', Auth::user()->id)->get()->first();
+            $users = User::where('id', Auth::user()->id)->get()->first();
             // dd($user);
         } catch (ModelNotFoundException $exception) {
             return back()->withError($exception->getMessage())->withInput();
         }
-        return view('user.profile', compact('user'));
+        return view('user.profile', ['users' => $users]);
     }
 
     // User Profile Save

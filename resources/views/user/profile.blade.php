@@ -16,13 +16,13 @@
                             <div class="avatar-upload">
                                 <div class="avatar-preview ec-preview">
                                     <div class="imagePreview ec-div-preview">
-                                        @if ($user->pic != '')
-                                            <img class="ec-image-preview" src="{{ '/' . $user->pic }}"
-                                                alt="{{ $user->pic }}" style="width: 50%; padding-bottom: 20px;">
+                                        @if ($users->pic != '')
+                                            <img class="ec-image-preview" src="{{ '/' . $users->pic }}"
+                                                alt="{{ $users->pic }}" style="width: 50%; padding-bottom: 20px;">
                                             <br />
                                         @else
                                             <img class="ec-image-preview" src="{{ asset('assets/img/user/user.png') }}"
-                                                alt="{{ $user->pic }}" style="width: 50%; padding-bottom: 20px;">
+                                                alt="{{ $users->pic }}" style="width: 50%; padding-bottom: 20px;">
                                         @endif
                                     </div>
                                 </div>
@@ -65,7 +65,7 @@
                         <div class="col-md-6">
                             <label class="labels">Last Name</label>
                             <input type="text" class="form-select1 @error('last_name') is-invalid @enderror"
-                                value="{{ $user->last_name }}" placeholder="Last Name" name="last_name">
+                                value="{{ $users->last_name }}" placeholder="Last Name" name="last_name">
                             @error('last_name')
                                 <span class="invalid-feedback" role="alert">
                                     <strong>{{ $message }}</strong>
@@ -78,7 +78,7 @@
                         <div class="col-md-12">
                             <label class="labels">Mobile Number</label>
                             <input type="text" class="form-select1 @error('phone') is-invalid @enderror"
-                                placeholder="Enter phone number" value="{{ $user->phone }}" name="phone">
+                                placeholder="Enter phone number" value="{{ $users->phone }}" name="phone">
                             @error('phone')
                                 <span class="invalid-feedback" role="alert">
                                     <strong>{{ $message }}</strong>
@@ -95,7 +95,7 @@
                         <div class="col-md-12">
                             <label class="labels">Address</label>
                             <input type="text" class="form-select1 @error('address') is-invalid @enderror"
-                                placeholder="Enter address" value="{{ $user->address }}" name="address">
+                                placeholder="Enter address" value="{{ $users->address }}" name="address">
                             @error('address')
                                 <span class="invalid-feedback" role="alert">
                                     <strong>{{ $message }}</strong>
@@ -106,11 +106,11 @@
                         <div class="col-md-6">
                             <label class="labels">Gender</label>
                             <select name="gender" id="gender" class="form-select">
-                                @if (!$user->gender)
+                                @if (!$users->gender)
                                     <option value="male">Male</option>
                                     <option value="female">Female</option>
                                 @else
-                                    <option value="{{ $user->gender }}">{{ $user->gender }}</option>
+                                    <option value="{{ $users->gender }}">{{ $users->gender }}</option>
                                 @endif
                             </select>
                         </div>
@@ -118,7 +118,7 @@
                         <div class="col-md-6">
                             <label class="labels">Postcode</label>
                             <input type="text" class="form-select1 @error('postcode') is-invalid @enderror"
-                                placeholder="Postcode" value="{{ $user->postcode }}" name="postcode">
+                                placeholder="Postcode" value="{{ $users->postcode }}" name="postcode">
                             @error('postcode')
                                 <span class="invalid-feedback" role="alert">
                                     <strong>{{ $message }}</strong>
@@ -130,7 +130,7 @@
                         <div class="col-md-6">
                             <label class="labels">Country</label>
                             <input type="text" class="form-select1 @error('country') is-invalid @enderror"
-                                placeholder="Country" value="{{ $user->country }}" name="country">
+                                placeholder="Country" value="{{ $users->country }}" name="country">
                             @error('country')
                                 <span class="invalid-feedback" role="alert">
                                     <strong>{{ $message }}</strong>
@@ -141,7 +141,7 @@
                         <div class="col-md-6">
                             <label class="labels">State/Region</label>
                             <input type="text" class="form-select1 @error('state') is-invalid @enderror"
-                                value="{{ $user->state }}" placeholder="State" name="state">
+                                value="{{ $users->state }}" placeholder="State" name="state">
                             @error('state')
                                 <span class="invalid-feedback" role="alert">
                                     <strong>{{ $message }}</strong>
