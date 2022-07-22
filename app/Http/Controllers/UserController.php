@@ -343,7 +343,6 @@ class UserController extends Controller
 
     public function changePasswordSave(Request $request)
     {
-        // dd($request->all());
         try {
             $this->validate($request, [
                 'current_password'        => 'required',
