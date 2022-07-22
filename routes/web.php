@@ -8,6 +8,7 @@ use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\SellerController;
 
 /*
 |--------------------------------------------------------------------------
@@ -36,7 +37,7 @@ Route::group(['middleware' => 'PreventBackHistory'], function () {
 
 // User
 
-Route::group(['prefix' => 'customer', 'middleware' => ['auth', 'PreventBackHistory']], function () {
+Route::group(['prefix' => 'customer', 'middleware' => ['isUser', 'auth', 'PreventBackHistory']], function () {
 
     // Dashboard
 
@@ -78,9 +79,12 @@ Route::group(['prefix' => 'customer', 'middleware' => ['auth', 'PreventBackHisto
     Route::get('contactUS', [UserController::class, 'contactUS'])->name('contactus');
 });
 
-Route::group(['prefix' => 'admin', 'middleware' => ['auth', 'PreventBackHistory']], function () {
+Route::group(['prefix' => 'admin', 'middleware' => ['isAdmin', 'auth', 'PreventBackHistory']], function () {
     // Admin
     Route::get('/', [AdminController::class, 'adminHome'])->name('admin.home');
+
+    // Seller Sales Report
+    Route::get('sellerSales', [AdminController::class, 'sellerSales'])->name('admin.sellerSalesReport');
 
     // Admin Profile
     Route::get('profile', [AdminController::class, 'profile'])->name('admin.profile');
@@ -172,6 +176,36 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth', 'PreventBackHistory'
     // Product configuration Store
     Route::post('products/create/configuration/store', [ProductController::class, 'productConfigurationStore'])->name('configuration.store');
 });
+
+Route::get('sellerHome', [SellerController::class, 'sellerHome'])->name('seller.home')->middleware('isSeller');
+
+// Seller Profile
+Route::get('sellerHome/profile', [SellerController::class, 'profile'])->name('sellerProfile')->middleware('PreventBackHistory');
+Route::post('sellerHome/profile/profilesave', [SellerController::class, 'profilesave'])->name('sellerProfilesave');
+
+// Seller Password Change
+
+Route::get('sellerHome/password-change', [SellerController::class, 'changePassword'])->name('seller.changePassword')->middleware('PreventBackHistory');
+Route::post('sellerHome/password-change/store', [SellerController::class, 'changePasswordSave'])->name('seller.changePasswordSave');
+
+// Seller Sale Details
+
+Route::get('sellerHome/sales', [SellerController::class, 'sales'])->name('seller.sales')->middleware('PreventBackHistory');
+Route::post('sellerHome/product/store', [SellerController::class, 'productStore'])->name('seller.productStore');
+
+// Seller In Sales
+Route::get('sellerHome/sales/in', [SellerController::class, 'inSales'])->name('seller.insales')->middleware('PreventBackHistory');
+Route::post('sellerHome/sales/in/store', [SellerController::class, 'inSalesSave'])->name('seller.inSalesSave');
+
+// Seller Out Sales
+Route::get('sellerHome/sales/out', [SellerController::class, 'outSales'])->name('seller.outsales')->middleware('PreventBackHistory');
+Route::post('sellerHome/sales/out/store', [SellerController::class, 'outSalesSave'])->name('seller.outSalesSave');
+
+
+// Route::group(['prefix' => 'seller', 'middleware' => ['PreveventBackHistory']], function () {
+//     // Seller Home
+//     Route::get('home', [SellerController::class, 'sellerHome'])->name('seller.home');
+// });
 
 Route::get('/get-Warranty_extend-chart-data', [ChartDataWarrantyExtendController::class, 'getMonthlyWarrantyExtendData']);
 Route::get('/get-Warranty_registration-chart-data', [ChartDataWarrantyRegistrationController::class, 'getMonthlywarrantyRegistrationData']);

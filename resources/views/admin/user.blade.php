@@ -39,6 +39,22 @@
                                         </tr>
                                     </thead>
                                     <tbody>
+                                        {{-- @foreach ($user as $user)
+                                            <tr>
+                                                <td>{{ $user->id }}</td>
+                                                <td>
+                                                    <a class="text-dark" href="">{{ $user->name }}</a>
+                                                </td>
+                                                <td class="">{{ $user->email }}</td>
+                                                <td>
+                                                    @if ($user->role == 1)
+                                                        <span class="badge badge-success">Admin</span>
+                                                    @elseif($user->is_admin == 0)
+                                                        <span class="badge bg-primary">Customer</span>
+                                                    @endif
+                                                </td>
+                                            </tr>
+                                        @endforeach --}}
                                         @foreach ($user as $user)
                                             <tr>
                                                 <td>{{ $user->id }}</td>
@@ -47,9 +63,11 @@
                                                 </td>
                                                 <td class="">{{ $user->email }}</td>
                                                 <td>
-                                                    @if ($user->is_admin == 1)
+                                                    @if ($user->role == 1)
                                                         <span class="badge badge-success">Admin</span>
-                                                    @elseif($user->is_admin == 0)
+                                                    @elseif($user->role == 2)
+                                                        <span class="badge badge-info">Seller</span>
+                                                    @elseif ($user->role == 0)
                                                         <span class="badge bg-primary">Customer</span>
                                                     @endif
                                                 </td>

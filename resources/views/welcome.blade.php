@@ -29,7 +29,6 @@
         .my-2 {
             margin-top: 40px !important;
         }
-
     </style>
 @endsection
 
@@ -76,12 +75,22 @@
                         Dashboard.</div>
                     <div class="align-content-center justify-content-sm-center text-center p-lg-9">
 
-                        @if (Auth::user()->is_admin == 1)
+                        {{-- @if (Auth::user()->is_admin == 1)
                             <a href="{{ route('admin.home') }}" class="btn btn-primary">Admin Dashboard</a>
                         @else
                             <a href="{{ route('profile') }}" class="btn btn-primary">Customer
                                 Dashboard</a>
+                        @endif --}}
+
+                        @if (Auth::user()->role == 1)
+                            <a href="{{ route('admin.home') }}" class="btn btn-primary">Admin Dashboard</a>
+                        @elseif (Auth::user()->role == 2)
+                            <a href="{{ route('seller.home') }}" class="btn btn-primary">Seller Dashboard</a>
+                        @else
+                            <a href="{{ route('profile') }}" class="btn btn-primary">Customer
+                                Dashboard</a>
                         @endif
+
                     </div>
                 @else
                     {{-- // not logged in --}}
@@ -97,9 +106,9 @@
                             @csrf
                             <div class="row">
                                 <div class="form-group col-md-12 mb-4">
-                                    <input type="email" class="form-select1 @error('email') is-invalid @enderror" id="email"
-                                        name="email" value="{{ old('email') }}" autocomplete="email" autofocus
-                                        placeholder="Username">
+                                    <input type="email" class="form-select1 @error('email') is-invalid @enderror"
+                                        id="email" name="email" value="{{ old('email') }}" autocomplete="email"
+                                        autofocus placeholder="Username">
                                     @error('email')
                                         <span class="invalid-feedback" role="alert">
                                             <strong>{{ $message }}</strong>

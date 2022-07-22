@@ -20,8 +20,8 @@ return [
     'admin_product'                                  => 'AVITA | ADMIN | PRODUCTS',
     'admin_product_warranty_registration'            => 'AVITA | ADMIN | PRODUCTS | WARRANTY | REGISTRATION',
     'admin_product_warranty_extend'                  => 'AVITA | ADMIN | PRODUCTS | WARRANTY | EXTEND',
-    'certificate'                                   => 'AVITA | ADMIN | PRODUCTS | CERTIFICATE | WARRANTY',
-    'certificate_create'                            => 'AVITA | ADMIN | PRODUCTS | CERTIFICATE | CREATE',
+    'certificate'                                    => 'AVITA | ADMIN | PRODUCTS | CERTIFICATE | WARRANTY',
+    'certificate_create'                             => 'AVITA | ADMIN | PRODUCTS | CERTIFICATE | CREATE',
     'admin_profile'                                  => 'AVITA | ADMIN | PROFILE | SETTINGS',
 
     // User
@@ -35,4 +35,11 @@ return [
     'contact'                                        => 'AVITA | CUSTOMER | CONTACT US',
 
 
+    // Seller
+    'seller'                                         => 'AVITA | SELLER | DASHBOARD',
+    'seller_profile'                                 => 'AVITA | SELLER | PROFILE',
+    'seller_password_change'                         => 'AVITA | SELLER | PASSWORD | CHANGE',
+    'sales'                                          => 'AVITA | SELLER | SALES | DETAILS',
+    'sales_in'                                       => 'AVITA | SELLER | IN | SALES | STOCK',
+    'sales_out'                                      => 'AVITA | SELLER | OUT | SALES | STOCK',
 ];

@@ -45,7 +45,7 @@
 @endif
 
 @if (session('warning'))
-    <div class="alert alert-warning" role="alert">
+    <div class="alert alert-danger" role="alert">
         <i class="mdi mdi-alert-circle-outline"></i> {{ session('warning') }}
     </div>
 @endif

@@ -13,6 +13,7 @@ use App\Models\Warranty_registration;
 use App\Models\Warranty_extend;
 use App\Models\User;
 use App\Models\Certificate;
+use App\Models\Sales;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
@@ -42,6 +43,22 @@ class AdminController extends Controller
             return back()->withError($exception->getMessage())->withInput();
         }
         return view('admin.adminHome', compact('users', 'warranty_registration', 'warranty_extend', 'user'));
+    }
+
+    // Seller Sales Report
+
+    public function sellerSales()
+    {
+        try {
+            $totalSales = Sales::count();
+            $totalseller = User::where('role', 2)->count();
+
+            // dd($totalseller);
+
+        } catch (ModelNotFoundException $exception) {
+            return back()->withError($exception->getMessage())->withInput();
+        }
+        return view('admin.sellerSalesReport', ['totalSales' => $totalSales, 'totalseller' => $totalseller]);
     }
 
     // Product Type Register

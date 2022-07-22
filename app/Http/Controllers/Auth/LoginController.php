@@ -30,13 +30,23 @@ class LoginController extends Controller
      */
     // protected $redirectTo = RouteServiceProvider::HOME;
 
-    protected $redirectTo = '/customer/home';
+    // protected $redirectTo = '/customer/home';
 
-    /**
-     * Create a new controller instance.
-     *
-     * @return void
-     */
+    public function redirectTo()
+    {
+        if (Auth()->user()->role == 1) {
+            return redirect()->route('admin.home');
+        } else if (Auth()->user()->role == 2) {
+            return redirect()->route('seller.home');
+        } else if (Auth()->user()->role == 0) {
+            return redirect()->route('profile');
+        } else {
+            return redirect()->route('login')->with('error', 'Either Email or Password is wrong');
+        }
+    }
+
+
+
     public function __construct()
     {
         $this->middleware('guest')->except('logout');
@@ -62,16 +72,32 @@ class LoginController extends Controller
             'password' => 'required',
         ]);
 
-        if(auth()->attempt(array('email' => $input['email'], 'password' => $input['password'])))
-        {
-            if (auth()->user()->is_admin == 1) {
+        // if(auth()->attempt(array('email' => $input['email'], 'password' => $input['password'])))
+        // {
+        //     if (auth()->user()->is_admin == 1) {
+        //         return redirect()->route('admin.home');
+        //     }else{
+        //         return redirect()->route('profile');
+        //     }
+        // }else{
+        //     return redirect()->route('login')
+        //         ->with('error','Email-Address And Password Are Wrong.');
+        // }
+
+        if (auth()->attempt(array('email' => $input['email'], 'password' => $input['password']))) {
+
+            if (Auth()->user()->role == 1) {
                 return redirect()->route('admin.home');
-            }else{
+            } else if (Auth()->user()->role == 2) {
+                return redirect()->route('seller.home');
+            } else if (Auth()->user()->role == 0) {
                 return redirect()->route('profile');
+            } else {
+                return redirect()->route('login')->with('error', 'Either Email or Password is wrong');
+                // return redirect()->back()->with('error','Either Email or Password is wrong');
+
             }
-        }else{
-            return redirect()->route('login')
-                ->with('error','Email-Address And Password Are Wrong.');
         }
+        return redirect()->route('login')->with('error', 'Either Email or Password is wrong');
     }
 }

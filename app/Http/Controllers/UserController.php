@@ -124,7 +124,7 @@ class UserController extends Controller
                 }
             }
 
-            $productRegister = new Warranty_registration;;
+            $productRegister = new Warranty_registration;
             $productRegister->product_type            = $request->product_type;
             $productRegister->product_Series          = $request->product_Series;
             $productRegister->product_model           = $request->product_model;
@@ -416,7 +416,7 @@ class UserController extends Controller
                     $image = $file->getClientOriginalName();
                     $imageNameArr[] = $image;
                     // Upload file to public path in images directory
-                    $fileName = $file->move(date('d-m-Y') . '-User', $image);
+                    $fileName = $file->move(date('d-m-Y') . '-Seller', $image);
                     // Database operation
                     $array[] = $fileName;
                     $picture = implode(",", $array); //Image separated by comma

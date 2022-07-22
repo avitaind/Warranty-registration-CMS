@@ -25,6 +25,7 @@ class CreateUsersTable extends Migration
             $table->string('postcode')->nullable();
             $table->string('country')->nullable();
             $table->string('state')->nullable();
+            $table->boolean('role');
             $table->boolean('is_admin')->nullable();
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');

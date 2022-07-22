@@ -27,14 +27,28 @@ class RedirectIfAuthenticated
             //     return redirect(RouteServiceProvider::HOME);
             // }
 
-            if( Auth::guard($guard)->check() && Auth::user()->is_admin == 1)
+            // if( Auth::guard($guard)->check() && Auth::user()->is_admin == 1)
+            // {
+            //     return redirect()->route('admin.home');
+            // }
+            // elseif( Auth::guard($guard)->check() && Auth::user()->is_admin == NULL)
+            // {
+            //     return redirect()->route('profile');
+            // }
+
+            if( Auth::guard($guard)->check() && Auth::user()->role == 1)
             {
                 return redirect()->route('admin.home');
             }
-            elseif( Auth::guard($guard)->check() && Auth::user()->is_admin == NULL)
+            elseif( Auth::guard($guard)->check() && Auth::user()->role == 2)
+            {
+                return redirect()->route('seller.home');
+            }
+            elseif( Auth::guard($guard)->check() && Auth::user()->role == 0)
             {
                 return redirect()->route('profile');
             }
+
         }
 
         return $next($request);

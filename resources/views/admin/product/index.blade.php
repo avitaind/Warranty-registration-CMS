@@ -46,7 +46,10 @@
 
                                     <tbody>
                                         @foreach ($product as $pro)
-                                            @php $inforlooparr= array(); @endphp
+                                            @php $inforlooparr= array();
+                                            $serialnumber = explode(',',$pro->serial_number);
+                                            @endphp
+                                            @foreach($serialnumber as $key => $data)
                                             <tr>
                                                 <td>{{ $pro->type_name }}</td>
                                                 <td>{{ $pro->name }}</td>
@@ -57,12 +60,14 @@
                                                     @php $inforlooparr[] = explode(',', $pro->serial_number);
 
                                                     @endphp
-                                                    @foreach ($inforlooparr[0] as $key => $val)
-                                                        {{ $val }}<br>
-                                                    @endforeach
+                                                    {{-- @foreach ($inforlooparr[0] as $key => $val) --}}
+                                                        {{-- {{ $val }}<br> --}}
+                                                        {{ $data }}
+                                                    {{-- @endforeach --}}
 
                                                 </td>
                                             </tr>
+                                            @endforeach
                                         @endforeach
                                     </tbody>
                                 </table>

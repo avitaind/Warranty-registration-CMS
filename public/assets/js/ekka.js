@@ -257,7 +257,7 @@ $(document).ready(function () {
     }
   });
 
-  /*======== Click To Select ========*/ 
+  /*======== Click To Select ========*/
   $('.fa-span').click(function() {
       var fa_class = $(this).text();
 
@@ -292,7 +292,7 @@ $(document).ready(function () {
 
   /*----------------------------- Product Image Zoom --------------------------------*/
   $('.zoom-image-hover').zoom();
-  
+
   /*----------------------------- Single Product Slider  ------------------------------ */
   $('.single-product-cover').slick({
     slidesToShow: 1,
@@ -313,34 +313,34 @@ $(document).ready(function () {
 
   /*----------------------------- Category slug --------------------------------*/
   function generate_slug(slug) {
-	
+
     slug = slug.replace(/^\s+|\s+$/g, ''); // trim
     slug = slug.toLowerCase();
-  
+
     // remove accents, swap ñ for n, etc
     var from = "ãàáäâẽèéëêìíïîõòóöôùúüûñç·/_,:;";
     var to   = "aaaaaeeeeeiiiiooooouuuunc------";
     for (var i=0, l=from.length ; i<l ; i++) {
       slug = slug.replace(new RegExp(from.charAt(i), 'g'), to.charAt(i));
     }
-  
+
     slug = slug.replace(/[^a-z0-9 -]/g, '') // remove invalid chars
       .replace(/\s+/g, '-') // collapse whitespace and replace by -
       .replace(/-+/g, '-'); // collapse dashes
-    
+
     $('.set-slug').val(slug);
   };
-  
+
   $('.slug-title').bind("paste", function(e){
 		var slug = e.originalEvent.clipboardData.getData('text');
 		generate_slug(slug);
 	});
-	
-	$(".slug-title").keypress(function(){	
+
+	$(".slug-title").keypress(function(){
 		var slug = $(this).val();
 		generate_slug(slug);
 	});
-	
+
 	var d = new Date();
 	var year = d.getFullYear();
 	document.getElementById("ec-year").innerHTML = year;
