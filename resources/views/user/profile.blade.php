@@ -17,12 +17,12 @@
                                 <div class="avatar-preview ec-preview">
                                     <div class="imagePreview ec-div-preview">
                                         @if (Auth::user()->pic != '')
-                                            <img class="ec-image-preview" src="{{ '/' . $users->pic }}"
-                                                alt="{{ $users->pic }}" style="width: 50%; padding-bottom: 20px;">
+                                            <img class="ec-image-preview" src="{{ '/' . Auth::user()->pic->pic }}"
+                                                alt="{{ Auth::user()->pic->pic }}" style="width: 50%; padding-bottom: 20px;">
                                             <br />
                                         @else
                                             <img class="ec-image-preview" src="{{ asset('assets/img/user/user.png') }}"
-                                                alt="{{ $users->pic }}" style="width: 50%; padding-bottom: 20px;">
+                                                alt="{{ Auth::user()->pic->pic }}" style="width: 50%; padding-bottom: 20px;">
                                         @endif
                                     </div>
                                 </div>
