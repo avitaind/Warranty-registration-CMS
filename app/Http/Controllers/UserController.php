@@ -85,7 +85,7 @@ class UserController extends Controller
                 'serial_number'             => 'required',
                 'reseller_name'             => 'required',
                 'purchase_date'             => 'required',
-                'purchase_invoice.*'          => 'mimes:png,jpg,jpeg,pdf|max:2048',
+                'purchase_invoice.*'        => 'mimes:png,jpg,jpeg,pdf|max:2048',
             ]);
             return redirect()->back()->with("error", "Serial Number is wrong !");
         }
@@ -381,6 +381,7 @@ class UserController extends Controller
             //code...
             // $user = User::get()->first();
             $user = User::where('id', Auth::user()->id)->get()->first();
+            // dd($user);
         } catch (ModelNotFoundException $exception) {
             return back()->withError($exception->getMessage())->withInput();
         }
@@ -405,7 +406,7 @@ class UserController extends Controller
                 'postcode'         => 'required',
                 'country'          => 'required',
                 'state'            => 'required',
-                'pic'              => 'required',
+                // 'pic'              => 'required',
             ]);
 
             if ($request->hasFile('pic')) {
