@@ -22,6 +22,7 @@ class CreateUsersSeeder extends Seeder
                'email'          =>'admin@avita.com',
                'phone'          =>'9876543211',
                 'is_admin'      =>'1',
+                'role'          =>'1',
                'password'       => bcrypt('Admin@123'),
             ],
             [
@@ -30,6 +31,7 @@ class CreateUsersSeeder extends Seeder
                'email'          =>'user@avita.com',
                'phone'          =>'9876543210',
                 'is_admin'      =>'0',
+                'role'          =>'0',
                'password'       => bcrypt('User@123'),
             ]
         ];
