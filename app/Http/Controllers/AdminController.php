@@ -426,13 +426,12 @@ class AdminController extends Controller
 
     public function changePasswordSave(Request $request)
     {
-        // dd($request->all());
         try {
             $this->validate($request, [
                 'current_password'        => 'required',
                 'new_password'            => 'required',
             ]);
-            // dd($request->all());
+
             if (!(Hash::check($request->get('current_password'), Auth::user()->password))) {
                 // The passwords matches
                 return redirect()->back()->with("error", "Your current password does not matches with the password you provided. Please try again.");
