@@ -54,26 +54,26 @@
 
             </div>
 
-            <div class="row">
+            {{-- <div class="row"> --}}
 
 
-                <div class="col-xl-8 col-md-12 p-b-15">
+                {{-- <div class="col-xl-8 col-md-12 p-b-15"> --}}
                     <!-- Sales Graph -->
-                    <div id="user-acquisition" class="card card-default">
+                    {{-- <div id="user-acquisition" class="card card-default">
                         <div class="card-header">
                             <h2>Warranty Registration</h2>
                         </div>
-                        <div class="card-body">
+                        <div class="card-body"> --}}
                             {{-- <div id="container"></div> --}}
-                            <canvas id="myAreaChart1" width="100%" height="30"></canvas>
+                            {{-- <canvas id="myAreaChart1" width="100%" height="30"></canvas>
                         </div>
                         <div class="card-footer small text-muted">Updated yesterday at @php  echo date('F j, Y', time() ) @endphp</div>
                     </div>
-                </div>
+                </div> --}}
 
-                <div class="col-xl-4 col-md-12 p-b-15">
+                {{-- <div class="col-xl-4 col-md-12 p-b-15"> --}}
                     <!-- Doughnut Chart -->
-                    <div class="card card-default">
+                    {{-- <div class="card card-default">
                         <div class="card-header justify-content-center">
                             <h2>Customers Overview</h2>
                         </div>
@@ -82,9 +82,9 @@
                         </div>
                         <div class="card-footer small text-muted">Updated yesterday at @php  echo date('F j, Y', time() ) @endphp</div>
                     </div>
-                </div>
+                </div> --}}
 
-            </div>
+            {{-- </div> --}}
 
             {{-- <div class="row">
                 <div class="col-xl-8 col-md-12 p-b-15">
