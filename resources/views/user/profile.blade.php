@@ -65,7 +65,7 @@
                         <div class="col-md-6">
                             <label class="labels">Last Name</label>
                             <input type="text" class="form-select1 @error('last_name') is-invalid @enderror"
-                                value="{{ $users->last_name }}" placeholder="Last Name" name="last_name">
+                                value="{{ Auth::user()->last_name }}" placeholder="Last Name" name="last_name">
                             @error('last_name')
                                 <span class="invalid-feedback" role="alert">
                                     <strong>{{ $message }}</strong>
@@ -78,7 +78,7 @@
                         <div class="col-md-12">
                             <label class="labels">Mobile Number</label>
                             <input type="text" class="form-select1 @error('phone') is-invalid @enderror"
-                                placeholder="Enter phone number" value="{{ $users->phone }}" name="phone">
+                                placeholder="Enter phone number" value="{{ Auth::user()->phone }}" name="phone">
                             @error('phone')
                                 <span class="invalid-feedback" role="alert">
                                     <strong>{{ $message }}</strong>
@@ -95,7 +95,7 @@
                         <div class="col-md-12">
                             <label class="labels">Address</label>
                             <input type="text" class="form-select1 @error('address') is-invalid @enderror"
-                                placeholder="Enter address" value="{{ $users->address }}" name="address">
+                                placeholder="Enter address" value="{{ Auth::user()->address }}" name="address">
                             @error('address')
                                 <span class="invalid-feedback" role="alert">
                                     <strong>{{ $message }}</strong>
@@ -106,11 +106,11 @@
                         <div class="col-md-6">
                             <label class="labels">Gender</label>
                             <select name="gender" id="gender" class="form-select">
-                                @if (!$users->gender)
+                                @if (!Auth::user()->gender)
                                     <option value="male">Male</option>
                                     <option value="female">Female</option>
                                 @else
-                                    <option value="{{ $users->gender }}">{{ $users->gender }}</option>
+                                    <option value="{{ Auth::user()->gender }}">{{ Auth::user()->gender }}</option>
                                 @endif
                             </select>
                         </div>
@@ -118,7 +118,7 @@
                         <div class="col-md-6">
                             <label class="labels">Postcode</label>
                             <input type="text" class="form-select1 @error('postcode') is-invalid @enderror"
-                                placeholder="Postcode" value="{{ $users->postcode }}" name="postcode">
+                                placeholder="Postcode" value="{{ Auth::user()->postcode }}" name="postcode">
                             @error('postcode')
                                 <span class="invalid-feedback" role="alert">
                                     <strong>{{ $message }}</strong>
@@ -130,7 +130,7 @@
                         <div class="col-md-6">
                             <label class="labels">Country</label>
                             <input type="text" class="form-select1 @error('country') is-invalid @enderror"
-                                placeholder="Country" value="{{ $users->country }}" name="country">
+                                placeholder="Country" value="{{ Auth::user()->country }}" name="country">
                             @error('country')
                                 <span class="invalid-feedback" role="alert">
                                     <strong>{{ $message }}</strong>
@@ -141,7 +141,7 @@
                         <div class="col-md-6">
                             <label class="labels">State/Region</label>
                             <input type="text" class="form-select1 @error('state') is-invalid @enderror"
-                                value="{{ $users->state }}" placeholder="State" name="state">
+                                value="{{ Auth::user()->state }}" placeholder="State" name="state">
                             @error('state')
                                 <span class="invalid-feedback" role="alert">
                                     <strong>{{ $message }}</strong>
