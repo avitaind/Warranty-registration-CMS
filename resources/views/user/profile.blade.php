@@ -16,7 +16,7 @@
                             <div class="avatar-upload">
                                 <div class="avatar-preview ec-preview">
                                     <div class="imagePreview ec-div-preview">
-                                        @if ($users->pic != '')
+                                        @if (Auth::user()->pic != '')
                                             <img class="ec-image-preview" src="{{ '/' . $users->pic }}"
                                                 alt="{{ $users->pic }}" style="width: 50%; padding-bottom: 20px;">
                                             <br />
