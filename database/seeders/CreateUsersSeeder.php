@@ -33,7 +33,16 @@ class CreateUsersSeeder extends Seeder
                 'is_admin'      =>'0',
                 'role'          =>'0',
                'password'       => bcrypt('User@123'),
-            ]
+            ],
+            [
+                'name'           =>'Seller',
+                'last_name'      =>'Avita',
+                'email'          =>'user@avita.com',
+                'phone'          =>'9876543210',
+                 'is_admin'      =>'2',
+                 'role'          =>'2',
+                'password'       => bcrypt('User@123'),
+             ]
         ];
 
         foreach ($user as $key => $value) {
