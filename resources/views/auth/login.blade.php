@@ -23,7 +23,7 @@
                     <div class="">
                         <div class="ec-brand">
                             <a href="/" title="AVITA India">
-                                <img class="ec-brand-icon" src="{{ asset('assets/img/logo/AVITA-logo.png ') }}" alt="" />
+                                <img class="ec-brand-icon" src="{{ asset('assets/img/logo/AVITA-logo.png ') }}" alt="AVITA India" />
                             </a>
                         </div>
                     </div>
@@ -37,7 +37,7 @@
                                 <div class="form-group col-md-12 mb-4">
                                     <input type="email" class="form-select1 @error('email') is-invalid @enderror" id="email"
                                         name="email" value="{{ old('email') }}" required autocomplete="email" autofocus
-                                        placeholder="Username">
+                                        placeholder="Email ID">
                                 </div>
 
                                 <div class="form-group col-md-12 ">
