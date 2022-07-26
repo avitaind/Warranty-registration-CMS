@@ -108,7 +108,7 @@
                                 <div class="form-group col-md-12 mb-4">
                                     <input type="email" class="form-select1 @error('email') is-invalid @enderror"
                                         id="email" name="email" value="{{ old('email') }}" autocomplete="email"
-                                        autofocus placeholder="Username">
+                                        autofocus placeholder="Email">
                                     @error('email')
                                         <span class="invalid-feedback" role="alert">
                                             <strong>{{ $message }}</strong>
