@@ -75,20 +75,28 @@
                     </a>
                 </li> --}}
 
-                <!-- Contact US -->
+                <!-- warranty registration -->
                 <li>
+                    <a class="sidenav-item-link" href="{{ route('complaintRegistration') }}">
+                        <i class="mdi mdi-pencil-box-outline"></i>
+                        <span class="nav-text">Complaint Register</span>
+                    </a>
+                </li>
+
+                <!-- Contact US -->
+                {{-- <li>
                     <a class="sidenav-item-link" href="https://www.avita-india.com/contact-us" target="_blank">
                         <i class="mdi mdi-contacts"></i>
                         <span class="nav-text">Contact US</span>
                     </a>
-                </li>
+                </li> --}}
 
-                {{-- <li>
+                <li>
                     <a class="sidenav-item-link" href="{{ route('contactus')}}" >
                         <i class="mdi mdi-contacts"></i>
                         <span class="nav-text">Contact US</span>
                     </a>
-                </li> --}}
+                </li>
 
                 <!-- Products -->
                 {{-- <li class="has-sub">

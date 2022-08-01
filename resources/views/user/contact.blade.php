@@ -20,7 +20,7 @@
             <div class="breadcrumb-wrapper d-flex align-items-center justify-content-between">
                 <div>
                     <h2 class="card-title">Contact Us</h2>
-                    <p class="breadcrumbs"><span><a href="{{ route('home') }}">Home</a></span><span><i
+                    <p class="breadcrumbs"><span><a href="/">Home</a></span><span><i
                                 class="mdi mdi-chevron-right"></i></span>Contact Us</p>
                 </div>
             </div>

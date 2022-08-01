@@ -1,7 +1,7 @@
 @extends('admin.layouts.app')
 
 @section('title')
-    @lang('title.admin_product_warranty_registration')
+    @lang('title.complaintRegistration')
 @stop
 
 @section('css')
@@ -16,13 +16,13 @@
         <div class="content">
             <div class="breadcrumb-wrapper d-flex align-items-center justify-content-between">
                 <div>
-                    <h2>Warranty Registration</h2>
+                    <h2>Complaint Registration</h2>
                     <p class="breadcrumbs"><span><a href="{{ route('admin.home') }}">Home</a></span>
-                        <span><i class="mdi mdi-chevron-right"></i></span>Warranty Registration
+                        <span><i class="mdi mdi-chevron-right"></i></span>Complaint Registration
                     </p>
                 </div>
                 <div>
-                    {{-- <a href="{{ route('export-warranty-registration') }}" class="btn btn-primary"> Export Warranty
+                    {{-- <a href="{{ route('export-warranty-registration') }}" class="btn btn-primary"> Export Complaint
                         Registration</a> --}}
                 </div>
             </div>
@@ -34,53 +34,57 @@
                                 <table id="responsive-data-table" class="table" style="width:100%">
                                     <thead>
                                         <tr>
+                                            <th>Complaint ID</th>
+                                            <th>Status</th>
                                             <th>Customer Name</th>
                                             <th>Email</th>
                                             <th>Phone</th>
-                                            <th>Product Type</th>
-                                            <th>Product Series</th>
-                                            <th>Product Model</th>
                                             <th>Product Number</th>
-                                            <th>Product Configuration</th>
                                             <th>Serial Number</th>
-                                            <th>Reseller Name</th>
                                             <th>Product Purchase Date</th>
+                                            <th>Warranty Check</th>
+                                            <th>Chanal Purchase</th>
+                                            <th>City</th>
+                                            <th>State</th>
+                                            <th>PinCode</th>
+                                            <th>Issue</th>
                                             <th>Purchase Invoice</th>
                                         </tr>
                                     </thead>
 
                                     <tbody>
-                                        @foreach ($warranty_registration as $wr)
+                                        @foreach ($complaintRegistration as $cr)
                                             <tr>
-                                                <td>{{ $wr->user_name }}</td>
-                                                <td>{{ $wr->user_email }}</td>
-                                                <td>{{ $wr->user_phone }}</td>
+                                                <td>{{ $cr->ticketID }}</td>
                                                 <td>
-                                                    <?php $producttype = \App\Models\product_type::where('id', $wr->product_type)->first(); ?>
-                                                    {{ $producttype->name }}
+                                                    @if ( $cr->status == 'In Processing')
+                                                        <span class="badge badge-success">In Processing</span>
+                                                    @elseif( $cr->status == 'Completed')
+                                                        <span class="badge badge-info">Completed</span>
+                                                    @elseif ( $cr->status == NULL)
+                                                        <span class="badge bg-primary">N/A</span>
+                                                    @endif
                                                 </td>
-                                                <td>
-                                                    <?php $productseries = \App\Models\Product::where('id', $wr->product_Series)->first(); ?>
-                                                    {{ $productseries->name }}
-                                                </td>
-                                                <td>
-                                                    <?php $product_model = \App\Models\product_model::where('id', $wr->product_model)->first(); ?>
-                                                    {{ $product_model->model_number }}
-                                                </td>
-                                                <td><?php $product_number = \App\Models\product_number::where('id', $wr->product_number)->first(); ?>
-                                                    {{ $product_number->product_number }}
-                                                </td>
-                                                <td>{{ $wr->product_configuration }}</td>
-                                                <td class="">{{ $wr->serial_number }}</td>
-                                                <td class="">{{ $wr->reseller_name }}</td>
-                                                <td class="">{{ $wr->purchase_date }}</td>
+                                                {{-- <td>{{ $cr->status }}</td> --}}
+                                                <td>{{ $cr->name }}</td>
+                                                <td>{{ $cr->email }}</td>
+                                                <td>{{ $cr->phone }}</td>
+                                                <td>{{ $cr->productPartNo }}</td>
+                                                <td>{{ $cr->productSerialNo }}</td>
+                                                <td>{{ $cr->purchaseDate }}</td>
+                                                <td>{{ $cr->warrantyCheck }}</td>
+                                                <td>{{ $cr->chanalPurchase }}</td>
+                                                <td>{{ $cr->city }}</td>
+                                                <td>{{ $cr->state }}</td>
+                                                <td>{{ $cr->pinCode }}</td>
+                                                <td>{{ $cr->issue }}</td>
                                                 <td class="">
-                                                    @if ($wr->purchase_invoice != null)
-                                                        @foreach (explode(',', $wr->purchase_invoice) as $ref)
-                                                            <a href="{{ '/' . $ref }}" target="_blank"
-                                                                download="{!! $ref !!}"><i
+                                                    @if ($cr->purchaseInvoice != NULL)
+                                                        {{-- @foreach (explode(',', $cr->purchaseinvoice) as $ref) --}}
+                                                            <a href="{{ '/' . $cr->purchaseInvoice }}" target="_blank"
+                                                                download="{!! $cr->purchaseInvoice !!}"><i
                                                                     class="mdi mdi-arrow-down-bold-circle-outline mdi-36px"></i></a><br />
-                                                        @endforeach
+                                                        {{-- @endforeach --}}
                                                     @else
                                                         N/A
                                                     @endif

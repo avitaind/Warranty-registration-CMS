@@ -1,7 +1,7 @@
 @extends('seller.layouts.app')
 
 @section('title')
-    @lang('title.sales')
+    @lang('title.listINsales')
 @stop
 
 @section('css')
@@ -46,7 +46,7 @@
         <div class="content">
             <div class="row">
                 <div>
-                    <a href="{{ route('seller.insales') }}" class="btn btn-primary mb-4" style="float: right;">In Stock</a>
+                    <a href="{{ route('seller.home') }}" class="btn btn-primary mb-4" style="float: right;">BACK</a>
                 </div>
                 <div class="col-12">
                     <div class="card card-default">
@@ -64,11 +64,11 @@
                                             <th>Screen Size</th>
                                             <th class="">Stock Date</th>
                                             <th>Stock</th>
-                                            <th>OUT</th>
+                                            <th>Invices</th>
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        @foreach ($sale as $sales)
+                                        @foreach ($insale as $sales)
                                             <tr>
                                                 <td>{{ $sales->productNumber }}</td>
                                                 <td>{{ $sales->serialNumber }} </td>
@@ -86,35 +86,17 @@
                                                         <span class="badge bg-primary">NA</span>
                                                     @endif
                                                 </td>
-                                                <td>
-                                                    @if ($sales->type == 'IN')
-                                                        <form action="{{ route('seller.outsales') }}" method="GET"
-                                                            class="form">
-                                                            @csrf
-                                                            <input type="hidden" name="product_number"
-                                                                value="{{ $sales->productNumber }}">
-                                                            <input type="hidden" name="serial_number"
-                                                                value="{{ $sales->serialNumber }}">
-                                                            <input type="hidden" name="sales_id"
-                                                                value="{{ $sales->id }}">
-                                                            <button type="submit" value="submit"><i
-                                                                    class="mdi mdi-minus-box-outline mdi-24px"></i></button>
-                                                        </form>
+                                                <td class="">
+                                                    @if ($sales->purchaseInvoice != NULL)
+                                                        {{-- @foreach (explode(',', $sales->purchaseinvoice) as $ref) --}}
+                                                            <a href="{{ '/' . $sales->purchaseInvoice }}" target="_blank"
+                                                                download="{!! $sales->purchaseInvoice !!}"><i
+                                                                    class="mdi mdi-arrow-down-bold-circle-outline mdi-36px"></i></a><br />
+                                                        {{-- @endforeach --}}
                                                     @else
                                                         N/A
                                                     @endif
                                                 </td>
-                                                {{-- <td>
-                                                    @if ($sales->purchaseInvoice != '')
-                                                        @foreach (explode(',', $sales->purchaseInvoice) as $ref)
-                                                            <a href="{{ '/' . $ref }}" target="_blank"
-                                                                download="{!! $ref !!}"><i
-                                                                    class="mdi mdi-arrow-down-bold-circle-outline mdi-36px"></i></a><br />
-                                                        @endforeach
-                                                    @else
-                                                        N/A
-                                                    @endif
-                                                </td> --}}
                                             </tr>
                                         @endforeach
                                     </tbody>

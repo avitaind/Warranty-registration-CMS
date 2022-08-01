@@ -13,6 +13,7 @@ use App\Models\Warranty_registration;
 use App\Models\Warranty_extend;
 use App\Models\User;
 use App\Models\Certificate;
+use App\Models\ComplaintRegistration;
 use App\Models\Sales;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
@@ -51,14 +52,30 @@ class AdminController extends Controller
     {
         try {
             $totalSales = Sales::count();
+            $totalIn = Sales::where('type', 'IN')->count();
+            $totalOut = Sales::where('type', 'OUT')->count();
             $totalseller = User::where('role', 2)->count();
+            $adminsale = Sales::get();
 
             // dd($totalseller);
 
         } catch (ModelNotFoundException $exception) {
             return back()->withError($exception->getMessage())->withInput();
         }
-        return view('admin.sellerSalesReport', ['totalSales' => $totalSales, 'totalseller' => $totalseller]);
+        return view('admin.sellerSalesReport', ['adminsale' => $adminsale, 'totalSales' => $totalSales, 'totalseller' => $totalseller, 'totalIn' => $totalIn, 'totalOut' => $totalOut]);
+    }
+
+    // Customers Complaint Registration
+
+    public function complaintRegistration()
+    {
+        try {
+            $complaintRegistration = ComplaintRegistration::orderBy('created_at', 'DESC')->get();
+            // dd($complaintRegistration);
+        } catch (ModelNotFoundException $exception) {
+            return back()->withError($exception->getMessage())->withInput();
+        }
+        return view('admin.complaintRegistration', ['complaintRegistration' => $complaintRegistration]);
     }
 
     // Product Type Register
@@ -289,10 +306,6 @@ class AdminController extends Controller
 
             $form->save();
 
-
-
-
-
             return redirect()->back()->with("success", "Certificate detail is updated !");
         } catch (ModelNotFoundException $exception) {
             return back()->withError($exception->getMessage())->withInput();
@@ -345,17 +358,17 @@ class AdminController extends Controller
         return view('admin.user', ['user' => $user]);
     }
 
-     // Export User list
+    // Export User list
 
-     public function exportAllUsers()
-     {
-         try {
-             return Excel::download(new UsersExport, 'Customers-Collection.xlsx');
-         } catch (ModelNotFoundException $exception) {
-             return back()->withError($exception->getMessage())->withInput();
-         }
-         return redirect()->back()->with("error", "Something is wrong !");
-     }
+    public function exportAllUsers()
+    {
+        try {
+            return Excel::download(new UsersExport, 'Customers-Collection.xlsx');
+        } catch (ModelNotFoundException $exception) {
+            return back()->withError($exception->getMessage())->withInput();
+        }
+        return redirect()->back()->with("error", "Something is wrong !");
+    }
 
     // Admin Profile
 

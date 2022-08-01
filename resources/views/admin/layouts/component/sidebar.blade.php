@@ -38,9 +38,17 @@
 
                 <!-- Seller Sales Report -->
                 <li>
-                    <a class="sidenav-item-link" href="{{ route('admin.sellerSalesReport')}}">
+                    <a class="sidenav-item-link" href="{{ route('admin.sellerSalesReport') }}">
                         <i class="mdi mdi-cart"></i>
                         <span class="nav-text">Seller Sales Report</span>
+                    </a>
+                </li>
+
+                <!-- Customers Complaint Registration -->
+                <li>
+                    <a class="sidenav-item-link" href="{{ route('admin.complaintRegistration') }}">
+                        <i class="mdi mdi-account-card-details"></i>
+                        <span class="nav-text">Complaint Registration</span>
                     </a>
                 </li>
 

@@ -70,6 +70,11 @@ Route::group(['prefix' => 'customer', 'middleware' => ['isUser', 'auth', 'Preven
     Route::post('product-extend/store', [UserController::class, 'productExtendStore'])->name('productExtendStore.store');
     Route::get('product-extend/search', [UserController::class, 'productExtendStore']);
 
+    // complaint Registration
+
+    Route::get('complaintRegistration', [UserController::class, 'complaintRegistration'])->name('complaintRegistration');
+    Route::post('complaintRegistration/store', [UserController::class, 'complaintRegistrationSave'])->name('complaintRegistration.store');
+
     // test
 
     // Route::post('user/product-extend/store', [UserController::class, 'productExtendStores'])->name('productExtendStores.store');
@@ -85,6 +90,9 @@ Route::group(['prefix' => 'admin', 'middleware' => ['isAdmin', 'auth', 'PreventB
 
     // Seller Sales Report
     Route::get('sellerSales', [AdminController::class, 'sellerSales'])->name('admin.sellerSalesReport');
+
+    // Customers Complaint Registration
+    Route::get('complaintRegistration', [AdminController::class, 'complaintRegistration'])->name('admin.complaintRegistration');
 
     // Admin Profile
     Route::get('profile', [AdminController::class, 'profile'])->name('admin.profile');
@@ -177,7 +185,19 @@ Route::group(['prefix' => 'admin', 'middleware' => ['isAdmin', 'auth', 'PreventB
     Route::post('products/create/configuration/store', [ProductController::class, 'productConfigurationStore'])->name('configuration.store');
 });
 
+// Seller Dashboard
 Route::get('sellerHome', [SellerController::class, 'sellerHome'])->name('seller.home')->middleware('isSeller');
+
+// Seller Report Data
+Route::get('/get-total-sales-chart-data', [SellerController::class, 'getMonthlyTotalSalesData']);
+Route::get('/get-in-sales-chart-data', [SellerController::class, 'getMonthlyINSalesData']);
+Route::get('/get-out-sales-chart-data', [SellerController::class, 'getMonthlyOUTSalesData']);
+
+// List In Sales Seller Details
+Route::get('sellerHome/sales/in-list', [SellerController::class, 'listInsales'])->name('listInsales');
+
+// List Out Sales Seller Details
+Route::get('sellerHome/sales/out-list', [SellerController::class, 'listOutsales'])->name('listOutsales');
 
 // Seller Profile
 Route::get('sellerHome/profile', [SellerController::class, 'profile'])->name('sellerProfile')->middleware('PreventBackHistory');
@@ -201,6 +221,10 @@ Route::post('sellerHome/sales/in/store', [SellerController::class, 'inSalesSave'
 Route::get('sellerHome/sales/out', [SellerController::class, 'outSales'])->name('seller.outsales')->middleware('PreventBackHistory');
 Route::post('sellerHome/sales/out/store', [SellerController::class, 'outSalesSave'])->name('seller.outSalesSave');
 
+// Seller Import / Export Stock
+Route::post('sellerHome/sales/in/import', [SellerController::class, 'importInSeller'])->name('importInSeller');
+
+
 
 // Route::group(['prefix' => 'seller', 'middleware' => ['PreveventBackHistory']], function () {
 //     // Seller Home
@@ -218,4 +242,3 @@ Route::post('/getproductseries', [AdminController::class, 'getproductseries']);
 Route::post('/getproductmodel', [AdminController::class, 'getproductmodel']);
 Route::post('/getproductnumber', [AdminController::class, 'getproductnumber']);
 Route::post('/getproductConfiguration', [AdminController::class, 'getproductConfiguration']);
-

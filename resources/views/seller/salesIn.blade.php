@@ -165,7 +165,7 @@
                                                 <div class="div col-md-6 p-1">
                                                     <input type="file"
                                                         class="form-select1 @error('purchaseInvoice') is-invalid @enderror"
-                                                        name="purchaseInvoice" id="purchaseInvoice" multiple>
+                                                        name="purchaseInvoice[]" id="purchaseInvoice" multiple>
                                                     @error('purchaseInvoice')
                                                         <span class="invalid-feedback" role="alert">
                                                             <strong>{{ $message }}</strong>
