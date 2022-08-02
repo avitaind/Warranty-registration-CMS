@@ -20,8 +20,8 @@
 
                             <div class="col-lg-12">
                                 @include('component.alert')
-                                {{-- @if (isset($checkdata) != 'In Processing') --}}
-                                @if ($checkdata->status != 'In Processing')
+                                @if (isset($checkdata) != 'In Processing')
+                                {{-- @if ($checkdata->status != 'In Processing') --}}
                                     <div class="ec-vendor-upload-detail">
                                         <form class="row g-3" method="POST"
                                             action="{{ route('complaintRegistration.store') }}"
