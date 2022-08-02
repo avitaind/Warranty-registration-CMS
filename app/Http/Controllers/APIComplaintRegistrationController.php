@@ -124,6 +124,7 @@ class APIComplaintRegistrationController extends Controller
         // dd($request->all());
         try {
             $picture = "";
+            // $pic = "";
             $imageNameArr = [];
             $checkdata = ComplaintRegistration::latest()->first();
             // dd($checkdata);
@@ -155,7 +156,8 @@ class APIComplaintRegistrationController extends Controller
                 'pinCode'              => 'required',
                 'issue'                => 'required',
                 // 'ticketID'             => 'required',
-                'purchaseInvoice.*'      => 'required|mimes:png,jpg,jpeg,pdf|max:2048',
+                // 'purchaseInvoice'      => 'required',
+                'purchaseInvoice'      => 'required|mimes:png,jpg,jpeg,pdf|max:2048',
             );
 
             $validator = Validator::make($request->all(), $rules);
@@ -164,32 +166,25 @@ class APIComplaintRegistrationController extends Controller
                 return $validator->errors();
             } else {
 
-                // if ($request->hasFile('purchaseInvoice')) {
-                //     $picture = array();
-                //     $imageNameArr = [];
-                //     foreach ($request->purchaseInvoice as $file) {
-                //         // you can also use the original name
-                //         $image = $file->getClientOriginalName();
-                //         $imageNameArr[] = $image;
-                //         // Upload file to public path in images directory
-                //         $fileName = $file->move(date('d-m-Y') . '-Complaint-Registration', $image);
-                //         // Database operation
-                //         $array[] = $fileName;
-                //         $picture = implode(",", $array); //Image separated by comma
-                //         // dd($picture);
-                //     }
-                // }
-
                 if ($request->hasFile('purchaseInvoice')) {
-                    $image = $request->file('purchaseInvoice');
-                    $name = $image->getClientOriginalName();
-                    $destinationPath = public_path(date('d-m-Y') . '-Complaint-Registration');
-                    $image->move($destinationPath, $name);
+                    $picture = array();
+                    $imageNameArr = [];
+                    // foreach ($request->purchaseInvoice as $file) {
+                        // you can also use the original name
+                        $file = $request->purchaseInvoice;
+                        $image = $file->getClientOriginalName();
+                        $imageNameArr[] = $image;
+                        // Upload file to public path in images directory
+                        $fileName = $file->move(date('d-m-Y') . '-Complaint-Registration', $image);
+                        // Database operation
+                        $array[] = $fileName;
+                        $picture = implode(",", $array); //Image separated by comma
+                        // dd($picture);
+
+                        // dd($picture);
+                    // }
                 }
 
-                // $fileName = time() . '.' . $request->purchaseInvoice->extension();
-
-                // $request->purchaseInvoice->move(public_path('Complaint-Registration'), $fileName);
 
                 $productExist = \App\Models\product_number::where('product_number', $request->productPartNo)->first();
 
@@ -206,6 +201,8 @@ class APIComplaintRegistrationController extends Controller
                 }
 
                 if ($resultant == true) {
+                    // dd($picture);
+
 
                     $complRegis                    = new ComplaintRegistration();
                     $complRegis->name              = $request->name;
@@ -222,13 +219,14 @@ class APIComplaintRegistrationController extends Controller
                     $complRegis->state             = $request->state;
                     $complRegis->pinCode           = $request->pinCode;
                     $complRegis->issue             = $request->issue;
+                    // $complRegis->purchaseInvoice   = $pic;
                     $complRegis->purchaseInvoice   = $picture;
                     $complRegis->ticketID          = $ticketID;
 
 
                     if($request->purchaseInvoice == NULL)
                     {
-                        return ["result" => "Complaint is Already Registered"];
+                        return ["result" => "The purchase invoice field is required...!!!"];
                     }
 
                     // dd($complRegis);
