@@ -6,6 +6,7 @@ use App\Models\ComplaintRegistration;
 use Illuminate\Http\Request;
 use Illuminate\Database\Eloquent\ModelNotFoundException;
 use Illuminate\Support\Facades\Validator;
+use phpDocumentor\Reflection\Types\Null_;
 
 class APIComplaintRegistrationController extends Controller
 {
@@ -124,9 +125,6 @@ class APIComplaintRegistrationController extends Controller
         try {
             $picture = "";
             $imageNameArr = [];
-
-
-
             $checkdata = ComplaintRegistration::latest()->first();
             // dd($checkdata);
 
@@ -157,7 +155,7 @@ class APIComplaintRegistrationController extends Controller
                 'pinCode'              => 'required',
                 'issue'                => 'required',
                 // 'ticketID'             => 'required',
-                'purchaseInvoice'      => 'required|mimes:png,jpg,jpeg,pdf|max:2048',
+                'purchaseInvoice.*'      => 'required|mimes:png,jpg,jpeg,pdf|max:2048',
             );
 
             $validator = Validator::make($request->all(), $rules);
@@ -226,6 +224,12 @@ class APIComplaintRegistrationController extends Controller
                     $complRegis->issue             = $request->issue;
                     $complRegis->purchaseInvoice   = $picture;
                     $complRegis->ticketID          = $ticketID;
+
+
+                    if($request->purchaseInvoice == NULL)
+                    {
+                        return ["result" => "Complaint is Already Registered"];
+                    }
 
                     // dd($complRegis);
 
