@@ -3,6 +3,7 @@
 namespace App\Mail;
 
 use App\Models\Certificate;
+use App\Models\ComplaintRegistration;
 use Illuminate\Bus\Queueable;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Mail\Mailable;
@@ -31,6 +32,8 @@ class AppMailer
         $this->mailer = $mailer;
     }
 
+    // Warranty Extend Information
+
     public function sendWarrantyExtendInformation($user, Warranty_extend $warrantyExtend)
     {
         $this->to =  $warrantyExtend->user_email;
@@ -40,12 +43,25 @@ class AppMailer
         return $this->deliver();
     }
 
+    // Warranty Registration Information
+
     public function sendWarrantyRegistrationInformation($user, Warranty_registration $WarrantyRegistration)
     {
         $this->to =  $WarrantyRegistration->user_email;
         $this->subject = "Product Warranty Registration Info";
         $this->view = 'emails.WarrantyRegistration';
         $this->data = compact('user', 'WarrantyRegistration');
+        return $this->deliver();
+    }
+
+    // Warranty Registration Information
+
+    public function sendcomplaintRegistrationInformation($user, ComplaintRegistration $complaintRegistration)
+    {
+        $this->to =  $complaintRegistration->email;
+        $this->subject = "Complaint Registration Registration Info";
+        $this->view = 'emails.complaintRegistration';
+        $this->data = compact('user', 'complaintRegistration');
         return $this->deliver();
     }
 

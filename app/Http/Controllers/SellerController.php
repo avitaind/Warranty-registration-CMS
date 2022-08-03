@@ -457,7 +457,7 @@ class SellerController extends Controller
                     $imageNameArr[] = $image;
                     // Upload file to public path in images directory
                     $fileName = $file->move(date('d-m-Y') . '-Out-Sales', $image);
-                    // Database operation
+                    // Database operation   l ,
                     $array[] = $fileName;
                     $picture = implode(",", $array); //Image separated by comma
                     // dd($picture);

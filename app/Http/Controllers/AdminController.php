@@ -156,7 +156,7 @@ class AdminController extends Controller
                 ->join('product_models', 'product_models.products_id', '=', 'products.id')
                 ->join('product_numbers', 'product_numbers.product_model_id', '=', 'product_models.id')
                 ->select('product_types.name as type_name', 'products.name', 'product_models.model_number', 'product_numbers.product_number', 'product_numbers.titleName')->get();
-            $warranty_registration = Warranty_registration::all();
+            $warranty_registration = Warranty_registration::orderBy('created_at', 'DESC')->get();
         } catch (ModelNotFoundException $exception) {
             return back()->withError($exception->getMessage())->withInput();
         }
@@ -400,7 +400,7 @@ class AdminController extends Controller
                 'postcode'         => 'required',
                 'country'          => 'required',
                 'state'            => 'required',
-                'pic'              => 'required',
+                // 'pic'              => 'required',
             ]);
 
             if ($request->hasFile('pic')) {

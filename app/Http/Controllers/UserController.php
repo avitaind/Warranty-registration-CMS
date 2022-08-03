@@ -139,7 +139,13 @@ class UserController extends Controller
             $productRegister->user_phone              = $request->user_phone;
             $productRegister->purchase_invoice        = $picture;
 
+            // dd($picture);
+
             // dd($productRegister);
+
+            if ($request->purchase_invoice == NULL) {
+                return redirect()->back()->with("error", "The purchase invoice field is required...!!!");
+            }
 
 
             //  $serialNumber = \App\Models\product_number::where('serial_number', $request->serial_number)->first();
@@ -180,7 +186,7 @@ class UserController extends Controller
 
             $get = \App\Models\Warranty_registration::latest()->first();
 
-            // $mailer->sendWarrantyRegistrationInformation(Auth::user(), $get);
+            $mailer->sendWarrantyRegistrationInformation(Auth::user(), $get);
 
 
             if ($result) {
@@ -477,7 +483,7 @@ class UserController extends Controller
 
     // Complaint Registration Save
 
-    public function complaintRegistrationSave(Request $request)
+    public function complaintRegistrationSave(Request $request, AppMailer $mailer)
     {
         // dd($request->all());
         try {
@@ -515,6 +521,10 @@ class UserController extends Controller
                     $picture = implode(",", $array); //Image separated by comma
                     // dd($picture);
                 }
+            }
+
+            if ($request->purchaseInvoice == NULL) {
+                return redirect()->back()->with("error", "The purchase invoice field is required...!!!");
             }
 
             // $fileName = time() . '.' . $request->purchaseInvoice->extension();
@@ -561,6 +571,11 @@ class UserController extends Controller
                 } else {
                     $result = $complRegis->save();
                 }
+
+                $get = \App\Models\ComplaintRegistration::latest()->first();
+
+                $mailer->sendcomplaintRegistrationInformation(Auth::user(), $get);
+
                 if ($result) {
                     return redirect()->back()->with("success", "Product is Registered Now !");
                 }
