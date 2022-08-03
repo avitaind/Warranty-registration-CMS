@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Exports\ComplaintRegistrationExport;
 use App\Exports\ExportWarrantyRegister;
 use App\Exports\ExportWarrantyExtend;
 use App\Exports\UsersExport;
@@ -77,6 +78,19 @@ class AdminController extends Controller
         }
         return view('admin.complaintRegistration', ['complaintRegistration' => $complaintRegistration]);
     }
+
+    // Export All Complaint Registration
+
+    public function exportAllComplaintRegistration()
+    {
+        try {
+            return Excel::download(new ComplaintRegistrationExport, 'All-Complaint-Registration-Collection.xlsx');
+        } catch (ModelNotFoundException $exception) {
+            return back()->withError($exception->getMessage())->withInput();
+        }
+        return redirect()->back()->with("error", "Something is wrong !");
+    }
+
 
     // Product Type Register
 

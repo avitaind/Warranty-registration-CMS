@@ -22,8 +22,8 @@
                     </p>
                 </div>
                 <div>
-                    {{-- <a href="{{ route('export-warranty-registration') }}" class="btn btn-primary"> Export Complaint
-                        Registration</a> --}}
+                    <a href="{{ route('exportAllComplaintRegistration') }}" class="btn btn-primary"> Export Complaint
+                        Registration</a>
                 </div>
             </div>
             <div class="row">

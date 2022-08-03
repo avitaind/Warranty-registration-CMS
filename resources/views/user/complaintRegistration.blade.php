@@ -35,9 +35,9 @@
                                                         {{-- Ticket ID --}}
                                                         <div class="col-md-12 col-lg-12">
                                                             <div class="mb-3">
-                                                                <label for="ticketID" class="form-label">Ticket ID <span
+                                                                <label for="ticketID"  hidden class="form-label">Ticket ID <span
                                                                         class="required">*</span></label>
-                                                                <input type="text" class="form-select1" id="ticketID"
+                                                                <input type="text" hidden class="form-select1" id="ticketID"
                                                                     aria-describedby="ticketIDHelp" name="ticketID"
                                                                     value="{{ $ticketID }}" readonly>
                                                             </div>
@@ -46,9 +46,9 @@
                                                         {{-- Status --}}
                                                         <div class="col-md-12 col-lg-12">
                                                             <div class="mb-3">
-                                                                <label for="status" class="form-label">Status <span
+                                                                <label for="status" hidden class="form-label">Status <span
                                                                         class="required">*</span></label>
-                                                                <input type="text" class="form-select1" id="status"
+                                                                <input type="text" hidden class="form-select1" id="status"
                                                                     aria-describedby="statusHelp" name="status"
                                                                     value="In Processing" readonly>
                                                             </div>
@@ -98,7 +98,7 @@
                                                         {{-- Product Number --}}
                                                         <div class="col-md-6 col-md-6">
                                                             <div class="mb-3">
-                                                                <label for="productPartNo" class="form-label">Product Number
+                                                                <label for="productPartNo" class="form-label">Part Number
                                                                     <span class="required">*</span></label>
                                                                 <input type="text"
                                                                     class="form-select1 @error('productPartNo') is-invalid @enderror"
@@ -116,8 +116,7 @@
                                                         {{-- Product Serial Number --}}
                                                         <div class="col-md-6 col-md-6">
                                                             <div class="mb-3">
-                                                                <label for="productSerialNo" class="form-label">Product
-                                                                    Serial
+                                                                <label for="productSerialNo" class="form-label">Serial
                                                                     Number <span class="required">*</span></label>
                                                                 <input type="text"
                                                                     class="form-select1 @error('productSerialNo') is-invalid @enderror"

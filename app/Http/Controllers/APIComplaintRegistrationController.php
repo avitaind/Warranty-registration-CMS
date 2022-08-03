@@ -6,7 +6,6 @@ use App\Models\ComplaintRegistration;
 use Illuminate\Http\Request;
 use Illuminate\Database\Eloquent\ModelNotFoundException;
 use Illuminate\Support\Facades\Validator;
-use phpDocumentor\Reflection\Types\Null_;
 
 class APIComplaintRegistrationController extends Controller
 {
@@ -132,12 +131,12 @@ class APIComplaintRegistrationController extends Controller
             if (isset($checkdata) && $checkdata) {
                 $incid = $checkdata->id + 1;
                 $num_padded = sprintf("%03d", $incid);
-                $ticketID = "Complaint ID-" . $num_padded;
+                $ticketID = "NOVITA ID-" . $num_padded;
                 // dd($ticketID);
             } else {
                 $incid = 1;
                 $num_padded = sprintf("%03d", $incid);
-                $ticketID = "Complaint ID-" . $num_padded;
+                $ticketID = "NOVITA ID-" . $num_padded;
                 // dd($ticketID);
             }
 

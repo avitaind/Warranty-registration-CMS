@@ -21,7 +21,7 @@
                         <span><i class="mdi mdi-chevron-right"></i></span>All Customers
                     </p>
                 </div>
-                {{-- <a href="{{ route('all-customers') }}" class="btn btn-primary">Export Customers</a> --}}
+                <a href="{{ route('all-customers') }}" class="btn btn-primary">Export Customers</a>
             </div>
 
             <div class="row">

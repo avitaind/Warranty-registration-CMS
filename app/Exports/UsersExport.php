@@ -31,6 +31,6 @@ class UsersExport implements FromCollection, WithHeadings
     public function collection()
     {
         // return DB::table('users')->where('is_admin', 0)->get();
-        return User::select("id", "name", "last_name", "phone", "email", "address", "gender", "postcode", "country", "state")->where('is_admin', 0)->get();
+        return User::select("id", "name", "last_name", "phone", "email", "address", "gender", "postcode", "country", "state")->get();
     }
 }

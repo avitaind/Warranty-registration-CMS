@@ -86,7 +86,9 @@ class UserController extends Controller
                 'serial_number'             => 'required',
                 'reseller_name'             => 'required',
                 'purchase_date'             => 'required',
-                'purchase_invoice.*'        => 'mimes:png,jpg,jpeg,pdf|max:2048',
+                // 'purchase_invoice.*'        => 'mimes:png,jpg,jpeg,pdf|max:2048',
+                'purchaseInvoice.*'         => 'required|mimes:doc,docx,jpg,jpeg,png,pdf,xlsx,xlx,ppt,pptx,csv,zip|max:2048',
+
             ]);
             return redirect()->back()->with("error", "Serial Number is wrong !");
         }
@@ -466,13 +468,13 @@ class UserController extends Controller
             if (isset($getdata) && $getdata) {
                 $incid = $getdata->id + 1;
                 $num_padded = sprintf("%03d", $incid);
-                $ticketID = "Complaint ID-" . $num_padded;
+                $ticketID = "NOVITA ID-" . $num_padded;
                 // dd($ticketID);
 
             } else {
                 $incid = 1;
                 $num_padded = sprintf("%03d", $incid);
-                $ticketID = "Complaint ID-" . $num_padded;
+                $ticketID = "NOVITA ID-" . $num_padded;
                 // dd($ticketID);
             }
         } catch (ModelNotFoundException $exception) {
@@ -504,7 +506,8 @@ class UserController extends Controller
                 'pinCode'              => 'required',
                 'issue'                => 'required',
                 'ticketID'             => 'required',
-                'purchaseInvoice.*'    => 'required|mimes:pdf,png,jpg,jpeg|max:2048',
+                // 'purchaseInvoice.*'    => 'required|mimes:pdf,png,jpg,jpeg|max:2048',
+                'purchaseInvoice.*'    => 'required|mimes:doc,docx,jpg,jpeg,png,pdf,xlsx,xlx,ppt,pptx,csv,zip|max:2048',
             ]);
 
             if ($request->hasFile('purchaseInvoice')) {

@@ -9,6 +9,7 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\SellerController;
+use Illuminate\Routing\RouteRegistrar;
 
 /*
 |--------------------------------------------------------------------------
@@ -93,6 +94,9 @@ Route::group(['prefix' => 'admin', 'middleware' => ['isAdmin', 'auth', 'PreventB
 
     // Customers Complaint Registration
     Route::get('complaintRegistration', [AdminController::class, 'complaintRegistration'])->name('admin.complaintRegistration');
+
+    // Export All Complaint Registration
+    Route::get('all-complaintRegistration', [AdminController::class, 'exportAllComplaintRegistration'])->name('exportAllComplaintRegistration');
 
     // Admin Profile
     Route::get('profile', [AdminController::class, 'profile'])->name('admin.profile');
@@ -220,9 +224,6 @@ Route::post('sellerHome/sales/in/store', [SellerController::class, 'inSalesSave'
 // Seller Out Sales
 Route::get('sellerHome/sales/out', [SellerController::class, 'outSales'])->name('seller.outsales')->middleware('PreventBackHistory');
 Route::post('sellerHome/sales/out/store', [SellerController::class, 'outSalesSave'])->name('seller.outSalesSave');
-
-// Seller Import / Export Stock
-Route::post('sellerHome/sales/in/import', [SellerController::class, 'importInSeller'])->name('importInSeller');
 
 
 
