@@ -493,7 +493,7 @@ class UserController extends Controller
                 'name'                 => 'required',
                 'status'               => 'required',
                 'email'                => 'required',
-                'phone'                => 'required|unique:users,phone',
+                'phone'                => 'required|unique',
                 'productSerialNo'      => 'required',
                 'productPartNo'        => 'required',
                 'purchaseDate'         => 'required',
