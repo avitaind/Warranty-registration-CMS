@@ -3,7 +3,7 @@
     <nav class="navbar navbar-static-top navbar-expand-lg">
         <!-- Sidebar toggle button -->
         <button id="sidebar-toggler" class="sidebar-toggle"></button>
-        <img class="ec-brand-name text-truncate hidden-md-up" src="{{ asset('assets/img/logo/AVITA-logo.png ') }}"
+        <img class="ec-brand-name text-truncate hidden-md-up" src="{{ asset('assets/img/logo/NOVITA-Log-0.png ') }}"
                             alt="" />
         <!-- search form -->
         <div class="search-form d-lg-inline-block">

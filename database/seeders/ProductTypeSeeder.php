@@ -23,17 +23,17 @@ class ProductTypeSeeder extends Seeder
                 "updated_at"    => '2022-03-18 07:17:09',
             ],
             [
-                "name"          => 'Smart Devices',
+                "name"          => 'Smart Watch',
                 "created_at"    => '2022-03-18 07:17:09',
                 "updated_at"    => '2022-03-18 07:17:09',
             ],
             [
-                "name"          => 'Accessories',
+                "name"          => 'Tablet',
                 "created_at"    => '2022-03-18 07:17:09',
                 "updated_at"    => '2022-03-18 07:17:09',
             ],
             [
-                "name"          => 'Convertible',
+                "name"          => 'TWS',
                 "created_at"    => '2022-03-18 07:17:09',
                 "updated_at"    => '2022-03-18 07:17:09',
             ],

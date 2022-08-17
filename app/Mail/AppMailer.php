@@ -20,7 +20,7 @@ class AppMailer
 
     public $mailer;
     public $fromAddress = 'bhavdeep.bharadwaj@ashplan.media';
-    public $fromName = 'AVITA India';
+    public $fromName = 'NOVITA India';
     public $to;
     public $subject;
     public $view;
@@ -62,6 +62,28 @@ class AppMailer
         $this->subject = "Complaint Registration Registration Info";
         $this->view = 'emails.complaintRegistration';
         $this->data = compact('user', 'complaintRegistration');
+        return $this->deliver();
+    }
+
+    // Complaint Registration Information Solved
+
+    public function sendcomplaintRegistrationInformationSolved(ComplaintRegistration $complaintRegistration)
+    {
+        $this->to =  $complaintRegistration->email;
+        $this->subject = "NOVITA | Complaint | Registration | Solved";
+        $this->view = 'emails.complaintRegistrationSolved';
+        $this->data = compact('complaintRegistration');
+        return $this->deliver();
+    }
+
+    // Complaint Registration Information Denied
+
+    public function sendcomplaintRegistrationInformationDenied(ComplaintRegistration $complaintRegistration)
+    {
+        $this->to =  $complaintRegistration->email;
+        $this->subject = "NOVITA | Complaint | Registration | Rejected";
+        $this->view = 'emails.complaintRegistrationDenied';
+        $this->data = compact('complaintRegistration');
         return $this->deliver();
     }
 

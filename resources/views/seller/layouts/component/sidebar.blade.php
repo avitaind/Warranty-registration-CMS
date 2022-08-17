@@ -3,22 +3,22 @@
     <div id="sidebar" class="sidebar ec-sidebar-footer">
 
         {{-- <div class="m-3">
-            <a href="/" title="AVITA India">
-                <img class="" src="{{ asset('assets/img/logo/AVITA-logo.png ') }}" alt="" />
+            <a href="/" title="NOVITA India">
+                <img class="" src="{{ asset('assets/img/logo/NOVITA-logo.png ') }}" alt="" />
             </a>
         </div>
 
         <div class="ec-brand">
-            <a href="/" title="AVITA India">
-                <img class="ec-brand-icon" src="{{ asset('assets/img/logo/AVITA-logo.png ') }}" alt="" />
-                <span class="ec-brand-name text-truncate">AVITA</span>
+            <a href="/" title="NOVITA India">
+                <img class="ec-brand-icon" src="{{ asset('assets/img/logo/NOVITA-logo.png ') }}" alt="" />
+                <span class="ec-brand-name text-truncate">NOVITA</span>
             </a>
         </div> --}}
 
         <div class="ec-brand">
-            <a href="/" title="AVITA India">
-                {{-- <img class="ec-brand-icon hidden-md-up" src="{{ asset('assets/img/logo/AVITA-logo.png ') }}" alt="" /> --}}
-                <img class="ec-brand-name text-truncate" src="{{ asset('assets/img/logo/AVITA-logo.png ') }}"
+            <a href="/" title="NOVITA India">
+                {{-- <img class="ec-brand-icon hidden-md-up" src="{{ asset('assets/img/logo/NOVITA-logo.png ') }}" alt="" /> --}}
+                <img class="ec-brand-name text-truncate" src="{{ asset('assets/img/logo/NOVITA-logo.png ') }}"
                     alt="" />
 
             </a>

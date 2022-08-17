@@ -22,8 +22,7 @@
                     </p>
                 </div>
                 <div>
-                    {{-- <a href="{{ route('export-warranty-registration') }}" class="btn btn-primary"> Export Warranty
-                        Registration</a> --}}
+                    {{-- <a href="{{ route('export-warranty-registration') }}" class="btn btn-primary"> Export File</a> --}}
                 </div>
             </div>
             <div class="row">

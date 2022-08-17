@@ -41,7 +41,7 @@
                                             <p class="product-desc text-start">{{ $data->product_configuration }}</p>
                                             <div class="col-6 pt-4">
                                                 <h6 class="text-uppercase text" style="color: #662D91">Serial Number</h6>
-                                                <h6 class="text-uppercase text" style="color: #662D91">Purchase From</h6>
+                                                <h6 class="text-uppercase text" style="color: #662D91">Reseller Name</h6>
                                                 <h6 class="text-uppercase text" style="color: #662D91">Purchase Date</h6>
                                                 <h6 class="text-uppercase text" style="color: #662D91">Warranty Expiry</h6>
                                             </div>

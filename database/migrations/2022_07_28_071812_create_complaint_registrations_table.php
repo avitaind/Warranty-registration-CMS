@@ -16,18 +16,22 @@ class CreateComplaintRegistrationsTable extends Migration
         Schema::create('complaint_registrations', function (Blueprint $table) {
             $table->id();
             $table->string('ticketID')->unique();
-            $table->string('status')->default('In Processing');
+            $table->string('ticketOld')->nullable();
+            $table->string('status')->default('Pending For Review');
             $table->string('name');
-            $table->string('email')->unique();
-            $table->string('phone')->unique();
+            $table->string('email');
+            $table->string('phone');
             $table->string('productSerialNo');
             $table->string('productPartNo');
             $table->string('purchaseDate');
             $table->string('warrantyCheck');
-            $table->string('chanalPurchase');
+            $table->string('channelPurchase');
             $table->string('city');
             $table->string('state');
             $table->string('pinCode');
+            $table->string('comment')->nullable();
+            $table->string('priority')->nullable();
+            $table->text('address');
             $table->text('issue');
             $table->string('purchaseInvoice');
             $table->timestamps();

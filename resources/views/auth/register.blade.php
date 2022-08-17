@@ -11,16 +11,17 @@
             <div class="col-lg-6 col-md-12 col-sm-12">
                 {{-- <div class="card"> --}}
                 <div class="">
-                    <div class="">
-                        <div class="ec-brand">
-                            <a href="/" title="AVITA India">
-                                <img class="ec-brand-icon " src="{{ asset('assets/img/logo/AVITA-logo.png ') }}" alt="" />
-                            </a>
-                        </div>
+
+                    <div class=" align-content-center justify-content-sm-center text-center pt-2">
+                        <a href="/" title="NOVITA India" class=" text-center">
+                            <img class="" src="{{ asset('assets/img/logo/NOVITA-logo.png ') }}"
+                                style="" alt="NOVITA-INDIA" />
+                        </a>
                     </div>
-                    <div class="card-body p-5">
+
+                    <div class="card-body">
                         <h4 class="text-dark mb-5">Join Now</h4>
-                        <div class="text-dark mb-5">Welcome, AVITA Member! Once you have filled out the following
+                        <div class="text-dark mb-5">Welcome, NOVITA Member! Once you have filled out the following
                             information, you can complete your registration. The information you provide will not be used in
                             any other way, so feel secure as you fill in your information.</div>
 
@@ -28,9 +29,9 @@
                             @csrf
                             <div class="row">
                                 <div class="form-group col-md-12 mb-4">
-                                    <input type="text" class="form-select1 @error('name') is-invalid @enderror" id="name"
-                                        name="name" placeholder="Name" value="{{ old('name') }}" autocomplete="name"
-                                        autofocus>
+                                    <input type="text" class="form-select1 @error('name') is-invalid @enderror"
+                                        id="name" name="name" placeholder="Name" value="{{ old('name') }}"
+                                        autocomplete="name" autofocus>
                                     @error('name')
                                         <span class="invalid-feedback" role="alert">
                                             <strong>{{ $message }}</strong>
@@ -50,8 +51,8 @@
                                 </div>
 
                                 <div class="form-group col-md-12 mb-4">
-                                    <input type="email" class="form-select1 @error('email') is-invalid @enderror" id="email"
-                                        name="email" placeholder="Email" value="{{ old('email') }}"
+                                    <input type="email" class="form-select1 @error('email') is-invalid @enderror"
+                                        id="email" name="email" placeholder="Email" value="{{ old('email') }}"
                                         autocomplete="email">
                                     @error('email')
                                         <span class="invalid-feedback" role="alert">
@@ -61,8 +62,8 @@
                                 </div>
 
                                 <div class="form-group col-md-12 mb-4">
-                                    <input type="tel" class="form-select1 @error('phone') is-invalid @enderror" id="phone"
-                                        name="phone" placeholder="Phone Number" value="{{ old('phone') }}"
+                                    <input type="tel" class="form-select1 @error('phone') is-invalid @enderror"
+                                        id="phone" name="phone" placeholder="Phone Number" value="{{ old('phone') }}"
                                         autocomplete="phone">
                                     @error('phone')
                                         <span class="invalid-feedback" role="alert">
@@ -112,19 +113,19 @@
                                     <div class="d-inline-block mr-3">
                                         <input class="form-check-input" type="checkbox" name="remember" id="remember"
                                             {{ old('remember') ? 'checked' : '' }}>
-                                        I agree to the AVITA's Terms of Use Notice and AVITA's Privacy Policy.
+                                        I agree to the NOVITA's Terms of Use Notice and NOVITA's Privacy Policy.
                                     </div>
 
                                     <div class="d-inline-block mr-3">
                                         <input class="form-check-input" type="checkbox" name="remember" id="remember"
                                             {{ old('remember') ? 'checked' : '' }}>
-                                        Keep me up to date by eDMs with AVITA news, latest product and service information.
+                                        Keep me up to date by eDMs with NOVITA news, latest product and service information.
                                     </div>
 
                                     <button type="submit" class="btn btn-primary btn-block mb-4 mt-4">Register</button>
 
                                     <p class="sign-upp">Already have an account?
-                                        <a class="text-blue" href="{{ route('login') }}">Login</a>
+                                        <a class="text-blue" href="{{ route('login') }}">Log In</a>
                                     </p>
                                 </div>
                             </div>

@@ -21,6 +21,7 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Database\Eloquent\ModelNotFoundException;
+use Illuminate\Support\Facades\Response;
 use Barryvdh\DomPDF\Facade as PDF;
 
 use DateTime;
@@ -77,6 +78,44 @@ class AdminController extends Controller
             return back()->withError($exception->getMessage())->withInput();
         }
         return view('admin.complaintRegistration', ['complaintRegistration' => $complaintRegistration]);
+    }
+
+    // Customers Complaint Registration Updated
+
+    public function complaintRegistrationUpdated(Request $request, AppMailer $mailer)
+    {
+        // dd($request->all());
+        try {
+            $result = ComplaintRegistration::where('ticketID', $request->ticketID)->update(['status' => $request->status]);
+
+            if ($request->status == 'Solved') {
+                $get = \App\Models\ComplaintRegistration::where('ticketID', $request->ticketID)->first();
+                // dd($get);
+                $mailer->sendcomplaintRegistrationInformationSolved($get);
+            }
+
+            if ($request->status == 'Denied') {
+                $get = \App\Models\ComplaintRegistration::where('ticketID', $request->ticketID)->first();
+                // dd($get);
+                $mailer->sendcomplaintRegistrationInformationDenied($get);
+            }
+
+            if ($result == true) {
+                return redirect()->back()->with("success", "Status Will Updated $request->status & Ticket ID $request->ticketID");
+            }
+        } catch (ModelNotFoundException $exception) {
+            return back()->withError($exception->getMessage())->withInput();
+        }
+    }
+
+    // Customers Complaint Registration PopUP Form
+
+    public function popUpComplaintRegistration(Request $request)
+    {
+        // dd($request->all());
+        $complaintRegistration = ComplaintRegistration::where('ticketID', $request->ticketid)->first();
+        // dd($complaintRegistration);
+        return Response::json($complaintRegistration);
     }
 
     // Export All Complaint Registration

@@ -34,24 +34,53 @@
 
 @section('content')
     <!-- CONTENT WRAPPER -->
+    <!-- CONTENT WRAPPER -->
     <div class="container">
 
         <div class="row ">
-            <div class="col-lg-12 col-xl-3 col-md-2 "></div>
-            <div class="col-lg-12 col-xl-6 col-md-8 ">
+            <div class="col-lg-6 col-xl-6 login-panel my-lg-9 pt-100">
+                {{-- <img src="/assets/img/bg_welcome_background.jpg"> --}}
+                <h2 class="my-2 text-capitalize text-center">Become an AVITA Member</h2>
+                <div class=" text-lg-center  m-5 font-size-16 ">In addition to AVITA intermittently offering the hottest
+                    discounts, news on sales promotions, and the
+                    newest information on AVITA, you will also enjoy having excellent technological support services to
+                    promote your experience as a user of our products.</div>
+                <div class="align-content-center justify-content-sm-center text-center pt-50">
+                    @if (Route::has('login'))
+                        <div class="">
+                            @auth
+                                {{-- @if (Auth::user()->is_admin == 1)
+                                    <a href="{{ route('admin.home') }}" class="btn btn-primary">Admin Dashboard</a>
+                                @else
+                                    <a href="{{ route('profile') }}" class="btn btn-primary">Customer
+                                        Dashboard</a>
+                                @endif --}}
+                            @else
+                                @if (Route::has('register'))
+                                    <a href="{{ route('register') }}" class="btn btn-primary m-4">Sign Up Now</a>
+                                @endif
+                            @endauth
+                        </div>
+                    @endif
+                </div>
+
+            </div>
+
+            <div class="col-lg-6 col-xl-6 my-lg-9">
                 @auth
                     {{-- // user logged in --}}
-
-                    <div class=" align-content-center justify-content-sm-center text-center pt-2">
-                        <a href="/" title="NOVITA India" class=" text-center">
-                            <img class=" m-2" src="{{ asset('assets/img/logo/NOVITA-logo.png ') }}"
-                                style="padding-top: 200px" alt="NOVITA-INDIA" />
-                        </a>
-                    </div>
-                    <h2 class=" my-2 text-center text-capitalize p-3" style="color:#662d91">Member Already Logged-In</h2>
-                    <div class=" text-center m-1 font-size-16 pb-3" style="padding-top: 25px;">Back to redirect NOVITA Member
+                    <h2 class=" my-2 text-center text-capitalize" style="padding-top: 107px; color:#662d91">all ready Member
+                        Log In </h2>
+                    <div class=" text-center m-1 font-size-16" style="padding-top: 25px;">Back to redirect AVITA Member
                         Dashboard.</div>
                     <div class="align-content-center justify-content-sm-center text-center p-lg-9">
+
+                        {{-- @if (Auth::user()->is_admin == 1)
+                            <a href="{{ route('admin.home') }}" class="btn btn-primary">Admin Dashboard</a>
+                        @else
+                            <a href="{{ route('profile') }}" class="btn btn-primary">Customer
+                                Dashboard</a>
+                        @endif --}}
 
                         @if (Auth::user()->role == 1)
                             <a href="{{ route('admin.home') }}" class="btn btn-primary">Admin Dashboard</a>
@@ -65,17 +94,11 @@
                     </div>
                 @else
                     {{-- // not logged in --}}
-                    <div class=" align-content-center justify-content-sm-center text-center pt-2">
-                        <a href="/" title="NOVITA India" class=" text-center">
-                            <img class=" m-2" src="{{ asset('assets/img/logo/NOVITA-Logo.png ') }}"
-                                style="padding-top: 200px" alt="NOVITA-INDIA" />
-                        </a>
-                    </div>
-                    <h2 class="text-center p-5" style="color:#662d91">Account Login</h2>
-                    {{-- <div class=" text-center m-1 font-size-16" style="padding-top: 25px;">Enter your NOVITA Member account
+                    <h2 class=" my-2 text-center" style="padding-top: 107px; color:#662d91">Account Login</h2>
+                    <div class=" text-center m-1 font-size-16" style="padding-top: 25px;">Enter your AVITA Member account
                         and
-                        password to log in.</div> --}}
-                    <div class="align-content-center justify-content-sm-center text-center p-5">
+                        password to log in.</div>
+                    <div class="align-content-center justify-content-sm-center text-center p-lg-9">
 
                         @include('component.alert')
 
@@ -84,8 +107,8 @@
                             <div class="row">
                                 <div class="form-group col-md-12 mb-4">
                                     <input type="email" class="form-select1 @error('email') is-invalid @enderror"
-                                        id="email" name="email" value="{{ old('email') }}" autocomplete="email" autofocus
-                                        placeholder="Email">
+                                        id="email" name="email" value="{{ old('email') }}" autocomplete="email"
+                                        autofocus placeholder="Email">
                                     @error('email')
                                         <span class="invalid-feedback" role="alert">
                                             <strong>{{ $message }}</strong>
@@ -107,11 +130,14 @@
                                 </div>
 
                                 <div class="col-md-12">
-                                    <div class="d-flex  justify-content-between">
+                                    <div class="d-flex my-2 justify-content-between">
                                         <div class="d-inline-block mr-3">
+                                            {{-- <div class="control control-checkbox">Remember me --}}
+                                            {{-- <input type="checkbox" /> --}}
                                             <input class="form-check-input" type="checkbox" name="remember" id="remember"
                                                 {{ old('remember') ? 'checked' : '' }}>
-                                            Remember me
+                                            {{-- <div class="control-indicator"></div> --}}Remember me
+                                            {{-- </div> --}}
                                         </div>
 
                                         <div class="form-check">
@@ -120,29 +146,33 @@
                                                 Show Password
                                             </label>
                                         </div>
+
+
                                     </div>
 
+                                    <button type="submit" class="btn btn-primary btn-block mb-2 mt-4">Log In</button>
+                                    <p class=" text-center p-2">
+                                        @if (Route::has('password.request'))
+                                            <a class="text-blue text-center" href="{{ route('password.request') }}">
+                                                {{ __('Forgot Your Password?') }}
+                                            </a>
+                                        @endif
+                                    </p>
+
+                                    {{-- <p class="sign-upp">Don't have an account yet ?
+                                    <a class="text-blue" href="{{ route('register') }}">Register</a>
+                                </p> --}}
 
                                 </div>
-
                             </div>
-                            <button type="submit" class="btn btn-primary m-2">Log In</button>
-                            <a href="{{ route('register') }}" class="btn btn-primary m-2">Sign In</a>
-                            <p class=" text-center pt-3">
-                                @if (Route::has('password.request'))
-                                    <a class="text-blue text-center" href="{{ route('password.request') }}">
-                                        {{ __('Forgot Your Password?') }}
-                                    </a>
-                                @endif
-                            </p>
                         </form>
                     </div>
                 @endauth
 
             </div>
-            <div class="col-lg-12 col-xl-3 col-md-2 "></div>
         </div>
     </div>
+    <!-- End Content Wrapper -->
     <!-- End CONTENT WRAPPER -->
 @endsection
 

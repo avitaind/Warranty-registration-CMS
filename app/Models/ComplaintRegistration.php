@@ -11,6 +11,7 @@ class ComplaintRegistration extends Model
 
     protected $fillable = [
         'ticketID',
+        'ticketOld',
         'name',
         'email',
         'phone',
@@ -18,12 +19,14 @@ class ComplaintRegistration extends Model
         'productPartNo',
         'purchaseDate',
         'warrantyCheck',
-        'chanalPurchase',
+        'channelPurchase',
         'city',
         'state',
         'pinCode',
+        'address',
+        'priority',
         'issue',
         'purchaseInvoice',
-        'status'
+        'status',
     ];
 }

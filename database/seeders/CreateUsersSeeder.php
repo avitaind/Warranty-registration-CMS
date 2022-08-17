@@ -19,7 +19,7 @@ class CreateUsersSeeder extends Seeder
             [
                'name'           =>'Admin',
                'last_name'      =>'Developer',
-               'email'          =>'admin@avita.com',
+               'email'          =>'admin@novita.com',
                'phone'          =>'9876543211',
                 'is_admin'      =>'1',
                 'role'          =>'1',
@@ -27,8 +27,8 @@ class CreateUsersSeeder extends Seeder
             ],
             [
                 'name'           =>'Seller',
-                'last_name'      =>'Avita',
-                'email'          =>'seller@avita.com',
+                'last_name'      =>'NOVITA',
+                'email'          =>'seller@novita.com',
                 'phone'          =>'9876543000',
                  'is_admin'      =>'2',
                  'role'          =>'2',
@@ -36,8 +36,8 @@ class CreateUsersSeeder extends Seeder
             ],
             [
                 'name'           =>'Seller',
-                'last_name'      =>'Avita',
-                'email'          =>'seller1@avita.com',
+                'last_name'      =>'NOVITA',
+                'email'          =>'seller1@novita.com',
                 'phone'          =>'9876000000',
                  'is_admin'      =>'2',
                  'role'          =>'2',
@@ -45,8 +45,8 @@ class CreateUsersSeeder extends Seeder
             ],
             [
                'name'           =>'User',
-               'last_name'      =>'Avita',
-               'email'          =>'user@avita.com',
+               'last_name'      =>'NOVITA',
+               'email'          =>'user@novita.com',
                'phone'          =>'9876543210',
                 'is_admin'      =>'0',
                 'role'          =>'0',

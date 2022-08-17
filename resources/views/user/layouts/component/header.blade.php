@@ -3,17 +3,13 @@
     <nav class="navbar navbar-static-top navbar-expand-lg">
         <!-- Sidebar toggle button -->
         <button id="sidebar-toggler" class="sidebar-toggle"></button>
-        <img class="ec-brand-name text-truncate hidden-md-up" src="{{ asset('assets/img/logo/AVITA-logo.png ') }}"
-                            alt="" />
+        <img class="ec-brand-name text-truncate hidden-md-up" src="{{ asset('assets/img/logo/NOVITA-Log-0.png ') }}"
+            alt="NOVITA INDIA" />
         <!-- search form -->
         <div class="search-form d-lg-inline-block">
             <div class="input-group">
                 <input type="hidden" name="query" id="search-input" class="form-control" placeholder="search.."
                     autofocus autocomplete="off" />
-                {{-- <button type="hidden" name="search" id="search-btn" class="btn btn-flat">
-                        <i class="mdi mdi-magnify"></i>
-                    </button> --}}
-
             </div>
             <div id="search-results-container">
                 <ul id="search-results"></ul>
@@ -43,8 +39,7 @@
                                     <img src="{{ '/' . $ref }}" class="img-circle" alt="{{ $ref }}">
                                 @endforeach
                             @else
-                                <img src="{{ asset('assets/img/user/user.png ') }}" class="img-circle"
-                                    alt="User Image">
+                                <img src="{{ asset('assets/img/user/user.png ') }}" class="img-circle" alt="User Image">
                             @endif
                             <div class="d-inline-block">
                                 {{ Auth::user()->name }} <small class="pt-1">{{ Auth::user()->email }}</small>

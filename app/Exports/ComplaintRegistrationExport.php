@@ -35,6 +35,6 @@ class ComplaintRegistrationExport implements FromCollection, WithHeadings
     public function collection()
     {
         // return DB::table('users')->where('is_admin', 0)->get();
-        return ComplaintRegistration::select("ticketID", "status", "name", "email", "phone", "productSerialNo", "productPartNo", "purchaseDate", "warrantyCheck", "chanalPurchase", "city", "state", "pinCode", "issue")->get();
+        return ComplaintRegistration::select("ticketID", "status", "name", "email", "phone", "productSerialNo", "productPartNo", "purchaseDate", "warrantyCheck", "channelPurchase", "city", "state", "pinCode", "issue")->get();
     }
 }

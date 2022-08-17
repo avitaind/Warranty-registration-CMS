@@ -61,7 +61,7 @@
                                     </div>
                                 </div>
                                 <div class="form-group col-md-12">
-                                    <label>Type Confirm Password</label>
+                                    <label>Confirm Your Password</label>
                                     <div class="input-group" id="show_hide_password">
                                         <input class="form-select1 @error('confirm_password') is-invalid @enderror" type="password" name="confirm_password"
                                             id="password_confirmation">

@@ -10,11 +10,14 @@
     <title>@yield('title')</title>
 
     <!-- GOOGLE FONTS -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link
+    {{-- <link rel="preconnect" href="https://fonts.googleapis.com"> --}}
+    {{-- <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin> --}}
+
+    <link href="http://fonts.cdnfonts.com/css/orbitron" rel="stylesheet">
+
+    {{-- <link
         href="https://fonts.googleapis.com/css2?family=Montserrat:wght@200;300;400;500;600;700;800&family=Poppins:wght@300;400;500;600;700;800;900&family=Roboto:wght@400;500;700;900&display=swap"
-        rel="stylesheet">
+        rel="stylesheet"> --}}
 
     <link href="https://cdn.materialdesignicons.com/4.4.95/css/materialdesignicons.min.css" rel="stylesheet" />
 
@@ -22,13 +25,13 @@
     <link href="{{ asset('assets/plugins/daterangepicker/daterangepicker.css ') }}" rel="stylesheet">
     <link href="{{ asset('assets/plugins/simplebar/simplebar.css ') }}" rel="stylesheet" />
 
-    <!-- Ekka CSS -->
-    <link id="ekka-css" href="{{ asset('assets/css/ekka.css ') }}" rel="stylesheet" />
+    <!-- novita CSS -->
+    <link id="novita-css" href="{{ asset('assets/css/novita.css ') }}" rel="stylesheet" />
 
     @yield('css')
 
     <!-- FAVICON -->
-    <link href="{{ asset('assets/img/AVITA-logo.ico ') }}" rel="shortcut icon" />
+    <link href="{{ asset('assets/img/NOVITA-logo.ico ') }}" rel="NOVITA icon" />
 
     <style>
         @media (max-width:767px) {
@@ -94,8 +97,8 @@
     <!-- Option Switcher -->
     <script src="{{ asset('assets/plugins/options-sidebar/optionswitcher.js ') }}"></script>
 
-    <!-- Ekka Custom -->
-    <script src="{{ asset('assets/js/ekka.js ') }}"></script>
+    <!-- novita Custom -->
+    <script src="{{ asset('assets/js/novita.js ') }}"></script>
 
     @yield('js')
 

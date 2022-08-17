@@ -90,7 +90,7 @@ class UserController extends Controller
                 'purchaseInvoice.*'         => 'required|mimes:doc,docx,jpg,jpeg,png,pdf,xlsx,xlx,ppt,pptx,csv,zip|max:2048',
 
             ]);
-            return redirect()->back()->with("error", "Serial Number is wrong !");
+            return redirect()->back()->with("error", "Invalid Serial Number!");
         }
 
         try {
@@ -163,7 +163,7 @@ class UserController extends Controller
 
             if ($getdata > 0) {
                 # code...
-                return redirect()->back()->with("error", "Product is Already Registration.");
+                return redirect()->back()->with("error", "Product is already registered.");
             } else {
                 # code...
                 $result = $productRegister->save();
@@ -192,7 +192,7 @@ class UserController extends Controller
 
 
             if ($result) {
-                return redirect()->back()->with("success", "Product Detail is updated !");
+                return redirect()->back()->with("success", "Product Detail Updated Successfully!");
             }
         } catch (ModelNotFoundException $exception) {
             return redirect()->back()->with("error", "Something is wrong !");
@@ -360,7 +360,7 @@ class UserController extends Controller
             // dd($request->all());
             if (!(Hash::check($request->get('current_password'), Auth::user()->password))) {
                 // The passwords matches
-                return redirect()->back()->with("error", "Your current password does not matches with the password you provided. Please try again.");
+                return redirect()->back()->with("error", "Your current password does not match with the password you provided. Please try again.");
             }
             if (strcmp($request->get('current_password'), $request->get('new_password')) == 0) {
                 //Current password and new password are same
@@ -375,9 +375,9 @@ class UserController extends Controller
             $user = Auth::user();
             $user->password = bcrypt($request->get('new_password'));
             $user->save();
-            return redirect()->back()->with("success", "Password changed successfully !");
+            return redirect()->back()->with("success", "Password changed successfully!");
         } catch (ModelNotFoundException $exception) {
-            return redirect()->back()->with("error", "Something is wrong !");
+            return redirect()->back()->with("error", "Something is wrong..!");
         }
     }
 
@@ -443,9 +443,9 @@ class UserController extends Controller
                 "pic"           => $picture,
             ]);
 
-            return redirect()->back()->with("usersuccess", "User detail is updated !");
+            return redirect()->back()->with("usersuccess", "Profile Updated Successfully!");
         } catch (ModelNotFoundException $exception) {
-            return redirect()->back()->with("error", "Something is wrong !");
+            return redirect()->back()->with("error", "Something is wrong...!");
         }
     }
 
@@ -461,6 +461,9 @@ class UserController extends Controller
     public function complaintRegistration()
     {
         try {
+            $solved = ComplaintRegistration::where('email', Auth::user()->email)->where('status', 'Solved')->count();
+            $data = ComplaintRegistration::where('email', Auth::user()->email)->count();
+
             $checkdata = \App\Models\ComplaintRegistration::where('email', Auth::user()->email)->latest()->first();
             $getdata = \App\Models\ComplaintRegistration::latest()->first();
             // dd($checkdata);
@@ -480,7 +483,7 @@ class UserController extends Controller
         } catch (ModelNotFoundException $exception) {
             return back()->withError($exception->getMessage())->withInput();
         }
-        return view('user.complaintRegistration', ['ticketID' => $ticketID, 'checkdata' => $checkdata]);
+        return view('user.complaintRegistration', ['ticketID' => $ticketID, 'checkdata' => $checkdata, 'solved' => $solved, 'data' => $data]);
     }
 
     // Complaint Registration Save
@@ -496,16 +499,18 @@ class UserController extends Controller
                 'status'               => 'required',
                 'email'                => 'required',
                 'phone'                => 'required',
-                'productSerialNo'      => 'required',
-                'productPartNo'        => 'required',
+                'productSerialNo'      => 'required|regex:/^[a-zA-Z0-9]+$/',
+                'productPartNo'        => 'required|regex:/^[a-zA-Z0-9-]+$/',
                 'purchaseDate'         => 'required',
                 'warrantyCheck'        => 'required',
-                'chanalPurchase'       => 'required',
+                'channelPurchase'      => 'required',
                 'city'                 => 'required',
                 'state'                => 'required',
-                'pinCode'              => 'required',
+                'pinCode'              => 'required|regex:/^(?:\d{6})$/i',
                 'issue'                => 'required',
                 'ticketID'             => 'required',
+                'address'              => 'required',
+
                 // 'purchaseInvoice.*'    => 'required|mimes:pdf,png,jpg,jpeg|max:2048',
                 'purchaseInvoice.*'    => 'required|mimes:doc,docx,jpg,jpeg,png,pdf,xlsx,xlx,ppt,pptx,csv,zip|max:2048',
             ]);
@@ -526,6 +531,21 @@ class UserController extends Controller
                 }
             }
 
+            $priorityCheck = \App\Models\PriorityCode::where('code', $request->priority)->count();
+            // dd($priorityCheck);
+
+            // dd($request->priority);
+
+            if($priorityCheck == 0)
+            {
+                $request->priority = NULL;
+            // dd($request->priority);
+            }
+            else
+            {
+                $request->priority = $request->priority;
+            }
+
             if ($request->purchaseInvoice == NULL) {
                 return redirect()->back()->with("error", "The purchase invoice field is required...!!!");
             }
@@ -537,7 +557,7 @@ class UserController extends Controller
             $productExist = \App\Models\product_number::where('product_number', $request->productPartNo)->first();
 
             if (!isset($productExist)) {
-                return redirect()->back()->with("error", "Something is wrong in Product Number $request->productPartNo !!");
+                return redirect()->back()->with("error", "Invalid Product Number $request->productPartNo !!");
             }
 
             $allserialnumber = explode(',', $productExist['serial_number']);
@@ -559,18 +579,23 @@ class UserController extends Controller
                 $complRegis->productPartNo     = $request->productPartNo;
                 $complRegis->purchaseDate      = $request->purchaseDate;
                 $complRegis->warrantyCheck     = $request->warrantyCheck;
-                $complRegis->chanalPurchase    = $request->chanalPurchase;
+                $complRegis->channelPurchase   = $request->channelPurchase;
                 $complRegis->city              = $request->city;
                 $complRegis->state             = $request->state;
                 $complRegis->pinCode           = $request->pinCode;
                 $complRegis->issue             = $request->issue;
                 $complRegis->purchaseInvoice   = $picture;
                 $complRegis->ticketID          = $request->ticketID;
+                $complRegis->ticketOld         = $request->ticketOld;
+                $complRegis->priority          = $request->priority;
+                $complRegis->address           = $request->address;
+
+
 
                 $getdata = \App\Models\ComplaintRegistration::where('productSerialNo', $request->productSerialNo)->count();
 
                 if ($getdata > 0) {
-                    return redirect()->back()->with("error", "Product is Already Registered.");
+                    return redirect()->back()->with("error", "Complaint is already registered.");
                 } else {
                     $result = $complRegis->save();
                 }
@@ -580,10 +605,10 @@ class UserController extends Controller
                 $mailer->sendcomplaintRegistrationInformation(Auth::user(), $get);
 
                 if ($result) {
-                    return redirect()->back()->with("success", "Product is Registered Now !");
+                    return redirect()->back()->with("success", "Complaint Registered Now!");
                 }
             } else {
-                return redirect()->back()->with("error", "Something is wrong Serial Number  $request->productSerialNo !!");
+                return redirect()->back()->with("error", "Invalid Serial Number  $request->productSerialNo !!");
             }
         } catch (ModelNotFoundException $exception) {
             return redirect()->back()->with("error", "Something is wrong...!");

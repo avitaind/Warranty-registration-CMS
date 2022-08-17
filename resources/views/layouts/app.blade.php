@@ -15,8 +15,8 @@
 
 		<link href="https://cdn.materialdesignicons.com/4.4.95/css/materialdesignicons.min.css" rel="stylesheet" />
 
-		<!-- Ekka CSS -->
-		<link id="ekka-css" rel="stylesheet" href="{{ asset('assets/css/ekka.css ') }}" />
+		<!-- novita CSS -->
+		<link id="novita-css" rel="stylesheet" href="{{ asset('assets/css/novita.css ') }}" />
 
 		<!-- FAVICON -->
 		<link href="{{ asset('assets/img/AVITA-logo.ico  ') }}" rel="shortcut icon" />
@@ -36,8 +36,8 @@
 		{{-- <script src="{{ asset('assets/plugins/jquery-zoom/jquery.zoom.min.js ') }}"></script> --}}
 		{{-- <script src="{{ asset('assets/plugins/slick/slick.min.js ') }}"></script> --}}
 
-		<!-- Ekka Custom -->
-		{{-- <script src="{{ asset('assets/js/ekka.js ') }}"></script> --}}
+		<!-- novita Custom -->
+		{{-- <script src="{{ asset('assets/js/novita.js ') }}"></script> --}}
         @yield('js')
 
 	</body>

@@ -9,10 +9,9 @@
         </div> --}}
 
         <div class="ec-brand">
-            <a href="/" title="AVITA India">
-                {{-- <img class="ec-brand-icon" src="{{ asset('assets/img/logo/AVITA-logo.png ') }}" alt="" /> --}}
-                <img class="ec-brand-name text-truncate" src="{{ asset('assets/img/logo/AVITA-logo.png ') }}"
-                    alt="" />
+            <a href="/" title="NOVITA India">
+                <img class="ec-brand-name text-truncate" src="{{ asset('assets/img/logo/NOVITA-logo.png ') }}"
+                    alt="NOVITA-INDIA" />
             </a>
         </div>
 
@@ -37,12 +36,12 @@
                 </li>
 
                 <!-- Seller Sales Report -->
-                <li>
+                {{-- <li>
                     <a class="sidenav-item-link" href="{{ route('admin.sellerSalesReport') }}">
                         <i class="mdi mdi-cart"></i>
                         <span class="nav-text">Seller Sales Report</span>
                     </a>
-                </li>
+                </li> --}}
 
                 <!-- Customers Complaint Registration -->
                 <li>

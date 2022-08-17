@@ -20,13 +20,14 @@
 	<link href="{{ asset('assets/plugins/daterangepicker/daterangepicker.css ') }}" rel="stylesheet">
 	<link href="{{ asset('assets/plugins/simplebar/simplebar.css ') }}" rel="stylesheet" />
 
-	<!-- Ekka CSS -->
-	<link id="ekka-css" href="{{ asset('assets/css/ekka.css ') }}" rel="stylesheet" />
+	<!-- novita CSS -->
+	<link id="novita-css" href="{{ asset('assets/css/novita.css ') }}" rel="stylesheet" />
 
     @yield('css')
 
 	<!-- FAVICON -->
-    <link href="{{ asset('assets/img/AVITA-logo.ico ') }}" rel="shortcut icon" />
+    <link href="{{ asset('assets/img/NOVITA-logo.ico ') }}" rel="NOVITA icon" />
+
 
     <style>
         @media (max-width:767px) {
@@ -91,8 +92,8 @@
 	<!-- Option Switcher -->
 	<script src="{{ asset('assets/plugins/options-sidebar/optionswitcher.js ') }}"></script>
 
-	<!-- Ekka Custom -->
-	<script src="{{ asset('assets/js/ekka.js ') }}"></script>
+	<!-- novita Custom -->
+	<script src="{{ asset('assets/js/novita.js ') }}"></script>
 
     @yield('js')
 
