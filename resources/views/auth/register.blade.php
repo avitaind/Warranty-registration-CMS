@@ -14,7 +14,7 @@
 
                     <div class=" align-content-center justify-content-sm-center text-center pt-2">
                         <a href="/" title="NOVITA India" class=" text-center">
-                            <img class="" src="{{ asset('assets/img/logo/NOVITA-logo.png ') }}"
+                            <img class="" src="{{ asset('assets/img/logo/NOVITA-Logo.png ') }}"
                                 style="" alt="NOVITA-INDIA" />
                         </a>
                     </div>
