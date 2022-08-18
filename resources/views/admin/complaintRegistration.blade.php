@@ -110,6 +110,9 @@
                                                 <td>{{ $cr->warrantyCheck }}</td>
                                                 <td>{{ $cr->channelPurchase }}</td>
                                                 <td>
+                                                    <textarea class="" style="border: none;" name="" id="" cols="40" rows="2">{{ $cr->address }}</textarea>
+                                                </td>
+                                                <td>
                                                     {{-- <?php $checkCity = \App\Models\City::where('id', $cr->city)->first(); ?>
                                                     {{ $checkCity->name }} --}}
                                                     {{ $cr->city }}
