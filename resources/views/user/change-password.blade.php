@@ -8,6 +8,7 @@
 
     <!-- CONTENT WRAPPER -->
     <div class="container d-flex align-items-center justify-content-center form-height-login pt-24px pb-24px">
+        <div class="container d-flex align-items-center justify-content-center form-height-login pt-24px pb-24px">
         <div class="row justify-content-center">
             <div class="col-lg-12 col-md-12">
                 <div class="card ">
