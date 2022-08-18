@@ -45,7 +45,8 @@
                                             <th>Serial Number</th>
                                             <th>Product Purchase Date</th>
                                             <th>Warranty Check</th>
-                                            <th>Chanal Purchase</th>
+                                            <th>Channel Purchase</th>
+                                            <th>Address</th>
                                             <th>City</th>
                                             <th>State</th>
                                             <th>Countries</th>
