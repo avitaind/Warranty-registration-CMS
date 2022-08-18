@@ -4,6 +4,10 @@
     @lang('title.complaintRegistration')
 @stop
 
+@section('css')
+
+@endsection
+
 @section('content')
     <!-- CONTENT WRAPPER -->
     <div class="ec-content-wrapper">
@@ -19,7 +23,7 @@
                                 <div class="col-xl-6 col-sm-6 p-b-15 lbl-card">
                                     <div class="card card-mini dash-card card-1">
                                         <div class="card-body">
-                                            <h2 class="mb-1">{{ $data }}</h2>
+                                            <h2 class="mb-1">{{ $total }}</h2>
                                             <p>Total Complaint</p>
                                             <span class="mdi mdi-account-card-details"></span>
                                         </div>
@@ -262,7 +266,8 @@
                                                                 Purchase<span class="required">*</span></label>
                                                             <select
                                                                 class="form-select1 @error('channelPurchase') is-invalid @enderror"
-                                                                id="channelPurchase" aria-describedby="channelPurchaseHelp"
+                                                                id="channelPurchase"
+                                                                aria-describedby="channelPurchaseHelp"
                                                                 name="channelPurchase">
                                                                 <option value="">------</option>
                                                                 <option value="Online">Online</option>
@@ -277,35 +282,37 @@
                                                         </div>
                                                     </div>
 
-                                                    {{-- City --}}
-                                                    <div class="col-md-6 col-lg-6">
+                                                    {{-- Countries --}}
+                                                    {{-- <div class="col-md- col-md-4">
                                                         <div class="mb-3">
-                                                            <label for="city" class="form-label">City<span
+                                                            <label for="countries" class="form-label">Countries<span
                                                                     class="required">*</span></label>
-                                                            <input type="text"
-                                                                class="form-select1 @error('city') is-invalid @enderror"
-                                                                id="city" aria-describedby="cityHelp"
-                                                                name="city">
-                                                            @error('city')
-                                                                <span class="invalid-feedback form-text" id="cityHelp"
+                                                            <select
+                                                                class="form-select1 @error('countries') is-invalid @enderror"
+                                                                id="countries" aria-describedby="countriesHelp"
+                                                                name="countries">
+                                                                <option value="">------</option>
+                                                                @foreach ($countries as $data)
+                                                                    <option value="{{ $data->id }}">
+                                                                        {{ $data->name }}</option>
+                                                                @endforeach
+                                                            </select>
+                                                            @error('countries')
+                                                                <span class="invalid-feedback form-text" id="countriesHelp"
                                                                     role="alert">
                                                                     <strong>{{ $message }}</strong>
                                                                 </span>
                                                             @enderror
                                                         </div>
-                                                    </div>
+                                                    </div> --}}
 
                                                     {{-- state --}}
                                                     <div class="col-md-6 col-lg-6">
                                                         <div class="mb-3">
                                                             <label for="state" class="form-label">State<span
                                                                     class="required">*</span></label>
-                                                            {{-- <input type="text"
-                                                                class="form-select1 @error('state') is-invalid @enderror"
-                                                                id="state" aria-describedby="stateHelp"
-                                                                name="state"> --}}
                                                             <select
-                                                                class="form-select1 @error('state') is-invalid @enderror"
+                                                                class="js-example-basic-single form-select1 @error('state') is-invalid @enderror"
                                                                 id="state" aria-describedby="stateHelp"
                                                                 name="state" placeholder="dkfffff">
                                                                 <option value="">------</option>
@@ -360,6 +367,61 @@
                                                         </div>
                                                     </div>
 
+                                                    {{-- <div class="col-md- col-md-4">
+                                                        <div class="mb-3">
+                                                            <label for="state" class="form-label">State<span
+                                                                    class="required">*</span></label>
+                                                            <select
+                                                                class="form-select1 @error('state') is-invalid @enderror"
+                                                                id="state" aria-describedby="stateHelp"
+                                                                name="state">
+                                                            </select>
+                                                            @error('state')
+                                                                <span class="invalid-feedback form-text" id="stateHelp"
+                                                                    role="alert">
+                                                                    <strong>{{ $message }}</strong>
+                                                                </span>
+                                                            @enderror
+                                                        </div>
+                                                    </div> --}}
+
+
+                                                    {{-- City --}}
+
+                                                    <div class="col-md-6 col-lg-6">
+                                                        <div class="mb-3">
+                                                            <label for="city" class="form-label">City<span
+                                                                    class="required">*</span></label>
+                                                            <input type="text"
+                                                                class="form-select1 @error('city') is-invalid @enderror"
+                                                                id="city" aria-describedby="cityHelp"
+                                                                name="city">
+                                                            @error('city')
+                                                                <span class="invalid-feedback form-text" id="cityHelp"
+                                                                    role="alert">
+                                                                    <strong>{{ $message }}</strong>
+                                                                </span>
+                                                            @enderror
+                                                        </div>
+                                                    </div>
+
+                                                    {{-- <div class="col-md- col-md-4">
+                                                        <div class="mb-3">
+                                                            <label for="city" class="form-label">City<span
+                                                                    class="required">*</span></label>
+                                                            <select
+                                                                class="form-select1 @error('city') is-invalid @enderror"
+                                                                id="city" aria-describedby="cityHelp"
+                                                                name="city">
+                                                            </select>
+                                                            @error('city')
+                                                                <span class="invalid-feedback form-text" id="cityHelp"
+                                                                    role="alert">
+                                                                    <strong>{{ $message }}</strong>
+                                                                </span>
+                                                            @enderror
+                                                        </div>
+                                                    </div> --}}
 
                                                     {{-- address --}}
                                                     <div class="col-md-12 col-md-12">
@@ -457,6 +519,12 @@
 @section('js')
 
     <script>
+        $(document).ready(function() {
+            $('#state').select2();
+        });
+    </script>
+
+    <script>
         //Display Only Date till today //
         var dtToday = new Date();
         var month = dtToday.getMonth() + 1; // getMonth() is zero-based
@@ -469,5 +537,62 @@
 
         var maxDate = year + '-' + month + '-' + day;
         $('#dateID').attr('max', maxDate);
+    </script>
+
+    <script>
+        $(document).ready(function() {
+            /*------------------------------------------
+            --------------------------------------------
+            Country Dropdown Change Event
+            --------------------------------------------
+            --------------------------------------------*/
+            $('#countries').on('change', function() {
+                var idCountry = this.value;
+                $("#state").html('');
+                $.ajax({
+                    url: "{{ url('api/fetch-states') }}",
+                    type: "POST",
+                    data: {
+                        country_id: idCountry,
+                        _token: '{{ csrf_token() }}'
+                    },
+                    dataType: 'json',
+                    success: function(result) {
+                        $('#state').html(
+                            '<option value="">-- Select State --</option>');
+                        $.each(result.states, function(key, value) {
+                            $("#state").append('<option value="' + value
+                                .id + '">' + value.name + '</option>');
+                        });
+                        $('#city').html('<option value="">-- Select City --</option>');
+                    }
+                });
+            });
+            /*------------------------------------------
+            --------------------------------------------
+            State Dropdown Change Event
+            --------------------------------------------
+            --------------------------------------------*/
+            $('#state').on('change', function() {
+                var idState = this.value;
+                $("#city").html('');
+                $.ajax({
+                    url: "{{ url('api/fetch-cities') }}",
+                    type: "POST",
+                    data: {
+                        state_id: idState,
+                        _token: '{{ csrf_token() }}'
+                    },
+                    dataType: 'json',
+                    success: function(res) {
+                        $('#city').html('<option value="">-- Select City --</option>');
+                        $.each(res.cities, function(key, value) {
+                            $("#city").append('<option value="' + value
+                                .id + '">' + value.name + '</option>');
+                        });
+                    }
+                });
+            });
+        });
     </script>
 @endsection

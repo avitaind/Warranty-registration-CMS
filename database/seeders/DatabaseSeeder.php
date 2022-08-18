@@ -19,6 +19,7 @@ class DatabaseSeeder extends Seeder
             ProductTypeSeeder::class,
             CreateUsersSeeder::class,
             PriortyCodeSeeder::class,
+            CountrySateCitySeeder::class,
             // ProductModelSeeder::class,
             // ProductNumberSeeder::class,
             // WarrantyCodesSeeder::class,

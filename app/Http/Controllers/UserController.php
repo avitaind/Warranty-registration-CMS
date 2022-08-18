@@ -9,6 +9,7 @@ use Illuminate\Support\Facades\Validator;
 use Illuminate\Http\Request;
 use App\Models\Product;
 use App\Models\product_type;
+use App\Models\Country;
 use App\Models\User;
 use App\Models\Warranty_extend;
 use App\Models\Warranty_registration;
@@ -461,8 +462,9 @@ class UserController extends Controller
     public function complaintRegistration()
     {
         try {
+            $data['countries'] = Country::get(["name", "id"]);
             $solved = ComplaintRegistration::where('email', Auth::user()->email)->where('status', 'Solved')->count();
-            $data = ComplaintRegistration::where('email', Auth::user()->email)->count();
+            $total = ComplaintRegistration::where('email', Auth::user()->email)->count();
 
             $checkdata = \App\Models\ComplaintRegistration::where('email', Auth::user()->email)->latest()->first();
             $getdata = \App\Models\ComplaintRegistration::latest()->first();
@@ -483,7 +485,7 @@ class UserController extends Controller
         } catch (ModelNotFoundException $exception) {
             return back()->withError($exception->getMessage())->withInput();
         }
-        return view('user.complaintRegistration', ['ticketID' => $ticketID, 'checkdata' => $checkdata, 'solved' => $solved, 'data' => $data]);
+        return view('user.complaintRegistration', ['ticketID' => $ticketID, 'checkdata' => $checkdata, 'solved' => $solved, 'total' => $total] , $data);
     }
 
     // Complaint Registration Save
@@ -505,6 +507,7 @@ class UserController extends Controller
                 'warrantyCheck'        => 'required',
                 'channelPurchase'      => 'required',
                 'city'                 => 'required',
+                // 'countries'            => 'required',
                 'state'                => 'required',
                 'pinCode'              => 'required|regex:/^(?:\d{6})$/i',
                 'issue'                => 'required',
@@ -582,6 +585,8 @@ class UserController extends Controller
                 $complRegis->channelPurchase   = $request->channelPurchase;
                 $complRegis->city              = $request->city;
                 $complRegis->state             = $request->state;
+                // $complRegis->countries         = $request->countries;
+                $complRegis->countries         = 'India';
                 $complRegis->pinCode           = $request->pinCode;
                 $complRegis->issue             = $request->issue;
                 $complRegis->purchaseInvoice   = $picture;

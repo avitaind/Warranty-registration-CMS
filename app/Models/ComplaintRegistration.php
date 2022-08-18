@@ -28,5 +28,6 @@ class ComplaintRegistration extends Model
         'issue',
         'purchaseInvoice',
         'status',
+        'countries',
     ];
 }

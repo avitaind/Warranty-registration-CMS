@@ -72,6 +72,7 @@ Route::group(['prefix' => 'customer', 'middleware' => ['isUser', 'auth', 'Preven
     Route::get('product-extend/search', [UserController::class, 'productExtendStore']);
 
     // complaint Registration
+    Route::get('complaintRegistration', [CountriesStatesCitiesController::class, 'complaintRegistration']);
 
     Route::get('complaintRegistration', [UserController::class, 'complaintRegistration'])->name('complaintRegistration');
     Route::post('complaintRegistration/store', [UserController::class, 'complaintRegistrationSave'])->name('complaintRegistration.store');
@@ -97,8 +98,6 @@ Route::group(['prefix' => 'admin', 'middleware' => ['isAdmin', 'auth', 'PreventB
 
     Route::post('complaintRegistration/update', [AdminController::class, 'complaintRegistrationUpdated'])->name('complaintRegistration.update');
     Route::get('complaintRegistrationpopUp', [AdminController::class, 'popUpComplaintRegistration']);
-
-
 
     // Export All Complaint Registration
     Route::get('all-complaintRegistration', [AdminController::class, 'exportAllComplaintRegistration'])->name('exportAllComplaintRegistration');
@@ -248,3 +247,9 @@ Route::post('/getproductseries', [AdminController::class, 'getproductseries']);
 Route::post('/getproductmodel', [AdminController::class, 'getproductmodel']);
 Route::post('/getproductnumber', [AdminController::class, 'getproductnumber']);
 Route::post('/getproductConfiguration', [AdminController::class, 'getproductConfiguration']);
+
+// Route::get('dropdown', [CountriesStatesCitiesController::class, 'index']);
+
+Route::post('api/fetch-states', [CountriesStatesCitiesController::class, 'fetchState']);
+
+Route::post('api/fetch-cities', [CountriesStatesCitiesController::class, 'fetchCity']);

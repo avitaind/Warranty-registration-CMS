@@ -10,14 +10,14 @@
     <title>@yield('title')</title>
 
     <!-- GOOGLE FONTS -->
-    {{-- <link rel="preconnect" href="https://fonts.googleapis.com"> --}}
-    {{-- <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin> --}}
+    <link rel="preconnect" href="https://fonts.googleapis.com"> --}}
+    {{-- <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
-    <link href="http://fonts.cdnfonts.com/css/orbitron" rel="stylesheet">
+    {{-- <link href="http://fonts.cdnfonts.com/css/orbitron" rel="stylesheet"> --}}
 
-    {{-- <link
+    <link
         href="https://fonts.googleapis.com/css2?family=Montserrat:wght@200;300;400;500;600;700;800&family=Poppins:wght@300;400;500;600;700;800;900&family=Roboto:wght@400;500;700;900&display=swap"
-        rel="stylesheet"> --}}
+        rel="stylesheet">
 
     <link href="https://cdn.materialdesignicons.com/4.4.95/css/materialdesignicons.min.css" rel="stylesheet" />
 

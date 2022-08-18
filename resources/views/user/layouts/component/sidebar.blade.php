@@ -17,7 +17,7 @@
 
         <div class="ec-brand">
             <a href="/" title="NOVITA India">
-                <img class="ec-brand-name text-truncate" src="{{ asset('assets/img/logo/NOVITA-logo.png ') }}"
+                <img class="ec-brand-name text-truncate" src="{{ asset('assets/img/logo/NOVITA-Logo.png ') }}"
                     alt="NOVITA-INDIA" />
             </a>
         </div>

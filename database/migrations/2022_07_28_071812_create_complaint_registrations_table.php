@@ -18,6 +18,8 @@ class CreateComplaintRegistrationsTable extends Migration
             $table->string('ticketID')->unique();
             $table->string('ticketOld')->nullable();
             $table->string('status')->default('Pending For Review');
+            $table->string('comment')->nullable();
+            $table->string('priority')->nullable();
             $table->string('name');
             $table->string('email');
             $table->string('phone');
@@ -26,11 +28,10 @@ class CreateComplaintRegistrationsTable extends Migration
             $table->string('purchaseDate');
             $table->string('warrantyCheck');
             $table->string('channelPurchase');
-            $table->string('city');
+            $table->string('countries')->default('India');
             $table->string('state');
+            $table->string('city');
             $table->string('pinCode');
-            $table->string('comment')->nullable();
-            $table->string('priority')->nullable();
             $table->text('address');
             $table->text('issue');
             $table->string('purchaseInvoice');

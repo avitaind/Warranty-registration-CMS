@@ -48,6 +48,7 @@
                                             <th>Chanal Purchase</th>
                                             <th>City</th>
                                             <th>State</th>
+                                            <th>Countries</th>
                                             <th>PinCode</th>
                                             <th>Issue</th>
                                             <th>Purchase Invoice</th>
@@ -108,8 +109,21 @@
                                                 <td>{{ $cr->purchaseDate }}</td>
                                                 <td>{{ $cr->warrantyCheck }}</td>
                                                 <td>{{ $cr->channelPurchase }}</td>
-                                                <td>{{ $cr->city }}</td>
-                                                <td>{{ $cr->state }}</td>
+                                                <td>
+                                                    {{-- <?php $checkCity = \App\Models\City::where('id', $cr->city)->first(); ?>
+                                                    {{ $checkCity->name }} --}}
+                                                    {{ $cr->city }}
+                                                </td>
+                                                <td>
+                                                    {{-- <?php $checkState = \App\Models\State::where('id', $cr->state)->first(); ?>
+                                                    {{ $checkState->name }} --}}
+                                                    {{ $cr->state }}
+                                                </td>
+                                                <td>
+                                                    {{-- <?php $checkCountrie = \App\Models\Country::where('id', $cr->countries)->first(); ?>
+                                                    {{ $checkCountrie->name }} --}}
+                                                    {{ $cr->countries }}
+                                                </td>
                                                 <td>{{ $cr->pinCode }}</td>
                                                 {{-- <td>{{ $cr->issue }}</td> --}}
                                                 <td>
