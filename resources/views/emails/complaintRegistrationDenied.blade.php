@@ -42,8 +42,7 @@
     <p>Due to invalid information, we're unable to register your complaint.</p>
 
     <p>Kindly provide us with the correct information and reach out to us once again. We'll be glad and endeavor to
-        quickly</p>
-    <p>provide you with the solution.</p>
+        quickly provide you with the solution.</p>
 
     <p>Thank you for your patronage!</p>
 
