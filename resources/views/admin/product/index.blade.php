@@ -109,7 +109,7 @@
                                             <label class="custom-file-label" for="customFile">Choose file</label>
                                         </div>
                                         <div class="col-md-12  pt-4">
-                                            <a href="/assets/template/Sample Template For Product Listing.xlsx" download="Sample Template For Product Listing.xlsx" class="btn btn-primary" target="_blank">Sample Template For Excel</a>
+                                            <a href="/assets/template/Sample Template For Product Listing.xlsx" download="Sample Template For Product Listing.xlsx" class="btn btn-primary" target="_blank">Sample Template For Listing</a>
                                             <button class="btn btn-primary">Import data</button>
                                             <a class="btn btn-primary" href="{{ route('export-products') }}">Export data</a>
                                         </div>
