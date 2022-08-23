@@ -111,9 +111,45 @@ class APIComplaintRegistrationController extends Controller
                 return ["result" => "No data found"];
             }
         } else {
-            $result = ComplaintRegistration::get();
+            $fetchdata = ComplaintRegistration::get();
+
+            $url = 'https://support.novita-india.com/';
+
+            $data_array = array();
+
+            foreach ($fetchdata as $data) {
+
+                $cityname = \App\Models\City::where('id', $data->city)->first();
+                $statename = \App\Models\State::where('id', $data->state)->first();
+                $countryname = \App\Models\Country::where('id', $data->countries)->first();
+                $data_array[] = array(
+                    'created_at'        => $data->created_at,
+                    'priority'          => $data->priority,
+                    'ticketID'          => $data->ticketID,
+                    'ticketOld'         => $data->ticketOld,
+                    'status'            => $data->status,
+                    'name'              => $data->name,
+                    'email'             => $data->email,
+                    'phone'             => $data->phone,
+                    'productSerialNo'   => $data->productSerialNo,
+                    'productPartNo'     => $data->productPartNo,
+                    'purchaseDate'      => $data->purchaseDate,
+                    'warrantyCheck'     => $data->warrantyCheck,
+                    'channelPurchase'   => $data->channelPurchase,
+                    // 'city'              => $cityname->name,
+                    'city'              => json_decode(json_encode($cityname)),
+                    // 'state'             => $statename->name,
+                    'state'             => json_decode(json_encode($statename)),
+                    // 'countries'         => $countryname->name,
+                    'countries'         => json_decode(json_encode($countryname)),
+                    'address'           => $data->address,
+                    'pinCode'           => $data->pinCode,
+                    'issue'             => $data->issue,
+                    'purchaseInvoice'   => $url . $data->purchaseInvoice,
+                );
+            }
         }
-        return $result;
+        return collect($data_array);
     }
 
 
@@ -143,16 +179,17 @@ class APIComplaintRegistrationController extends Controller
             $rules = array(
                 'name'                 => 'required',
                 // 'status'               => 'required',
-                'email'                => 'required|email|unique:users',
+                'email'                => 'required',
                 'phone'                => 'required|numeric|min:10',
-                'productSerialNo'      => 'required',
-                'productPartNo'        => 'required',
+                'productSerialNo'      => 'required|regex:/^[a-zA-Z0-9]+$/',
+                'productPartNo'        => 'required|regex:/^[a-zA-Z0-9-]+$/',
                 'purchaseDate'         => 'required',
                 'warrantyCheck'        => 'required',
-                'chanalPurchase'       => 'required',
+                'channelPurchase'      => 'required',
                 'city'                 => 'required',
+                'countries'            => 'required',
                 'state'                => 'required',
-                'pinCode'              => 'required',
+                'pinCode'              => 'required|regex:/^(?:\d{6})$/i',
                 'issue'                => 'required',
                 // 'ticketID'             => 'required',
                 // 'purchaseInvoice'      => 'required',
@@ -169,21 +206,20 @@ class APIComplaintRegistrationController extends Controller
                     $picture = array();
                     $imageNameArr = [];
                     // foreach ($request->purchaseInvoice as $file) {
-                        // you can also use the original name
-                        $file = $request->purchaseInvoice;
-                        $image = $file->getClientOriginalName();
-                        $imageNameArr[] = $image;
-                        // Upload file to public path in images directory
-                        $fileName = $file->move(date('d-m-Y') . '-Complaint-Registration', $image);
-                        // Database operation
-                        $array[] = $fileName;
-                        $picture = implode(",", $array); //Image separated by comma
-                        // dd($picture);
+                    // you can also use the original name
+                    $file = $request->purchaseInvoice;
+                    $image = $file->getClientOriginalName();
+                    $imageNameArr[] = $image;
+                    // Upload file to public path in images directory
+                    $fileName = $file->move(date('d-m-Y') . '-Complaint-Registration', $image);
+                    // Database operation
+                    $array[] = $fileName;
+                    $picture = implode(",", $array); //Image separated by comma
+                    // dd($picture);
 
-                        // dd($picture);
+                    // dd($picture);
                     // }
                 }
-
 
                 $productExist = \App\Models\product_number::where('product_number', $request->productPartNo)->first();
 
@@ -198,33 +234,61 @@ class APIComplaintRegistrationController extends Controller
                         $resultant = true;
                     }
                 }
+                // dd($city_name);
+                $cityname = \App\Models\City::where('name', 'like', '%' . $request->city . '%')->first();
+
+                if ($cityname == NULL) {
+                    return ["result" => "City is not Match in data!"];
+                }
+                // dd(ucfirst($request->state));
+                $statename = \App\Models\State::where('name', 'like', '%' . $request->state . '%')->first();
+
+                if ($statename == NULL) {
+                    return ["result" => "State is not Match in data!"];
+                }
+
+                $countryname = \App\Models\Country::where('name', 'like', '%' . $request->countries . '%')->first();
+                // dd($request->countries,$countryname);
+                if ($countryname == NULL) {
+                    return ["result" => "Country is not Match in data!"];
+                }
 
                 if ($resultant == true) {
                     // dd($picture);
-
-
                     $complRegis                    = new ComplaintRegistration();
                     $complRegis->name              = $request->name;
                     $complRegis->email             = $request->email;
                     $complRegis->phone             = $request->phone;
-                    // $complRegis->status            = $request->status;
-                    $complRegis->status            = 'In Processing';
+                    $complRegis->status            = 'Pending For Review';
                     $complRegis->productSerialNo   = $request->productSerialNo;
                     $complRegis->productPartNo     = $request->productPartNo;
                     $complRegis->purchaseDate      = $request->purchaseDate;
                     $complRegis->warrantyCheck     = $request->warrantyCheck;
-                    $complRegis->chanalPurchase    = $request->chanalPurchase;
-                    $complRegis->city              = $request->city;
-                    $complRegis->state             = $request->state;
+                    $complRegis->channelPurchase   = $request->channelPurchase;
+                    $complRegis->city              = $cityname->id;
+                    // $complRegis->city              = $request->city;
+                    $complRegis->state             = $statename->id;
+                    // $complRegis->state             = $request->state;
                     $complRegis->pinCode           = $request->pinCode;
                     $complRegis->issue             = $request->issue;
-                    // $complRegis->purchaseInvoice   = $pic;
+                    $complRegis->countries         = $countryname->id;
+                    // $complRegis->countries         = $request->countries;
+                    $complRegis->address           = $request->address;
                     $complRegis->purchaseInvoice   = $picture;
                     $complRegis->ticketID          = $ticketID;
+                    $complRegis->ticketOld         = $request->ticketOld;
 
+                    // if (request()->file('purchaseInvoice') != '') {
+                    //     $purchaseInvoice = request()->file('purchaseInvoice');
+                    //     $purchaseInvoice_name = time() . '.' . $request->purchaseInvoice->getClientOriginalName();
+                    //     $purchaseInvoice->storeAs("API-Complaint-Registration/", $purchaseInvoice_name);
+                    //     $complRegis->purchaseInvoice = "API-Complaint-Registration/" . $purchaseInvoice_name;
+                    // }
 
-                    if($request->purchaseInvoice == NULL)
-                    {
+                    // $complRegis->status            = $request->status;
+                    // $complRegis->purchaseInvoice   = $pic;
+
+                    if ($request->purchaseInvoice == NULL) {
                         return ["result" => "The purchase invoice field is required...!!!"];
                     }
 
@@ -237,15 +301,15 @@ class APIComplaintRegistrationController extends Controller
                     } else {
                         $mailCheck = \App\Models\ComplaintRegistration::where('email', $request->email)->count();
 
-                        if ($mailCheck > 0) {
-                            return ["result" => "Mail ID is Already Take"];
-                        }
+                        // if ($mailCheck > 0) {
+                        //     return ["result" => "Mail ID is Already Take"];
+                        // }
 
                         $phoneCheck = \App\Models\ComplaintRegistration::where('phone', $request->phone)->count();
 
-                        if ($phoneCheck > 0) {
-                            return ["result" => "Phone No. is Already Take"];
-                        }
+                        // if ($phoneCheck > 0) {
+                        //     return ["result" => "Phone No. is Already Take"];
+                        // }
                         $result = $complRegis->save();
                     }
                     if ($result) {

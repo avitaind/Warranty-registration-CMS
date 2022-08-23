@@ -114,19 +114,21 @@
                                                     <textarea class="" style="border: none;" name="" id="" cols="40" rows="2">{{ $cr->address }}</textarea>
                                                 </td>
                                                 <td>
-                                                    {{-- <?php $checkCity = \App\Models\City::where('id', $cr->city)->first(); ?>
-                                                    {{ $checkCity->name }} --}}
-                                                    {{ $cr->city }}
+                                                    <?php $checkCity = \App\Models\City::where('id', $cr->city)->first(); ?>
+                                                    {{-- {{ dd($cr->city); }} --}}
+
+                                                    {{ $checkCity->name }}
+                                                    {{-- {{ $cr->city }} --}}
                                                 </td>
                                                 <td>
-                                                    {{-- <?php $checkState = \App\Models\State::where('id', $cr->state)->first(); ?>
-                                                    {{ $checkState->name }} --}}
-                                                    {{ $cr->state }}
+                                                    <?php $checkState = \App\Models\State::where('id', $cr->state)->first(); ?>
+                                                    {{ $checkState->name }}
+                                                    {{-- {{ $cr->state }} --}}
                                                 </td>
                                                 <td>
-                                                    {{-- <?php $checkCountrie = \App\Models\Country::where('id', $cr->countries)->first(); ?>
-                                                    {{ $checkCountrie->name }} --}}
-                                                    {{ $cr->countries }}
+                                                    <?php $checkCountrie = \App\Models\Country::where('id', $cr->countries)->first(); ?>
+                                                    {{ $checkCountrie->name }}
+                                                    {{-- {{ $cr->countries }} --}}
                                                 </td>
                                                 <td>{{ $cr->pinCode }}</td>
                                                 {{-- <td>{{ $cr->issue }}</td> --}}

@@ -130,7 +130,6 @@ class AdminController extends Controller
         return redirect()->back()->with("error", "Something is wrong !");
     }
 
-
     // Product Type Register
 
     public function productRegistration()
@@ -320,7 +319,6 @@ class AdminController extends Controller
         echo "Difference between two dates: "
             . $result;
     }
-
 
     // Certificate Create
 

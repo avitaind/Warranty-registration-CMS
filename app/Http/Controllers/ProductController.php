@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Exports\ExportAllProduct;
+use App\Imports\ImportAllProduct;
 use Maatwebsite\Excel\Facades\Excel;
 use App\Models\Product;
 use App\Models\product_type;
@@ -26,6 +27,7 @@ class ProductController extends Controller
                 ->join('product_models', 'product_models.products_id', '=', 'products.id')
                 ->join('product_numbers', 'product_numbers.product_model_id', '=', 'product_models.id')
                 ->select('product_types.name as type_name', 'products.name', 'product_models.model_number', 'product_numbers.product_number', 'product_numbers.titleName', 'product_numbers.serial_number')->get();
+            // ->select('product_types.name as type_name', 'products.name', 'product_models.model_number', 'product_numbers.product_number', 'product_numbers.titleName', 'product_numbers.serial_number')->skip(0)->take(1)->get();
         } catch (ModelNotFoundException $exception) {
             return back()->withError($exception->getMessage())->withInput();
         }
@@ -37,6 +39,15 @@ class ProductController extends Controller
     public function exportProducts()
     {
         return Excel::download(new ExportAllProduct, 'Product-collection.xlsx');
+    }
+
+    // Import Product
+
+    public function importProducts(Request $request)
+    {
+        // dd($request->all());
+        Excel::import(new ImportAllProduct, $request->file('file')->store('temp'));
+        return back();
     }
 
     public function create()

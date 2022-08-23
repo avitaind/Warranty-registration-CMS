@@ -74,7 +74,7 @@
                                                     <div class="col-md-12 col-lg-12">
                                                         <div class="mb-3">
                                                             <label for="ticketID" hidden class="form-label">Ticket ID
-                                                                <span class="required">*</span></label>
+                                                                <span class="required"> *</span></label>
                                                             <input type="hidden" class="form-select1" id="ticketID"
                                                                 aria-describedby="ticketIDHelp" name="ticketID"
                                                                 value="{{ $ticketID }}" readonly>
@@ -85,7 +85,7 @@
                                                     <div class="col-md-12 col-lg-12">
                                                         <div class="mb-3">
                                                             <label for="status" hidden class="form-label">Status <span
-                                                                    class="required">*</span></label>
+                                                                    class="required"> *</span></label>
                                                             <input type="hidden" class="form-select1" id="status"
                                                                 aria-describedby="statusHelp" name="status"
                                                                 value="Pending For Review" readonly>
@@ -96,7 +96,7 @@
                                                     <div class="col-md-4 col-lg-4">
                                                         <div class="mb-3">
                                                             <label for="name" class="form-label">Customer Name<span
-                                                                    class="required">*</span></label>
+                                                                    class="required"> *</span></label>
                                                             <input type="text" class="form-select1" id="name"
                                                                 aria-describedby="nameHelp" name="name"
                                                                 value="{{ Auth::user()->name }} {{ Auth::user()->last_name }}"
@@ -108,7 +108,7 @@
                                                     <div class="col-md-4 col-lg-4">
                                                         <div class="mb-3">
                                                             <label for="email" class="form-label">Customer Email<span
-                                                                    class="required">*</span></label>
+                                                                    class="required"> *</span></label>
                                                             <input type="email" class="form-select1" id="email"
                                                                 aria-describedby="emailHelp" name="email"
                                                                 value="{{ Auth::user()->email }}" readonly>
@@ -119,7 +119,7 @@
                                                     <div class="col-md-4 col-lg-4">
                                                         <div class="mb-3">
                                                             <label for="phone" class="form-label">Customer Phone<span
-                                                                    class="required">*</span></label>
+                                                                    class="required"> *</span></label>
                                                             <input type="tel"
                                                                 class="form-select1 @error('phone') is-invalid @enderror"
                                                                 id="phone" aria-describedby="phoneHelp" name="phone"
@@ -173,9 +173,9 @@
                                                     <div class="col-md-6 col-lg-6">
                                                         <div class="mb-3">
                                                             <label for="productPartNo" class="form-label">Notebook
-                                                                Model No.<span class="required">*</span> <small>(
+                                                                Model No.<span class="required"> *</span> <small>(
                                                                     Please check the backside of the notebook Example:
-                                                                    NS14A8INF561-MP),</small></label>
+                                                                    ABCXYZ1234-XX),</small></label>
                                                             <input type="text"
                                                                 class="form-select1 @error('productPartNo') is-invalid @enderror"
                                                                 id="productPartNo" aria-describedby="productPartNoHelp"
@@ -195,7 +195,9 @@
                                                     <div class="col-md-6 col-lg-6">
                                                         <div class="mb-3">
                                                             <label for="productSerialNo" class="form-label">Serial
-                                                                Number<span class="required">*</span></label>
+                                                                Number<span class="required"> *</span> <small>(
+                                                                    Please check the backside of the notebook Example:
+                                                                    ABCXYZ1234XX),</small></label>
                                                             <input type="text"
                                                                 class="form-select1 @error('productSerialNo') is-invalid @enderror"
                                                                 id="productSerialNo"
@@ -212,18 +214,17 @@
 
 
                                                     {{-- Serial no image --}}
-                                                    <div class="col-md-12 col-md-12">
+                                                    {{-- <div class="col-md-12 col-md-12">
                                                         <div class="mb-4">
                                                             <img src="/assets/img/serial_no.jpeg" style="width:100%">
-
                                                         </div>
-                                                    </div>
+                                                    </div> --}}
 
                                                     {{-- Product DOP --}}
                                                     <div class="col-md-4 col-md-4">
                                                         <div class="mb-3">
                                                             <label for="purchaseDate" class="form-label">Purchase
-                                                                Date<span class="required">*</span></label>
+                                                                Date<span class="required"> *</span></label>
                                                             <input type="date"
                                                                 class="form-select1 @error('purchaseDate') is-invalid @enderror"
                                                                 id="dateID" aria-describedby="purchaseDateHelp"
@@ -241,7 +242,7 @@
                                                     <div class="col-md-4 col-md-4">
                                                         <div class="mb-3">
                                                             <label for="warrantyCheck" class="form-label">Warranty
-                                                                Check<span class="required">*</span></label>
+                                                                Check<span class="required"> *</span></label>
                                                             <select
                                                                 class="form-select1 @error('warrantyCheck') is-invalid @enderror"
                                                                 id="warrantyCheck" aria-describedby="warrantyCheckHelp"
@@ -263,7 +264,7 @@
                                                     <div class="col-md- col-md-4">
                                                         <div class="mb-3">
                                                             <label for="channelPurchase" class="form-label">Channel Of
-                                                                Purchase<span class="required">*</span></label>
+                                                                Purchase<span class="required"> *</span></label>
                                                             <select
                                                                 class="form-select1 @error('channelPurchase') is-invalid @enderror"
                                                                 id="channelPurchase"
@@ -283,10 +284,10 @@
                                                     </div>
 
                                                     {{-- Countries --}}
-                                                    {{-- <div class="col-md- col-md-4">
+                                                    <div class="col-md- col-md-4">
                                                         <div class="mb-3">
                                                             <label for="countries" class="form-label">Countries<span
-                                                                    class="required">*</span></label>
+                                                                    class="required"> *</span></label>
                                                             <select
                                                                 class="form-select1 @error('countries') is-invalid @enderror"
                                                                 id="countries" aria-describedby="countriesHelp"
@@ -304,10 +305,10 @@
                                                                 </span>
                                                             @enderror
                                                         </div>
-                                                    </div> --}}
+                                                    </div>
 
                                                     {{-- state --}}
-                                                    <div class="col-md-6 col-lg-6">
+                                                    {{-- <div class="col-md-6 col-lg-6">
                                                         <div class="mb-3">
                                                             <label for="state" class="form-label">State<span
                                                                     class="required">*</span></label>
@@ -365,12 +366,12 @@
                                                                 </span>
                                                             @enderror
                                                         </div>
-                                                    </div>
+                                                    </div> --}}
 
-                                                    {{-- <div class="col-md- col-md-4">
+                                                    <div class="col-md- col-md-4">
                                                         <div class="mb-3">
                                                             <label for="state" class="form-label">State<span
-                                                                    class="required">*</span></label>
+                                                                    class="required"> *</span></label>
                                                             <select
                                                                 class="form-select1 @error('state') is-invalid @enderror"
                                                                 id="state" aria-describedby="stateHelp"
@@ -383,12 +384,12 @@
                                                                 </span>
                                                             @enderror
                                                         </div>
-                                                    </div> --}}
+                                                    </div>
 
 
                                                     {{-- City --}}
 
-                                                    <div class="col-md-6 col-lg-6">
+                                                    {{-- <div class="col-md-6 col-lg-6">
                                                         <div class="mb-3">
                                                             <label for="city" class="form-label">City<span
                                                                     class="required">*</span></label>
@@ -403,12 +404,12 @@
                                                                 </span>
                                                             @enderror
                                                         </div>
-                                                    </div>
+                                                    </div> --}}
 
-                                                    {{-- <div class="col-md- col-md-4">
+                                                    <div class="col-md- col-md-4">
                                                         <div class="mb-3">
                                                             <label for="city" class="form-label">City<span
-                                                                    class="required">*</span></label>
+                                                                    class="required"> *</span></label>
                                                             <select
                                                                 class="form-select1 @error('city') is-invalid @enderror"
                                                                 id="city" aria-describedby="cityHelp"
@@ -421,13 +422,13 @@
                                                                 </span>
                                                             @enderror
                                                         </div>
-                                                    </div> --}}
+                                                    </div>
 
                                                     {{-- address --}}
                                                     <div class="col-md-12 col-md-12">
                                                         <div class="mb-3">
                                                             <label for="address" class="form-label">Address<span
-                                                                    class="required">*</span></label>
+                                                                    class="required"> *</span></label>
                                                             <textarea class="form-select1 @error('address') is-invalid @enderror" id="address" aria-describedby="addressHelp"
                                                                 name="address" rows="3"></textarea>
 
@@ -444,7 +445,7 @@
                                                     <div class="col-md-6 col-lg-6">
                                                         <div class="mb-3">
                                                             <label for="pinCode" class="form-label">Pincode<span
-                                                                    class="required">*</span></label>
+                                                                    class="required"> *</span></label>
                                                             <input type="text"
                                                                 class="form-select1 @error('pinCode') is-invalid @enderror"
                                                                 id="pinCode" aria-describedby="pinCodeHelp"
@@ -462,7 +463,7 @@
                                                     <div class="col-md-6 col-lg-6">
                                                         <div class="mb-3">
                                                             <label for="purchaseInvoice" class="form-label">Purchase
-                                                                Invoice<span class="required">*</span></label>
+                                                                Invoice<span class="required"> *</span></label>
                                                             <input type="file"
                                                                 class="form-select1 @error('purchaseInvoice') is-invalid @enderror"
                                                                 id="purchaseInvoice"
@@ -481,7 +482,7 @@
                                                     <div class="col-md-12 col-md-12">
                                                         <div class="mb-3">
                                                             <label for="issue" class="form-label">Describe your
-                                                                Issue<span class="required">*</span></label>
+                                                                Issue<span class="required"> *</span></label>
                                                             <textarea type="text" class="form-select1 @error('issue') is-invalid @enderror" id="issue"
                                                                 aria-describedby="issueHelp" name="issue"></textarea>
                                                             @error('issue')

@@ -43,14 +43,6 @@
                     </a>
                 </li> --}}
 
-                <!-- Customers Complaint Registration -->
-                <li>
-                    <a class="sidenav-item-link" href="{{ route('admin.complaintRegistration') }}">
-                        <i class="mdi mdi-account-card-details"></i>
-                        <span class="nav-text">Complaint Registration</span>
-                    </a>
-                </li>
-
                 <!-- Users -->
                 <li>
                     <a class="sidenav-item-link" href="{{ route('user') }}">
@@ -96,6 +88,14 @@
                         <span class="nav-text">Warranty Extend</span>
                     </a>
                 </li> --}}
+
+                <!-- Customers Complaint Registration -->
+                <li>
+                    <a class="sidenav-item-link" href="{{ route('admin.complaintRegistration') }}">
+                        <i class="mdi mdi-account-card-details"></i>
+                        <span class="nav-text">Complaint Registration</span>
+                    </a>
+                </li>
 
                 <!-- Oneassist ADP Plan -->
                 {{-- <li>

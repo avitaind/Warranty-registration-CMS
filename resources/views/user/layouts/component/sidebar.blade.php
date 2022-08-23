@@ -77,7 +77,7 @@
                 <li>
                     <a class="sidenav-item-link" href="{{ route('complaintRegistration') }}">
                         <i class="mdi mdi-pencil-box-outline"></i>
-                        <span class="nav-text">Complaint Register</span>
+                        <span class="nav-text">Complaint Registration</span>
                     </a>
                 </li>
 

@@ -485,7 +485,7 @@ class UserController extends Controller
         } catch (ModelNotFoundException $exception) {
             return back()->withError($exception->getMessage())->withInput();
         }
-        return view('user.complaintRegistration', ['ticketID' => $ticketID, 'checkdata' => $checkdata, 'solved' => $solved, 'total' => $total] , $data);
+        return view('user.complaintRegistration', ['ticketID' => $ticketID, 'checkdata' => $checkdata, 'solved' => $solved, 'total' => $total], $data);
     }
 
     // Complaint Registration Save
@@ -539,13 +539,10 @@ class UserController extends Controller
 
             // dd($request->priority);
 
-            if($priorityCheck == 0)
-            {
+            if ($priorityCheck == 0) {
                 $request->priority = NULL;
-            // dd($request->priority);
-            }
-            else
-            {
+                // dd($request->priority);
+            } else {
                 $request->priority = $request->priority;
             }
 
@@ -571,6 +568,8 @@ class UserController extends Controller
                 }
             }
 
+            
+
             if ($resultant == true) {
 
                 $complRegis = new ComplaintRegistration();
@@ -585,8 +584,8 @@ class UserController extends Controller
                 $complRegis->channelPurchase   = $request->channelPurchase;
                 $complRegis->city              = $request->city;
                 $complRegis->state             = $request->state;
-                // $complRegis->countries         = $request->countries;
-                $complRegis->countries         = 'India';
+                $complRegis->countries         = $request->countries;
+                // $complRegis->countries         = 'India';
                 $complRegis->pinCode           = $request->pinCode;
                 $complRegis->issue             = $request->issue;
                 $complRegis->purchaseInvoice   = $picture;

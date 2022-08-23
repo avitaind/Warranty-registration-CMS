@@ -29,12 +29,12 @@
                 <p class="product-desc text-start">NOVITA Customer Support. Always at your service.
                     For queries related to the product, warranty, or any other support, please free to reach us out on our
                     toll-free number or write us at our email.</p>
-                <hr>
+                <hr >
                 <div class="row">
                     <div class="col-md-6">
                         <div class="">
-                            <h2 class="contact_us_title">General Sales Enquiry :</h2>
-                            <div class="mb-3"> +91-7827845054</div>
+                            {{-- <h2 class="contact_us_title">General Sales Enquiry :</h2>
+                            <div class="mb-3"> +91-7827845054</div> --}}
                             <div class="mb-3">
                                 <b>Email :</b> contact@novita-india.com
                             </div>
