@@ -22,7 +22,8 @@
                                 @include('component.alert')
                                 <div class="ec-vendor-upload-detail">
                                     <form class="row g-3" method="POST"
-                                        action="{{ route('productRegistrationStore.store') }}" enctype="multipart/form-data">
+                                        action="{{ route('productRegistrationStore.store') }}"
+                                        enctype="multipart/form-data">
                                         <!-- <form class="row g-3" > -->
                                         {!! csrf_field() !!}
                                         <div class="col-md-12 ">
@@ -93,7 +94,7 @@
                                         <div class="col-md-12">
                                             <div class="row">
                                                 <div class="div col-md-6">
-                                                    <label for="product_number" class="form-label">Product
+                                                    <label for="product_number" class="form-label">Part
                                                         Number: <span class="required">*</span></label>
                                                 </div>
                                                 <div class="div col-md-6 p-1">
@@ -209,6 +210,9 @@
                                                     <input type="file"
                                                         class="form-select1 @error('purchase_invoice') is-invalid @enderror"
                                                         name="purchase_invoice[]" id="purchaseInvoice" multiple>
+                                                    <small style="color: #7F2D91">Supported file format: jpg, jpeg, png,
+                                                        pdf</small>
+
                                                     @error('purchase_invoice')
                                                         <span class="invalid-feedback" role="alert">
                                                             <strong>{{ $message }}</strong>

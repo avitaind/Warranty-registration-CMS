@@ -46,6 +46,9 @@ class ProductController extends Controller
     public function importProducts(Request $request)
     {
         // dd($request->all());
+        $this->validate($request, [
+            'file'                  => 'required',
+        ]);
         Excel::import(new ImportAllProduct, $request->file('file')->store('temp'));
         return back();
     }

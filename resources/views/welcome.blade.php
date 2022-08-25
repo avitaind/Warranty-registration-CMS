@@ -127,7 +127,7 @@
 
                             </div>
                             <button type="submit" class="btn btn-primary m-2">Log In</button>
-                            <a href="{{ route('register') }}" class="btn btn-primary m-2">Sign In</a>
+                            <a href="{{ route('register') }}" class="btn btn-primary m-2">Sign Up</a>
                             <p class=" text-center pt-3">
                                 @if (Route::has('password.request'))
                                     <a class="text-blue text-center" href="{{ route('password.request') }}">

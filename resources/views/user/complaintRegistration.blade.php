@@ -469,6 +469,8 @@
                                                                 id="purchaseInvoice"
                                                                 aria-describedby="purchaseInvoiceHelp"
                                                                 name="purchaseInvoice[]">
+                                                                <small style="color: #7F2D91">Supported file format: jpg, jpeg, png,
+                                                                    pdf</small>
                                                             @error('purchaseInvoice')
                                                                 <span class="invalid-feedback form-text"
                                                                     id="purchaseInvoiceHelp" role="alert">
