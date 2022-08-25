@@ -501,7 +501,7 @@ class UserController extends Controller
                 'status'               => 'required',
                 'email'                => 'required',
                 'phone'                => 'required',
-                'productSerialNo'      => 'required|regex:/^[a-zA-Z0-9]+$/',
+                'productSerialNo'      => 'required|regex:/^[a-zA-Z0-9-]+$/',
                 'productPartNo'        => 'required|regex:/^[a-zA-Z0-9-]+$/',
                 'purchaseDate'         => 'required',
                 'warrantyCheck'        => 'required',
@@ -568,7 +568,7 @@ class UserController extends Controller
                 }
             }
 
-            
+
 
             if ($resultant == true) {
 
