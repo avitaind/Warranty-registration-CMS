@@ -134,7 +134,8 @@
                                                 <td>{{ $cr->pinCode }}</td>
                                                 {{-- <td>{{ $cr->issue }}</td> --}}
                                                 <td>
-                                                    <textarea class="" style="border: none;" name="" id="" cols="40" rows="2">{{ $cr->issue }}</textarea>
+                                                    {{-- <textarea class="" style="border: none;" name="" id="" cols="40" rows="2">{{ $cr->issue }}</textarea> --}}
+                                                    {{ $cr->issue }}
                                                 </td>
                                                 <td class="">
                                                     @if ($cr->purchaseInvoice != null)
