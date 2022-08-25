@@ -130,6 +130,20 @@ class AdminController extends Controller
         return redirect()->back()->with("error", "Something is wrong !");
     }
 
+     // Customers White Lissted Complaint Registration
+
+     public function whiteLisstedcomplaintRegistration(Request $request)
+     {
+         // dd($request->all());
+         try {
+             $complaintRegistration = ComplaintRegistration::where('status', 'Approved')->get();
+             //  dd($complaintRegistration);
+         } catch (ModelNotFoundException $exception) {
+             return back()->withError($exception->getMessage())->withInput();
+         }
+         return view('admin.whiteLissted', ['complaintRegistration' => $complaintRegistration]);
+     }
+
     // Product Type Register
 
     public function productRegistration()

@@ -97,6 +97,14 @@
                     </a>
                 </li>
 
+                <!-- Customers White Listed Cases Complaint -->
+                <li>
+                    <a class="sidenav-item-link" href="{{ route('complaintRegistration.lissted') }}">
+                        <i class="mdi mdi-check-decagram"></i>
+                        <span class="nav-text">White Listed Cases</span>
+                    </a>
+                </li>
+
                 <!-- Oneassist ADP Plan -->
                 {{-- <li>
                     <a class="sidenav-item-link" href="{{ route('certificate') }}">
