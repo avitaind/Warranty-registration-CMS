@@ -30,7 +30,7 @@
                     <div class="card card-default">
                         <div class="card-body">
                             <div class="table-responsive">
-                                <table id="responsive-data-table" class="table" style="width:100%">
+                                <table id="responsive-data-table" class="table nowrap" style="width:100%">
                                     <thead>
                                         <tr>
                                             <th>Date</th>
@@ -111,7 +111,8 @@
                                                 <td>{{ $cr->warrantyCheck }}</td>
                                                 <td>{{ $cr->channelPurchase }}</td>
                                                 <td>
-                                                    <textarea class="" style="border: none;" name="" id="" cols="40" rows="2">{{ $cr->address }}</textarea>
+                                                    {{-- <textarea class="" style="border: none;" name="" id="" cols="40" rows="2">{{ $cr->address }}</textarea> --}}
+                                                    {{ $cr->address }}
                                                 </td>
                                                 <td>
                                                     <?php $checkCity = \App\Models\City::where('id', $cr->city)->first(); ?>
