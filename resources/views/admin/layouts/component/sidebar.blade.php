@@ -27,7 +27,7 @@
             <!-- sidebar menu -->
             <ul class="nav sidebar-inner" id="sidebar-menu">
                 <!-- Dashboard -->
-                <li class="active">
+                <li class="">
                     <a class="sidenav-item-link" href="{{ route('admin.home') }}">
                         <i class="mdi mdi-view-dashboard-outline"></i>
                         <span class="nav-text">Dashboard</span>

@@ -44,7 +44,7 @@ class ComplaintRegistrationExport implements FromCollection
         // return DB::table('users')->where('is_admin', 0)->get();
         // return ComplaintRegistration::select("ticketID", "status", "name", "email", "phone", "productSerialNo", "productPartNo", "purchaseDate", "warrantyCheck", "channelPurchase", "city", "state", "countries", "pinCode", "address", "issue")->get();
 
-        $url = 'https://support.novita-india.com/';
+        $url = 'https://support.novita-global.com/';
 
         $export_data =  ComplaintRegistration::select("created_at", "priority", "ticketID", "ticketOld", "status", "name", "email", "phone", "productSerialNo", "productPartNo", "purchaseDate", "warrantyCheck", "channelPurchase", "city", "state", "countries", "address", "pinCode", "issue", "purchaseInvoice")->get();
 
@@ -77,9 +77,20 @@ class ComplaintRegistrationExport implements FromCollection
 
         foreach ($export_data as $data) {
 
-            $cityname = \App\Models\City::where('id',$data->city)->first();
-            $statename = \App\Models\State::where('id',$data->state)->first();
-            $countryname = \App\Models\Country::where('id',$data->countries)->first();
+            $cityname = \App\Models\City::where('id', $data->city)->first();
+
+            // if ($cityname != null) {
+            //     // dd($cityname->name);
+            //     $city = $cityname->name;
+            //     dd($city);
+            // } else {
+            //     // dd($data->city);
+            //     $city = $data->city;
+            //     dd($city);
+            // }
+
+            $statename = \App\Models\State::where('id', $data->state)->first();
+            $countryname = \App\Models\Country::where('id', $data->countries)->first();
             $data_array[] = array(
                 'created_at'        => $data->created_at,
                 'priority'          => $data->priority,
@@ -94,6 +105,9 @@ class ComplaintRegistrationExport implements FromCollection
                 'purchaseDate'      => $data->purchaseDate,
                 'warrantyCheck'     => $data->warrantyCheck,
                 'channelPurchase'   => $data->channelPurchase,
+                // 'city'              => $data->city,
+                // 'state'             => $data->state,
+                // 'countries'         => $data->countries,
                 'city'              => $cityname->name,
                 'state'             => $statename->name,
                 'countries'         => $countryname->name,

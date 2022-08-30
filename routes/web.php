@@ -105,6 +105,9 @@ Route::group(['prefix' => 'admin', 'middleware' => ['isAdmin', 'auth', 'PreventB
     // Export All Complaint Registration
     Route::get('all-complaintRegistration', [AdminController::class, 'exportAllComplaintRegistration'])->name('exportAllComplaintRegistration');
 
+    Route::get('datefilter', [AdminController::class, 'datefilter'])->name('datefilter');
+
+
     // Admin Profile
     Route::get('profile', [AdminController::class, 'profile'])->name('admin.profile');
 
@@ -239,8 +242,18 @@ Route::post('sellerHome/sales/out/store', [SellerController::class, 'outSalesSav
 //     Route::get('home', [SellerController::class, 'sellerHome'])->name('seller.home');
 // });
 
+// Warranty Extend Route
+
 Route::get('/get-Warranty_extend-chart-data', [ChartDataWarrantyExtendController::class, 'getMonthlyWarrantyExtendData']);
+
+// Warranty Extend Route
+
 Route::get('/get-Warranty_registration-chart-data', [ChartDataWarrantyRegistrationController::class, 'getMonthlywarrantyRegistrationData']);
+
+// Warranty Extend Route
+
+Route::get('/get-complaint_registration-chart-data', [ChartDataComplaintRegistration::class, 'getMonthlyComplaintRegistrationData']);
+
 
 Route::post('/getpurchaseCodeID', [UserController::class, 'getpurchaseCodeID']);
 

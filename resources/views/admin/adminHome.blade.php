@@ -11,7 +11,7 @@
         <div class="content">
             <!-- Top Statistics -->
             <div class="row">
-                <div class="col-xl-6 col-sm-6 p-b-15 lbl-card">
+                <div class="col-xl-4 col-sm-4 p-b-15 lbl-card">
                     <div class="card card-mini dash-card card-1">
                         <div class="card-body">
                             <h2 class="mb-1">{{ $users }}</h2>
@@ -20,16 +20,16 @@
                         </div>
                     </div>
                 </div>
-                {{-- <div class="col-xl-3 col-sm-6 p-b-15 lbl-card">
+                <div class="col-xl-4 col-sm-4 p-b-15 lbl-card">
                     <div class="card card-mini dash-card card-2">
                         <div class="card-body">
-                            <h2 class="mb-1">{{ 79, 503 }}</h2>
-                            <p>Daily Customers</p>
-                            <span class=" mdi mdi-account-multiple"></span>
+                            <h2 class="mb-1">{{ $complaint_registration }}</h2>
+                            <p>All Complaint Registration</p>
+                            <span class=" mdi mdi-account-card-details"></span>
                         </div>
                     </div>
-                </div> --}}
-                <div class="col-xl-6 col-sm-6 p-b-15 lbl-card">
+                </div>
+                <div class="col-xl-4 col-sm-4 p-b-15 lbl-card">
                     <div class="card card-mini dash-card card-3">
                         <div class="card-body">
                             <h2 class="mb-1">{{ $warranty_registration }}</h2>
@@ -38,7 +38,7 @@
                         </div>
                     </div>
                 </div>
-                {{-- <div class="col-xl-3 col-sm-6 p-b-15 lbl-card">
+                {{-- <div class="col-xl-4 col-sm-4 p-b-15 lbl-card">
                     <div class="card card-mini dash-card card-4">
                         <div class="card-body">
                             <h2 class="mb-1">{{ $warranty_extend }}</h2>
@@ -52,7 +52,7 @@
             <div class="row">
 
 
-                <div class="col-xl-8 col-md-12 p-b-15">
+                <div class="col-xl-6 col-md-12 p-b-15">
                     <!-- Sales Graph -->
                     <div id="user-acquisition" class="card card-default">
                         <div class="card-header">
@@ -66,7 +66,21 @@
                     </div>
                 </div>
 
-                <div class="col-xl-4 col-md-12 p-b-15">
+                <div class="col-xl-6 col-md-12 p-b-15">
+                    <!-- Sales Graph -->
+                    <div id="user-acquisition" class="card card-default">
+                        <div class="card-header">
+                            <h2>Complaint Registration</h2>
+                        </div>
+                        <div class="card-body">
+                            {{-- <div id="container"></div> --}}
+                            <canvas id="myAreaChart2" width="100%" height="30"></canvas>
+                        </div>
+                        <div class="card-footer small text-muted">Updated yesterday at @php  echo date('F j, Y', time() ) @endphp</div>
+                    </div>
+                </div>
+
+                <div class="col-xl-6 col-md-12 p-b-15">
                     <!-- Doughnut Chart -->
                     <div class="card card-default">
                         <div class="card-header justify-content-center">

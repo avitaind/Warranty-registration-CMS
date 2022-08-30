@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Exports\ComplaintRegistrationExport;
+use App\Exports\DateFilterComplaintRegistrationExport;
 use App\Exports\ExportWarrantyRegister;
 use App\Exports\ExportWarrantyExtend;
 use App\Exports\UsersExport;
@@ -36,6 +37,7 @@ class AdminController extends Controller
         try {
             $users = DB::table('users')->count();
             $warranty_registration = DB::table('warranty_registrations')->count();
+            $complaint_registration = DB::table('complaint_registrations')->count();
             $warranty_extend = DB::table('warranty_extends')->count();
             $user = User::select(DB::raw("COUNT(*) as count"), DB::raw("MONTHNAME(created_at) as month_name"))
                 ->whereYear('created_at', date('Y'))
@@ -45,7 +47,7 @@ class AdminController extends Controller
         } catch (ModelNotFoundException $exception) {
             return back()->withError($exception->getMessage())->withInput();
         }
-        return view('admin.adminHome', compact('users', 'warranty_registration', 'warranty_extend', 'user'));
+        return view('admin.adminHome', ['complaint_registration' => $complaint_registration, 'users' => $users, 'warranty_registration' => $warranty_registration, 'warranty_extend' => $warranty_extend, 'user' => $user]);
     }
 
     // Seller Sales Report
@@ -130,19 +132,37 @@ class AdminController extends Controller
         return redirect()->back()->with("error", "Something is wrong !");
     }
 
-     // Customers White Lissted Complaint Registration
+     // Complaint Registration Filter
 
-     public function whiteLisstedcomplaintRegistration(Request $request)
+     public function datefilter(Request $request)
      {
-         // dd($request->all());
          try {
-             $complaintRegistration = ComplaintRegistration::where('status', 'Approved')->get();
-             //  dd($complaintRegistration);
+             $this->validate($request, [
+                 'start_date'                  => 'required',
+                 'end_date'                    => 'required',
+             ]);
+
+             return Excel::download(new DateFilterComplaintRegistrationExport, 'All-Complaint-Registration.xlsx');
          } catch (ModelNotFoundException $exception) {
              return back()->withError($exception->getMessage())->withInput();
          }
-         return view('admin.whiteLissted', ['complaintRegistration' => $complaintRegistration]);
+         // return view('admin.whiteLissted', ['data' => $data]);
+         return redirect()->back()->with("error", "Something is wrong !");
      }
+
+    // Customers White Lissted Complaint Registration
+
+    public function whiteLisstedcomplaintRegistration(Request $request)
+    {
+        // dd($request->all());
+        try {
+            $complaintRegistration = ComplaintRegistration::where('status', 'Approved')->get();
+            //  dd($complaintRegistration);
+        } catch (ModelNotFoundException $exception) {
+            return back()->withError($exception->getMessage())->withInput();
+        }
+        return view('admin.whiteLissted', ['complaintRegistration' => $complaintRegistration]);
+    }
 
     // Product Type Register
 

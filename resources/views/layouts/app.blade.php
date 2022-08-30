@@ -19,7 +19,7 @@
 		<link id="novita-css" rel="stylesheet" href="{{ asset('assets/css/novita.css ') }}" />
 
 		<!-- FAVICON -->
-		<link href="{{ asset('assets/img/AVITA-logo.ico  ') }}" rel="shortcut icon" />
+		<link href="{{ asset('assets/img/NOVITA-logo.ico  ') }}" rel="shortcut icon" />
 
         @yield('css')
 	</head>

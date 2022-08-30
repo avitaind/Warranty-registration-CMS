@@ -21,8 +21,31 @@
                         <span><i class="mdi mdi-chevron-right"></i></span>Complaint Registration
                     </p>
                 </div>
-                <div>
-                    <a href="{{ route('exportAllComplaintRegistration') }}" class="btn btn-primary"> Export File</a>
+                <div class=" float-right">
+                    <form action="{{ route('datefilter') }}" method="GET">
+                        {{-- {{ csrf_field() }} --}}
+                        <div class="input-group mb-3">
+                            {{-- <input type="date" required class="form-control @error('start_date') is-invalid @enderror"
+                                name="start_date"> --}}
+                            @error('start_date')
+                                <span class="alert alert-danger" id="start_dateHelp" role="alert">
+                                    <strong>{{ $message }}</strong>
+                                </span>
+                            @enderror
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            {{-- <input type="date" required id="dateID"
+                                class="form-control @error('end_date') is-invalid @enderror" name="end_date"> --}}
+                            @error('end_date')
+                                <span class="alert alert-danger" id="end_dateHelp" role="alert">
+                                    <strong>{{ $message }}</strong>
+                                </span>
+                            @enderror
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            {{-- <button class="btn btn-primary" type="submit">GET</button>&nbsp;&nbsp;&nbsp;&nbsp; --}}
+
+                            <a href="{{ route('exportAllComplaintRegistration') }}" class="btn btn-primary">Export File</a>
+                        </div>
+                    </form>
                 </div>
             </div>
             <div class="row">
@@ -68,9 +91,8 @@
                                                     @endif
                                                 </td>
                                                 <td>
-                                                    <a href="javascript:0" data-bs-toggle="modal"
-
-                                                        class="view-detail" onClick="popupfunctioncall('{{$cr->ticketID}}');">{{ $cr->ticketID }}</i>
+                                                    <a href="javascript:0" data-bs-toggle="modal" class="view-detail"
+                                                        onClick="popupfunctioncall('{{ $cr->ticketID }}');">{{ $cr->ticketID }}</i>
                                                     </a>
                                                     {{-- <a data-bs-target="#modal-contact" class="view-detail"
                                                         data-bs-toggle="modal"
@@ -116,19 +138,31 @@
                                                 </td>
                                                 <td>
                                                     <?php $checkCity = \App\Models\City::where('id', $cr->city)->first(); ?>
-                                                    {{-- {{ dd($cr->city); }} --}}
-
-                                                    {{ $checkCity->name }}
-                                                    {{-- {{ $cr->city }} --}}
+                                                    {{-- {{ $checkCity->name }} --}}
+                                                    @if ($checkCity != null)
+                                                        {{ $checkCity->name }}
+                                                    @else
+                                                        {{ $cr->city }}
+                                                    @endif
                                                 </td>
                                                 <td>
                                                     <?php $checkState = \App\Models\State::where('id', $cr->state)->first(); ?>
-                                                    {{ $checkState->name }}
+                                                    {{-- {{ $checkState->name }} --}}
+                                                    @if ($checkState != null)
+                                                        {{ $checkState->name }}
+                                                    @else
+                                                        {{ $cr->state }}
+                                                    @endif
                                                     {{-- {{ $cr->state }} --}}
                                                 </td>
                                                 <td>
-                                                    <?php $checkCountrie = \App\Models\Country::where('id', $cr->countries)->first(); ?>
-                                                    {{ $checkCountrie->name }}
+                                                    <?php $checkCountries = \App\Models\Country::where('id', $cr->countries)->first(); ?>
+                                                    {{-- {{ $checkCountrie->name }} --}}
+                                                    @if ($checkCountries != null)
+                                                        {{ $checkCountries->name }}
+                                                    @else
+                                                        {{ $cr->countries }}
+                                                    @endif
                                                     {{-- {{ $cr->countries }} --}}
                                                 </td>
                                                 <td>{{ $cr->pinCode }}</td>
@@ -192,8 +226,7 @@
                             <div class="contact-info px-4"><br />
                                 <p class="text-dark font-weight-medium pt-3 mb-2">Serial Number</p>
                                 <p id="productSerialNo"></p>
-                                <form class="row g-3" method="POST"
-                                    action="{{ route('complaintRegistration.update')}}">
+                                <form class="row g-3" method="POST" action="{{ route('complaintRegistration.update') }}">
                                     {!! csrf_field() !!}
                                     <div class="row">
 

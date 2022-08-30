@@ -19,8 +19,8 @@ class AppMailer
 {
 
     public $mailer;
-    // public $fromAddress = 'bhavdeep.bharadwaj@ashplan.media';
-    public $fromAddress = 'noreply@novita-india.com';
+    public $fromAddress = 'bhavdeep.bharadwaj@ashplan.media';
+    // public $fromAddress = 'noreply@novita-india.com';
     public $fromName = 'NOVITA India';
     public $to;
     public $subject;
