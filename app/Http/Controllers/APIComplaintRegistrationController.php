@@ -152,7 +152,7 @@ class APIComplaintRegistrationController extends Controller
         return collect($data_array);
     }
 
-
+    // Post Method Function
 
     public function store(Request $request)
     {
