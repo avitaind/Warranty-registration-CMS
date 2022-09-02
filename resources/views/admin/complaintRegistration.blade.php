@@ -25,23 +25,23 @@
                     <form action="{{ route('datefilter') }}" method="GET">
                         {{-- {{ csrf_field() }} --}}
                         <div class="input-group mb-3">
-                            <input type="date" required class="form-control @error('start_date') is-invalid @enderror"
-                                name="start_date">
+                            {{-- <input type="date" required class="form-control @error('start_date') is-invalid @enderror"
+                                name="start_date"> --}}
                             @error('start_date')
                                 <span class="alert alert-danger" id="start_dateHelp" role="alert">
                                     <strong>{{ $message }}</strong>
                                 </span>
                             @enderror
                             &nbsp;&nbsp;&nbsp;&nbsp;
-                            <input type="date" required id="dateID"
-                                class="form-control @error('end_date') is-invalid @enderror" name="end_date">
+                            {{-- <input type="date" required id="dateID"
+                                class="form-control @error('end_date') is-invalid @enderror" name="end_date"> --}}
                             @error('end_date')
                                 <span class="alert alert-danger" id="end_dateHelp" role="alert">
                                     <strong>{{ $message }}</strong>
                                 </span>
                             @enderror
                             &nbsp;&nbsp;&nbsp;&nbsp;
-                            <button class="btn btn-primary" type="submit">GET</button>&nbsp;&nbsp;&nbsp;&nbsp;
+                            {{-- <button class="btn btn-primary" type="submit">GET</button>&nbsp;&nbsp;&nbsp;&nbsp; --}}
 
                             <a href="{{ route('exportAllComplaintRegistration') }}" class="btn btn-primary">Export File</a>
                         </div>
