@@ -463,7 +463,7 @@ class UserController extends Controller
     {
         try {
             $data['countries'] = Country::get(["name", "id"]);
-            $solved = ComplaintRegistration::where('email', Auth::user()->email)->where('status', 'Solved')->count();
+            $solved = ComplaintRegistration::where('email', Auth::user()->email)->where('status', 'Resolved')->count();
             $total = ComplaintRegistration::where('email', Auth::user()->email)->count();
 
             $checkdata = \App\Models\ComplaintRegistration::where('email', Auth::user()->email)->latest()->first();

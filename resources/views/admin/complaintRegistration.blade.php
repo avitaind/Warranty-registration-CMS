@@ -25,23 +25,23 @@
                     <form action="{{ route('datefilter') }}" method="GET">
                         {{-- {{ csrf_field() }} --}}
                         <div class="input-group mb-3">
-                            {{-- <input type="date" required class="form-control @error('start_date') is-invalid @enderror"
-                                name="start_date"> --}}
+                            <input type="date" required class="form-control @error('start_date') is-invalid @enderror"
+                                name="start_date">
                             @error('start_date')
                                 <span class="alert alert-danger" id="start_dateHelp" role="alert">
                                     <strong>{{ $message }}</strong>
                                 </span>
                             @enderror
                             &nbsp;&nbsp;&nbsp;&nbsp;
-                            {{-- <input type="date" required id="dateID"
-                                class="form-control @error('end_date') is-invalid @enderror" name="end_date"> --}}
+                            <input type="date" required id="dateID"
+                                class="form-control @error('end_date') is-invalid @enderror" name="end_date">
                             @error('end_date')
                                 <span class="alert alert-danger" id="end_dateHelp" role="alert">
                                     <strong>{{ $message }}</strong>
                                 </span>
                             @enderror
                             &nbsp;&nbsp;&nbsp;&nbsp;
-                            {{-- <button class="btn btn-primary" type="submit">GET</button>&nbsp;&nbsp;&nbsp;&nbsp; --}}
+                            <button class="btn btn-primary" type="submit">GET</button>&nbsp;&nbsp;&nbsp;&nbsp;
 
                             <a href="{{ route('exportAllComplaintRegistration') }}" class="btn btn-primary">Export File</a>
                         </div>
@@ -114,8 +114,8 @@
                                                         <span class="badge badge-warning">Pending For Review</span>
                                                     @elseif($cr->status == 'Approved')
                                                         <span class="badge badge-primary">Approved</span>
-                                                    @elseif ($cr->status == 'Solved')
-                                                        <span class="badge badge-success">Solved</span>
+                                                    @elseif ($cr->status == 'Resolved')
+                                                        <span class="badge badge-success">Resolved</span>
                                                     @elseif ($cr->status == 'Denied')
                                                         <span class="badge badge-danger">Denied</span>
                                                     @elseif ($cr->status == 'In Process')
@@ -123,6 +123,7 @@
                                                     @elseif ($cr->status == null)
                                                         N/A
                                                     @endif
+
                                                 </td>
                                                 <td>{{ $cr->name }}</td>
                                                 <td>{{ $cr->email }}</td>
@@ -241,9 +242,9 @@
                                                     id="status" aria-describedby="statusHelp" name="status">
                                                     <option value="">------</option>
                                                     <option value="Approved">Approved</option>
-                                                    <option value="In Process">In Process</option>
+                                                    {{-- <option value="In Process">In Process</option> --}}
                                                     <option value="Denied">Denied</option>
-                                                    <option value="Solved">Solved</option>
+                                                    {{-- <option value="Solved">Solved</option> --}}
                                                 </select>
                                                 @error('status')
                                                     <span class="invalid-feedback form-text" id="statusHelp" role="alert">
@@ -288,6 +289,7 @@
             </div>
         </div>
     </div>
+
 @endsection
 
 @section('js')

@@ -90,7 +90,7 @@ class AdminController extends Controller
         try {
             $result = ComplaintRegistration::where('ticketID', $request->ticketID)->update(['status' => $request->status]);
 
-            if ($request->status == 'Solved') {
+            if ($request->status == 'Resolved') {
                 $get = \App\Models\ComplaintRegistration::where('ticketID', $request->ticketID)->first();
                 // dd($get);
                 $mailer->sendcomplaintRegistrationInformationSolved($get);
@@ -132,23 +132,23 @@ class AdminController extends Controller
         return redirect()->back()->with("error", "Something is wrong !");
     }
 
-     // Complaint Registration Filter
+    // Complaint Registration Filter
 
-     public function datefilter(Request $request)
-     {
-         try {
-             $this->validate($request, [
-                 'start_date'                  => 'required',
-                 'end_date'                    => 'required',
-             ]);
+    public function datefilter(Request $request)
+    {
+        try {
+            $this->validate($request, [
+                'start_date'                  => 'required',
+                'end_date'                    => 'required',
+            ]);
 
-             return Excel::download(new DateFilterComplaintRegistrationExport, 'All-Complaint-Registration.xlsx');
-         } catch (ModelNotFoundException $exception) {
-             return back()->withError($exception->getMessage())->withInput();
-         }
-         // return view('admin.whiteLissted', ['data' => $data]);
-         return redirect()->back()->with("error", "Something is wrong !");
-     }
+            return Excel::download(new DateFilterComplaintRegistrationExport, 'All-Complaint-Registration.xlsx');
+        } catch (ModelNotFoundException $exception) {
+            return back()->withError($exception->getMessage())->withInput();
+        }
+        // return view('admin.whiteLissted', ['data' => $data]);
+        return redirect()->back()->with("error", "Something is wrong !");
+    }
 
     // Customers White Lissted Complaint Registration
 
@@ -156,7 +156,9 @@ class AdminController extends Controller
     {
         // dd($request->all());
         try {
-            $complaintRegistration = ComplaintRegistration::where('status', 'Approved')->get();
+            // $complaintRegistration = ComplaintRegistration::where('status', 'Approved')->get();
+            $complaintRegistration = ComplaintRegistration::where('status', 'Approved')->orWhere('status', 'Resolved')->orWhere('status', 'In Process')->get();
+
             //  dd($complaintRegistration);
         } catch (ModelNotFoundException $exception) {
             return back()->withError($exception->getMessage())->withInput();

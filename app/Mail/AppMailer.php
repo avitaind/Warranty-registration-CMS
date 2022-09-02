@@ -71,7 +71,7 @@ class AppMailer
     public function sendcomplaintRegistrationInformationSolved(ComplaintRegistration $complaintRegistration)
     {
         $this->to =  $complaintRegistration->email;
-        $this->subject = "NOVITA | Complaint | Registration | Solved";
+        $this->subject = "NOVITA | Complaint | Registration | Resolved";
         $this->view = 'emails.complaintRegistrationSolved';
         $this->data = compact('complaintRegistration');
         return $this->deliver();

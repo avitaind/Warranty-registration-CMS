@@ -47,7 +47,7 @@ class ChartDataComplaintRegistration extends Controller
         }
 
         $max_no = max($monthly_complaint_registration_count_array);
-        $max = round(($max_no + 300 / 2) / 10) * 10;
+        $max = round(($max_no + 300 / 20) / 10) * 10;
         $monthly_complaint_registration_data_array = array(
             'months' => $month_name_array,
             'complaint_registration_count_data' => $monthly_complaint_registration_count_array,

@@ -15,7 +15,7 @@
                     <div class="card card-mini dash-card card-1">
                         <div class="card-body">
                             <h2 class="mb-1">{{ $users }}</h2>
-                            <p>All Customers</p>
+                            <p>Total Customers</p>
                             <span class="mdi mdi-account-group"></span>
                         </div>
                     </div>
@@ -24,7 +24,7 @@
                     <div class="card card-mini dash-card card-2">
                         <div class="card-body">
                             <h2 class="mb-1">{{ $complaint_registration }}</h2>
-                            <p>All Complaint Registration</p>
+                            <p>Total Complaint Registration</p>
                             <span class=" mdi mdi-account-card-details"></span>
                         </div>
                     </div>
@@ -33,7 +33,7 @@
                     <div class="card card-mini dash-card card-3">
                         <div class="card-body">
                             <h2 class="mb-1">{{ $warranty_registration }}</h2>
-                            <p>Daily Order Warranty Registration</p>
+                            <p>Order Warranty Registration</p>
                             <span class="mdi mdi-security"></span>
                         </div>
                     </div>
