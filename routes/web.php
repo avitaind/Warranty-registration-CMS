@@ -168,6 +168,9 @@ Route::group(['prefix' => 'admin', 'middleware' => ['isAdmin', 'auth', 'PreventB
     // Product Create
     Route::get('products/create/', [ProductController::class, 'create'])->name('products.create');
 
+    // Serial Number Check Registration or Not
+    Route::post('products/serialCheck', [ProductController::class, 'serialNumberCheck'])->name('serialNumberCheck');
+
     // Product Type Create
     Route::get('products/create/product-type', [ProductController::class, 'createproductTypes'])->name('product.add');
 
@@ -197,6 +200,7 @@ Route::group(['prefix' => 'admin', 'middleware' => ['isAdmin', 'auth', 'PreventB
 
     // Product configuration Store
     Route::post('products/create/configuration/store', [ProductController::class, 'productConfigurationStore'])->name('configuration.store');
+
 });
 
 // Seller Dashboard

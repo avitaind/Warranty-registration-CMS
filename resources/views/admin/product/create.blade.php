@@ -25,13 +25,11 @@
                             <small>Items marked with an asterisk (*) must be filled out.</small><br><br>
 
                             <div class="col-lg-12">
-                                @if (session('msg'))
-                                    <div class="alert alert-success" role="alert">
-                                        {{ session('msg') }}
-                                    </div>
-                                @endif
+                                @include('component.alert')
                                 <div class="ec-vendor-upload-detail">
-                                    <form class="row g-3">
+                                    <form class="row g-3" method="Get" >
+                                        {{-- <form class="row g-3" method="Post" action="{{ route('serialNumberCheck') }}"> --}}
+                                        {{-- {!! csrf_field() !!} --}}
                                         <div class="col-md-12 ">
                                             <div class="row">
                                                 <div class="div col-md-4">
@@ -39,16 +37,22 @@
                                                             class="required">*</span></label>
                                                 </div>
                                                 <div class="div col-md-6 p-1">
-                                                    <select name="product_type" id="product_type" class="form-select">
+                                                    <select name="product_type" id="product_type"
+                                                        class="form-select @error('product_type') is-invalid @enderror">
                                                         <option hidden>Choose Product Type</option>
                                                         @foreach ($product_type as $item)
                                                             <option value="{{ $item->id }}">{{ $item->name }}</option>
                                                         @endforeach
+                                                        @error('product_type')
+                                                            <span class="invalid-feedback" role="alert">
+                                                                <strong>{{ $message }}</strong>
+                                                            </span>
+                                                        @enderror
                                                     </select>
                                                 </div>
                                                 <div class="div col-md-2 p-1">
-                                                    <a class="btn btn-outline-primary"
-                                                        href="{{ route('product.add') }}">Add New Product Type</a>
+                                                    <a class="btn btn-outline-primary" href="{{ route('product.add') }}">Add
+                                                        New Product Type</a>
                                                 </div>
                                             </div>
                                         </div>
@@ -61,7 +65,12 @@
                                                 </div>
                                                 <div class="div col-md-6 p-1">
                                                     <select name="product_series" id="product_series"
-                                                        class="form-select"></select>
+                                                        class="form-select @error('products_id') is-invalid @enderror"></select>
+                                                    @error('products_id')
+                                                        <span class="invalid-feedback" role="alert">
+                                                            <strong>{{ $message }}</strong>
+                                                        </span>
+                                                    @enderror
                                                 </div>
                                                 <div class="div col-md-2 p-1">
                                                     <a class="btn btn-outline-primary"
@@ -78,8 +87,14 @@
                                                         Model: <span class="required">*</span></label>
                                                 </div>
                                                 <div class="div col-md-6 p-1">
-                                                    <select name="product_model" id="product_model" class="form-select">
+                                                    <select name="product_model" id="product_model"
+                                                        class="form-select @error('product_model_id') is-invalid @enderror">
                                                     </select>
+                                                    @error('product_model_id')
+                                                        <span class="invalid-feedback" role="alert">
+                                                            <strong>{{ $message }}</strong>
+                                                        </span>
+                                                    @enderror
                                                 </div>
 
                                                 <div class="div col-md-2 p-1">
@@ -97,8 +112,13 @@
                                                 </div>
                                                 <div class="div col-md-6 p-1">
                                                     <select name="product_number" id="product_number"
-                                                        class="form-select">
+                                                        class="form-select @error('product_number') is-invalid @enderror">
                                                     </select>
+                                                    @error('product_number')
+                                                        <span class="invalid-feedback" role="alert">
+                                                            <strong>{{ $message }}</strong>
+                                                        </span>
+                                                    @enderror
                                                 </div>
 
                                                 <div class="div col-md-2 p-1">
@@ -118,7 +138,13 @@
                                                     </label>
                                                 </div>
                                                 <div class="div col-md-6 p-1">
-                                                    <textarea class="form-select1" id="product_configuration" name="product_configuration" rows="2"></textarea>
+                                                    <textarea class="form-select1 @error('titleName') is-invalid @enderror" id="product_configuration"
+                                                        name="product_configuration" rows="2"></textarea>
+                                                        @error('titleName')
+                                                            <span class="invalid-feedback" role="alert">
+                                                                <strong>{{ $message }}</strong>
+                                                            </span>
+                                                        @enderror
                                                 </div>
 
                                                 <div class="div col-md-2 p-1">
@@ -139,15 +165,21 @@
                                                     {{-- <select name="serial_number" id="serial_number" class="form-select">
                                                         <option value="">Select Product Series</option>
                                                     </select> --}}
-                                                    <input type="text" class="form-select1" id="serial_number"
-                                                        name="serial_number" value="">
+                                                    <input type="text"
+                                                        class="form-select1 @error('serial_number') is-invalid @enderror"
+                                                        id="serial_number" name="serial_number" value="">
+                                                    @error('serial_number')
+                                                        <span class="invalid-feedback" role="alert">
+                                                            <strong>{{ $message }}</strong>
+                                                        </span>
+                                                    @enderror
                                                 </div>
                                             </div>
                                         </div>
 
-                                        {{-- <div class="col-md-12 text-center mt-4">
+                                        <div class="col-md-12 text-center mt-4">
                                             <button type="submit" class="btn btn-primary">Submit</button>
-                                        </div> --}}
+                                        </div>
                                     </form>
                                 </div>
                             </div>

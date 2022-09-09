@@ -28,15 +28,15 @@
     </div>
 @endif
 
-{{-- @if ($errors->any())
-<div class="alert alert-danger ">
-    @foreach ($errors->all() as $error)
-    <ul >
-        <li class="mdi mdi-information-outline "> {{ $error }}</li>
-    </ul>
-    @endforeach
-</div>
-@endif --}}
+@if ($errors->any())
+    <div class="alert alert-danger ">
+        @foreach ($errors->all() as $error)
+            <ul>
+                <li class="mdi mdi-information-outline "> {{ $error }}</li>
+            </ul>
+        @endforeach
+    </div>
+@endif
 
 @if (session('msg'))
     <div class="alert alert-success" role="alert">

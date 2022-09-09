@@ -63,6 +63,41 @@ class ProductController extends Controller
         return view('admin.product.create', ['product_type' => $product_type]);
     }
 
+    // Serial Number Registration Or Not
+
+    public function serialNumberCheck(Request $request)
+    {
+        // dd($request->all());
+        // dd($request->product_number);
+        try {
+            $this->validate($request, [
+                'product_type'              => 'required',
+                // 'products_id'               => 'required',
+                // 'product_model_id'          => 'required',
+                'product_number'            => 'required',
+                'titleName'                 => 'required',
+                'serial_number'             => 'required',
+            ]);
+            $checkproductnoexist = product_number::where('product_number', $request->product_number)->pluck('id')->first();
+            // dd($checkproductnoexist);
+
+            if ($checkproductnoexist > 0) {
+                $checkserialnoexist = product_number::where('id', $checkproductnoexist)->whereRaw("NOT FIND_IN_SET('" . $request->serial_number . "','serial_number')")->first();
+                $serialnumarr[] = explode(',', $checkserialnoexist->serial_number);
+                // dd(in_array($request->serial_number, $serialnumarr[0]));
+
+                if (in_array($request->serial_number, $serialnumarr[0]) == false) {
+
+                    return Redirect::back()->with('warning', 'Serial number is not found');
+                } else {
+                    return Redirect::back()->with('msg', 'Serial number is already exist.');
+                }
+            }
+        } catch (ModelNotFoundException $exception) {
+            return back()->withError($exception->getMessage())->withInput();
+        }
+        return redirect()->back()->with("error", "Something is wrong !");
+    }
 
     public function createproductTypes()
     {
