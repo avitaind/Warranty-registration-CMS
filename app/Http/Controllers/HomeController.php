@@ -16,9 +16,16 @@ class HomeController extends Controller
      *
      * @return void
      */
-    public function __construct()
+    // public function __construct()
+    // {
+    //     $this->middleware('auth');
+    // }
+
+    // Warranty And Replacement Policy
+
+    public function warrantyAndReplacementPolicy()
     {
-        $this->middleware('auth');
+        return view('pages.warranty-and-replacement-policy');
     }
 
 

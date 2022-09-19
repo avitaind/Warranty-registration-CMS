@@ -3,22 +3,22 @@
     <div id="sidebar" class="sidebar ec-sidebar-footer">
 
         {{-- <div class="m-3">
-            <a href="/" title="AVITA India">
+            <a href="/" title="AVITA GLOBAL">
                 <img class="" src="{{ asset('assets/img/logo/AVITA-logo.png ') }}" alt="" />
             </a>
         </div>
 
         <div class="ec-brand">
-            <a href="/" title="NOVITA India">
+            <a href="/" title="NOVITA GLOBAL">
                 <img class="ec-brand-icon" src="{{ asset('assets/img/logo/NOVITA-logo.png ') }}" alt="" />
                 <span class="ec-brand-name text-truncate">NOVITA</span>
             </a>
         </div> --}}
 
         <div class="ec-brand">
-            <a href="/" title="NOVITA India">
+            <a href="/" title="NOVITA GLOBAL">
                 <img class="ec-brand-name text-truncate" src="{{ asset('assets/img/logo/NOVITA-Logo.png ') }}"
-                    alt="NOVITA-INDIA" />
+                    alt="NOVITA-GLOBAL" />
             </a>
         </div>
 
@@ -83,7 +83,7 @@
 
                 <!-- Contact US -->
                 {{-- <li>
-                    <a class="sidenav-item-link" href="https://www.avita-india.com/contact-us" target="_blank">
+                    <a class="sidenav-item-link" href="https://www.avita-GLOBAL.com/contact-us" target="_blank">
                         <i class="mdi mdi-contacts"></i>
                         <span class="nav-text">Contact US</span>
                     </a>

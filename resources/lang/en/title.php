@@ -2,7 +2,7 @@
 
 return [
 
-    'welcome'                                        => 'NOVITA | GLOBAL | WARRANTY REGISTRATION',
+    'welcome'                                        => 'NOVITA | GLOBAL | WARRANTY | REGISTRATION',
     'login'                                          => 'NOVITA | GLOBAL | LOGIN',
     'register'                                       => 'NOVITA | GLOBAL | REGISTER',
     'reset_password'                                 => 'NOVITA | GLOBAL | RESET | PASSWORD',

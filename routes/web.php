@@ -90,6 +90,8 @@ Route::group(['prefix' => 'admin', 'middleware' => ['isAdmin', 'auth', 'PreventB
     // Admin
     Route::get('/', [AdminController::class, 'adminHome'])->name('admin.home');
 
+
+
     // Seller Sales Report
     Route::get('sellerSales', [AdminController::class, 'sellerSales'])->name('admin.sellerSalesReport');
 
@@ -200,7 +202,6 @@ Route::group(['prefix' => 'admin', 'middleware' => ['isAdmin', 'auth', 'PreventB
 
     // Product configuration Store
     Route::post('products/create/configuration/store', [ProductController::class, 'productConfigurationStore'])->name('configuration.store');
-
 });
 
 // Seller Dashboard
@@ -273,3 +274,8 @@ Route::post('/getproductConfiguration', [AdminController::class, 'getproductConf
 Route::post('api/fetch-states', [CountriesStatesCitiesController::class, 'fetchState']);
 
 Route::post('api/fetch-cities', [CountriesStatesCitiesController::class, 'fetchCity']);
+
+
+// Warranty And Replacement Policy
+
+Route::get('warranty-and-replacement-policy', [HomeController::class, 'warrantyAndReplacementPolicy'])->name('warrantyAndReplacementPolicy');
