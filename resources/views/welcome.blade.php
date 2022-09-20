@@ -81,7 +81,7 @@
                         style="border-left:2px solid #fff;"></strong>&nbsp;&nbsp;Dedicated Support Team
                 </div>
                 <h3 class="pl-3 pt-4 text-capitalize">Online Portal</h3>
-                <div class="pl-3 font-size-40">Create your account and register your product. Use the portal to generate a
+                <div class="pl-3 font-size-40 pr-3" style="text-align: justify!important;">Create your account and register your product. Use the portal to generate a
                     ticket against any of your grievances <i class="mdi mdi-arrow-right-bold-outline mdi-18px hidden-sm-down"></i></div>
 
 
