@@ -72,17 +72,17 @@
                 <h1 class="pl-3 pb-4 text-capitalize text-center pr-4">customer support</h1>
 
                 <h3 class="pl-3 text-capitalize">Call Support</h3>
-                <div class="pl-3 font-size-40"><i class="mdi mdi-cellphone-basic mdi-24px"></i> +91
+                <div class="pl-3 font-size-40"><i class="mdi mdi-cellphone-basic mdi-18px"></i> +91
                     7208845987&nbsp;&nbsp;<strong style="border-left:2px solid #fff;"></strong>&nbsp;&nbsp;Mon - Sat : 10:00
                     AM To 06:00 PM</div>
                 <h3 class="pl-3 pt-4 text-capitalize">Email Support</h3>
-                <div class="pl-3 font-size-40"><i class="mdi mdi-email-outline mdi-24px"></i>
+                <div class="pl-3 font-size-40"><i class="mdi mdi-email-outline mdi-18px"></i>
                     support@novita-global.com&nbsp;&nbsp;<strong
                         style="border-left:2px solid #fff;"></strong>&nbsp;&nbsp;Dedicated Support Team
                 </div>
                 <h3 class="pl-3 pt-4 text-capitalize">Online Portal</h3>
-                <div class="pl-3 font-size-50">Create your account and register your product. Use the portal to generate a
-                    ticket against any of your grievances <i class="mdi mdi-arrow-right-bold-outline mdi-24px hidden-sm-down"></i></div>
+                <div class="pl-3 font-size-40">Create your account and register your product. Use the portal to generate a
+                    ticket against any of your grievances <i class="mdi mdi-arrow-right-bold-outline mdi-18px hidden-sm-down"></i></div>
 
 
                 <div class="row pl-3 pt-4">
