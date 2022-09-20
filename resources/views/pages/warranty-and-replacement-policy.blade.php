@@ -14,6 +14,12 @@
 
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
 
+    <style>
+        li {
+            text-align: justify;
+        }
+    </style>
+
     <title>NOVITA | GLOBAL | WARRANTY | AND | REPLACEMENT | POLICY</title>
 </head>
 
@@ -34,7 +40,7 @@
                     perfect
                     working order without actually opening it. You can ask for a replacement if a manufacturing flaw is
                     discovered in a product you recently purchased from NOVITA.</p>
-                <h2>Things that are covered under Warranty</h2>
+                <h2>Instances that are covered under Warranty</h2>
                 <ul>
                     <li>Manufacturing defects in materials and workmanship of the product. This warranty applies when
                         the product is used under normal conditions and the purpose for which the product was designed.
@@ -62,7 +68,7 @@
                         cracks, dents, or scratches on the exterior cases, screens, camera lenses, buttons, and other
                         attachments.</li>
                 </ul>
-                <h2>Things that are not covered under Warranty</h2>
+                <h2>Instances that are not covered under Warranty</h2>
                 <ul>
                     <li>Products purchased from unauthorized online &amp; offline re-sellers</li>
                     <li>Products damaged from improper handling and usage</li>

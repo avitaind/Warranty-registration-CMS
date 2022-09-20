@@ -81,7 +81,8 @@
                         style="border-left:2px solid #fff;"></strong>&nbsp;&nbsp;Dedicated Support Team
                 </div>
                 <h3 class="pl-3 pt-4 text-capitalize">Online Portal</h3>
-                <div class="pl-3 font-size-50">Register your product and any related grievances here</div>
+                <div class="pl-3 font-size-50">Create your account and register your product. Use the portal to generate a
+                    ticket against any of your grievances <i class="mdi mdi-arrow-right-bold-outline mdi-24px hidden-sm-down"></i></div>
 
 
                 <div class="row pl-3 pt-4">
@@ -102,7 +103,7 @@
                                     Select Product
                                 </button> --}}
 
-                                <button class="text-white" type="button" id="dropdownMenuButton1"
+                                <button class="text-white dropdown-toggle" type="button" id="dropdownMenuButton1"
                                     data-bs-toggle="dropdown" aria-expanded="false"
                                     style="font-size: 24px; font-weight:500;">
                                     Product Guide
@@ -120,8 +121,8 @@
                     <div class="col-lg-8 pt-3">
                         <div class="row">
                             <div class="col-lg-6">
-                                <a href="{{ route('warrantyAndReplacementPolicy')}}"
-                                    class="btn btn-primary1">Warranty Policy</a>
+                                <a href="{{ route('warrantyAndReplacementPolicy') }}" class="btn btn-primary1">Warranty
+                                    Policy</a>
                                 <div class="pt-2 pb-2"></div>
                                 {{-- <a href="#" target="_blank" class="btn btn-primary1 hidden-sm-down">Terms and
                                     Conditions</a> --}}
@@ -276,7 +277,7 @@
 
     <script>
         /* When the user clicks on the button,
-                                    toggle between hiding and showing the dropdown content */
+                                        toggle between hiding and showing the dropdown content */
         function myFunction() {
             document.getElementById("myDropdown").classList.toggle("show");
         }
