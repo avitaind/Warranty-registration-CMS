@@ -71,7 +71,7 @@
                 {{-- <img src="/assets/img/bg_welcome_background.jpg"> --}}
                 <h1 class="pl-3 pb-4 text-capitalize text-center pr-4">customer support</h1>
 
-                <h3 class="pl-3 text-capitalize">Call Support</h3>
+                <h3 class="pl-3 text-capitalize" style="padding-top: 21px;">Call Support</h3>
                 <div class="pl-3 font-size-40"><i class="mdi mdi-cellphone-basic mdi-18px"></i> +91
                     7208845987&nbsp;&nbsp;<strong style="border-left:2px solid #fff;"></strong>&nbsp;&nbsp;Mon - Sat : 10:00
                     AM To 06:00 PM</div>
