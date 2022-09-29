@@ -61,12 +61,12 @@
                         product manual, and so on</li>
                     <li>Invalid warranty</li>
                     <li>Expired warranty</li>
-                    <li>The warranty does not cover natural wear &amp; tear, usage under extreme conditions, damage due
+                    {{-- <li>The warranty does not cover natural wear &amp; tear, usage under extreme conditions, damage due
                         to improper care (accident, misuse, or negligence), and damage caused by acts of god such as
                         floods, fires, or earthquakes.</li>
                     <li>If any damage occurs in/on the outer surface of the product, including but not limited to
                         cracks, dents, or scratches on the exterior cases, screens, camera lenses, buttons, and other
-                        attachments.</li>
+                        attachments.</li> --}}
                 </ul>
                 <h2>Instances that are not covered under Warranty</h2>
                 <ul>
@@ -88,6 +88,12 @@
                         the Warranty. Such expenses are non-refundable.</li>
                     <li>In case of Customer Induced Damage, the customer will not be provided with the service of repair
                         or replacement.</li>
+                    <li>The warranty does not cover natural wear & tear, usage under extreme conditions, damage due to
+                        improper care (accident, misuse, or negligence), and damage caused by acts of god such as
+                        floods, fires, or earthquakes.</li>
+                    <li>If any damage occurs in/on the outer surface of the product, will not be included, such as
+                        cracks, dents, or scratches on the exterior cases, screens, camera lenses, buttons, and other
+                        attachments.</li>
                 </ul>
                 <strong>The product can be registered only within 10 days of its purchase to avail the
                     warranty.</strong>

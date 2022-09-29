@@ -3,15 +3,15 @@
     <div id="sidebar" class="sidebar ec-sidebar-footer">
 
         {{-- <div class="m-3">
-            <a href="" title="AVITA India">
+            <a href="" title="AVITA GLOBAL">
                 <img class="" src="{{ asset('assets/img/logo/AVITA-logo.png ') }}" alt="" />
             </a>
         </div> --}}
 
         <div class="ec-brand">
-            <a href="/" title="NOVITA India">
+            <a href="/" title="NOVITA GLOBAL">
                 <img class="ec-brand-name text-truncate" src="{{ asset('assets/img/logo/NOVITA-Logo.png ') }}"
-                    alt="NOVITA-INDIA" />
+                    alt="NOVITA-GLOBAL" />
             </a>
         </div>
 

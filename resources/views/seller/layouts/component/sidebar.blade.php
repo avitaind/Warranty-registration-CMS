@@ -3,20 +3,20 @@
     <div id="sidebar" class="sidebar ec-sidebar-footer">
 
         {{-- <div class="m-3">
-            <a href="/" title="NOVITA India">
+            <a href="/" title="NOVITA GLOBAL">
                 <img class="" src="{{ asset('assets/img/logo/NOVITA-logo.png ') }}" alt="" />
             </a>
         </div>
 
         <div class="ec-brand">
-            <a href="/" title="NOVITA India">
+            <a href="/" title="NOVITA GLOBAL">
                 <img class="ec-brand-icon" src="{{ asset('assets/img/logo/NOVITA-logo.png ') }}" alt="" />
                 <span class="ec-brand-name text-truncate">NOVITA</span>
             </a>
         </div> --}}
 
         <div class="ec-brand">
-            <a href="/" title="NOVITA India">
+            <a href="/" title="NOVITA GLOBAL">
                 {{-- <img class="ec-brand-icon hidden-md-up" src="{{ asset('assets/img/logo/NOVITA-logo.png ') }}" alt="" /> --}}
                 <img class="ec-brand-name text-truncate" src="{{ asset('assets/img/logo/NOVITA-logo.png ') }}"
                     alt="" />

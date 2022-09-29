@@ -4,7 +4,7 @@
         <!-- Sidebar toggle button -->
         <button id="sidebar-toggler" class="sidebar-toggle"></button>
         <img class="ec-brand-name text-truncate hidden-md-up" src="{{ asset('assets/img/logo/NOVITA-Log-0.png ') }}"
-            alt="NOVITA INDIA" />
+            alt="NOVITA GLOBAL" />
         <!-- search form -->
         <div class="search-form d-lg-inline-block">
             <div class="input-group">
