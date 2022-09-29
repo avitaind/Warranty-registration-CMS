@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="UTF-8">
-    <title>AVITA Complaint Registration Denied</title>
+    <title>NOVITA GLOBAL Complaint Registration Denied</title>
 </head>
 
 <body>
@@ -50,7 +50,7 @@
 
     <p>Team NOVITA</p>
 
-    <p>Please do not reply to this email. For any support email us at contact@novita-india.com</p>
+    <p>Please do not reply to this email. For any support email us at contact@novita-global.com</p>
 </body>
 
 </html>

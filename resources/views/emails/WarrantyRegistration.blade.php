@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="UTF-8">
-    <title>Product Warranty Registration</title>
+    <title>NOVITA GLOBAL Product Warranty Registration</title>
 </head>
 
 <body>
@@ -47,7 +47,7 @@
 
     <p>Team NOVITA</p>
 
-    <p>Please do not reply to this email. For any support email us at contact@novita-india.com</p>
+    <p>Please do not reply to this email. For any support email us at contact@novita-global.com</p>
 
 </body>
 

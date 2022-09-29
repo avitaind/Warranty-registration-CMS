@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="UTF-8">
-    <title>Complaint Registration</title>
+    <title>NOVITA GLOBAL Complaint Registration</title>
 </head>
 
 <body>
@@ -21,8 +21,8 @@
         {{ date('Y-m-d', strtotime(date('Y-m-d', strtotime($complaintRegistration->purchaseDate)) . ' + 364 day')) }}
     </p> --}}
 
-    <p>To track your query status please visit our official site <a href="https://novita-india.com/"
-            target="_blank">www.novita-india.com</a> and connect on our chatbot.</p>
+    <p>To track your query status please visit our official site <a href="https://novita-global.com/"
+            target="_blank">www.novita-global.com</a> and connect on our chatbot.</p>
 
     <p>Thank you for your patronage!</p>
 
@@ -30,7 +30,7 @@
 
     <p>Team NOVITA</p>
 
-    <p>Please do not reply to this email. For any support email us at contact@novita-india.com</p>
+    <p>Please do not reply to this email. For any support email us at contact@novita-global.com</p>
 </body>
 
 </html>
