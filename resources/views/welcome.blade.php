@@ -6,13 +6,17 @@
 
 @section('css')
     <style>
+        .form-check-input:checked {
+    background-color: #000080;
+    border-color: #000080;
+ }
         a{
             color: #000080;
         }
         .btn.btn-primary {
             color: #fff;
             background-color: #000080;
-            border-color: #662d91;
+            border-color: #000080;
         }
 
         .btn-primary1 {
@@ -23,14 +27,14 @@
 
         .btn-primary1:hover {
             color: #fff;
-            background-color: #662d91;
+            background-color: #000080;
             border-color: #fff;
         }
 
-        .btn-primary:hover {
-            color: #662d91;
+        .btn.btn-primary:hover {
+            color: #000080;
             background-color: #fff;
-            border-color: #662d91;
+            border-color: #000080;
         }
 
         .login-panel {
@@ -116,6 +120,7 @@
                                             target="_blank">Wristio 1</a></li>
                                     <li><a class="dropdown-item" href="/assets/product/NOVITA-Ultimus-Manual-Wristio.pdf"
                                             target="_blank">Wristio 2</a></li>
+
                                 </ul>
                             </div>
                         </div>
@@ -147,7 +152,7 @@
             </div>
 
             <div class="col-lg-1 col-xl-1 pt-25" style="padding-left: 80px!important;">
-                <div style="border-left:2px solid #662d91;height:700px" class="hidden-sm-down"></div>
+                <div style="border-left:2px solid #000080;height:700px" class="hidden-sm-down"></div>
             </div>
 
             <div class="col-lg-5 col-xl-5 my-lg-9">
@@ -156,11 +161,11 @@
 
                     <div class=" align-content-center justify-content-sm-center text-center pt-4">
                         <a href="/" title="NOVITA India" class=" text-center">
-                            <img class=" m-2" src="{{ asset('assets/img/logo/NOVITA-Logo.png ') }}" style="padding-top: 120px"
+                            <img class=" m-2" src="{{ asset('assets/img/logo/Novita Blue-Logo.png ') }}" style="padding-top: 120px"
                                 alt="NOVITA-INDIA" />
                         </a>
                     </div>
-                    <h2 class=" my-2 text-center text-capitalize p-3" style="color:#662d91">Member Already Logged-In</h2>
+                    <h2 class=" my-2 text-center text-capitalize p-3" style="color:#000080">Member Already Logged-In</h2>
                     <div class=" text-center m-1 font-size-16 pb-3" style="padding-top: 25px;">Back to redirect NOVITA Member
                         Dashboard.</div>
                     <div class="align-content-center justify-content-sm-center text-center p-lg-9">

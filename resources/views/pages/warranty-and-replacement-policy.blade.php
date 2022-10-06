@@ -30,7 +30,7 @@
 
                 <div class=" text-center p-5">
                     <a href="/" title="NOVITA GLOBAL">
-                        <img class="" src="{{ asset('assets/img/logo/NOVITA-Logo.png ') }}" alt="NOVITA-GLOBAL" />
+                        <img class="" src="{{ asset('assets/img/logo/Novita Blue-Logo.png') }}" alt="NOVITA-GLOBAL" />
                     </a>
                 </div>
                 <h1 class=" text-capitalize text-center p-4">WARRANTY AND REPLACEMENT POLICY</h1>
