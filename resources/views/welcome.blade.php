@@ -6,14 +6,17 @@
 
 @section('css')
     <style>
-        .btn-primary {
+        a{
+            color: #000080;
+        }
+        .btn.btn-primary {
             color: #fff;
-            background-color: #662d91;
+            background-color: #000080;
             border-color: #662d91;
         }
 
         .btn-primary1 {
-            color: #662d91;
+            color: #000080;
             background-color: #fff;
             border-color: #fff;
         }
@@ -32,7 +35,7 @@
 
         .login-panel {
             color: #fff;
-            background-color: #4C1B7B;
+            background-color: #000080;
             /* background: url('/assets/img/bg_welcome_background.jpg') 100% / cover no-repeat; */
             min-height: 600px;
             /* padding-top: 50px; */
@@ -175,12 +178,13 @@
                 @else
                     {{-- // not logged in --}}
                     <div class=" align-content-center justify-content-sm-center text-center pt-2">
+                        <div class="text-center pb-1 pl-2" style="color:#000080;padding-top: 50px;font-size: 35px;"><b>Register Your Product Below</b></div>
                         <a href="/" title="NOVITA India" class=" text-center">
-                            <img class=" m-2" src="{{ asset('assets/img/logo/NOVITA-Logo.png ') }}" style="padding-top: 120px"
+                            <img class=" m-2" src="{{ asset('assets/img/logo/Novita Blue-Logo.png') }}" style="padding-top: 40px"
                                 alt="NOVITA-INDIA" />
                         </a>
                     </div>
-                    <h2 class="text-center p-5" style="color:#662d91">Account Login</h2>
+                    <h2 class="text-center p-5" style="color:#000080">Account Login</h2>
                     {{-- <div class=" text-center m-1 font-size-16" style="padding-top: 25px;">Enter your NOVITA Member account
                     and
                     password to log in.</div> --}}
